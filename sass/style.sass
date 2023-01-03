@@ -1,0 +1,35 @@
+@mixin green__color
+    background: #34C759
+
+@mixin button
+    @include green__color
+    border-radius: 43px
+    border: none
+    font-weight: 700
+    font-size: 18px
+    color: #1A1A1A
+    
+    
+body
+    font-family: 'Helvetica'
+    padding: 0px
+    margin: 0px auto
+    display: grid
+    grid-template-rows: auto 1fr auto
+    background-image: url('../img/main-photo.png')
+    background-repeat: no-repeat, repeat
+    background-size: cover
+    background-color: #1A1A1A
+    color: #fff
+    font-weight: 400
+
+ 
+.container
+    width: 1110px
+    margin: 0 auto
+    // position: relative
+    
+    
+@import "./fonts"
+@import "./header"
+@import "./main"
