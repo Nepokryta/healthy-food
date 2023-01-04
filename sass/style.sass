@@ -3,33 +3,36 @@
 
 @mixin button
     @include green__color
+    display: block
     border-radius: 43px
     border: none
     font-weight: 700
     font-size: 18px
     color: #1A1A1A
     
-    
+ 
 body
-    font-family: 'Helvetica'
-    padding: 0px
-    margin: 0px auto
     display: grid
     grid-template-rows: auto 1fr auto
+    font-family: 'Helvetica'
+    color: #fff
+    padding: 0px
+    margin: 0px auto
     background-image: url('../img/main-photo.png')
     background-repeat: no-repeat, repeat
     background-size: cover
     background-color: #1A1A1A
-    color: #fff
-    font-weight: 400
-
  
 .container
     width: 1110px
     margin: 0 auto
-    // position: relative
-    
+
+a
+    text-decoration: none
+    font-size: 14px
+    color: #fff
     
 @import "./fonts"
 @import "./header"
 @import "./main"
+@import "./contact"
