@@ -1,0 +1,44 @@
+.about .container
+    background: #252525
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
+    border-radius: 6px
+    margin-top: 125px
+
+.about
+    &__subtitle
+        width: 680px
+        line-height: 1.8
+        margin-top: 30px
+    &__slider
+        padding-bottom: 90px
+        position: relative
+        .cards
+            display: flex
+            justify-content: center
+            gap: 34px
+            margin-top: 90px
+            img
+                width: auto
+                height: 270px
+                display: block
+                border-radius: 0
+        .btn
+            width: 60px
+            height: 60px
+            background: none
+            border: 2px solid #303030
+            border-radius: 35px
+            display: flex
+            justify-content: center
+            align-items: center
+            position: absolute
+            top: 30%
+            img
+                display: block
+            &__left
+                left: calc(50% - 1300px/2 + 160px)
+            &__right
+                transform: matrix(-1, 0, 0, 1, 0, 0)
+                right: calc(50% - 1300px/2 + 160px)
+            
+
