@@ -304,7 +304,7 @@ window.addEventListener('DOMContentLoaded', function() {
     }
     new RecipesCard (
         "big",
-        "linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(../img/vegetables.png)",
+        "linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(img/vegetables.png)",
         "breakfast",
         "05 Jul 2016",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
@@ -326,7 +326,7 @@ window.addEventListener('DOMContentLoaded', function() {
     ).render();
     new RecipesCard (
         "small",
-        "linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/green-salad.png)",
+        "linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/green-salad.png)",
         "dinner",
         "05 Jul 2016",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut",
