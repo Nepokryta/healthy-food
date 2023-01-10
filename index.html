@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.min.css">
+    <!-- <script src="https://kit.fontawesome.com/3e6e27ce39.js" crossorigin="anonymous"></script> -->
     <title>Document</title>
 </head>
 <body>
@@ -15,10 +16,10 @@
                 <img src="icons/logo-title.svg" alt="logo-title">
             </div>
             <nav class="nav">
-                    <a href="#">Menu</a>
-                    <a href="#">Recipes</a>
-                    <a href="#">Chefs</a>
-                    <a href="#">Contacts</a>
+                <a href="#menu">Menu</a>
+                <a href="#recipes">Recipes</a>
+                <a href="#chefs">Chefs</a>
+                <a href="#contact">Contacts</a>
             </nav>
         </div>
         <hr>
@@ -36,7 +37,23 @@
                     marinating, so you can cook a fresh homemade dinner in just 15 minutes.
                 </h3>
                 <button class="main__btn">Order Now</button>
-                <ul class="contact"> </ul>
+                <ul class="contact">
+                    <li class="contact__info">
+                        <img src="icons/ic_watch_later.svg" alt="ic_watch_later">
+                        <a href="#" target="_self" class="contact__info-title">Today 10:00 am - 7:00 pm</a>
+                        <h4 class="contact__info-subtitle">Working hours</h4>
+                    </li>
+                    <li class="contact__info">
+                        <img src="icons/ic_near_me.svg" alt="ic_near_me">
+                        <a href="https://goo.gl/maps/8VTd6biYdAWWSjAv5" target="_blank" class="contact__info-title">Velyka Vasylkivska 100</a>
+                        <h4 class="contact__info-subtitle">Get Directions</h4>
+                    </li>
+                    <li class="contact__info">
+                        <img src="icons/ic_call.svg" alt="ic_call">
+                        <a href="tel:+80638332415" target="_self" class="contact__info-title">+38 (063)833 24 15</a>
+                        <h4 class="contact__info-subtitle">Call Online</h4>
+                    </li>
+                </ul>
             </div>
         </section>
 
@@ -58,21 +75,163 @@
         <section class="works">
             <div class="container">
                 <div class="works__title"></div>
-                
-                <div class="works__cards"> </div>
+                <div class="works__cards"></div>
             </div>
         </section>
 
-        <section class="dish">
+        <section class="dish" id="menu">
             <div class="container">
                 <div class="dish__title"></div>
                 <div class="dish__cards"></div>
             </div>
         </section>
 
-    </main>
-    <footer>
+        <section class="chefs" id="chefs">
+            <div class="container">
+                <div class="chefs__title"></div>
 
+                <div class="chefs__cards">
+
+                    <div class="chefs__card">
+                        <div class="card__info">
+                            <img src="img/avatar1.png" alt="avatar1">
+                            <div class="card__info__name">
+                                <h2 class="card__info__name-title">Gregory Flores</h2>
+                                <h3 class="card__info__name-subtitle">Chef of the cold</h3>
+                            </div>
+                        </div>
+                        <div class="card__photo">
+                           <img src="img/big-img1.png" alt="big-img1" class="card__photo-big">
+                           <img src="img/img1-2.png" alt="img1-2" class="card__photo-small">
+                           <img src="img/img1-3.png" alt="img1-3" class="card__photo-small">
+                        </div>
+                    </div>
+
+                    <div class="chefs__card">
+                        <div class="card__info">
+                            <img src="img/avatar2.png" alt="avatar2">
+                            <div class="card__info__name">
+                                <h2 class="card__info__name-title">Annette Cooper</h2>
+                                <h3 class="card__info__name-subtitle">Chef of the hot</h3>
+                            </div>
+                        </div>
+                        <div class="card__photo">
+                           <img src="img/big-img2.png" alt="big-img2" class="card__photo-big">
+                           <img src="img/img2-2.png" alt="img2-2" class="card__photo-small">
+                           <img src="img/img2-3.png" alt="img2-3" class="card__photo-small">
+                        </div>
+                    </div>
+
+                    <div class="chefs__card">
+                        <div class="card__info">
+                            <img src="img/avatar3.png" alt="avatar3">
+                            <div class="card__info__name">
+                                <h2 class="card__info__name-title">Greg Fox</h2>
+                                <h3 class="card__info__name-subtitle">Сhef macro kitchen</h3>
+                            </div>
+                        </div>
+                        <div class="card__photo">
+                           <img src="img/big-img3.png" alt="big-img3" class="card__photo-big">
+                           <img src="img/img3-2.png" alt="img3-2" class="card__photo-small">
+                           <img src="img/img3-3.png" alt="img3-3" class="card__photo-small">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="recipes" id="recipes">
+            <div class="container">
+                <div class="recipes__title"></div>
+                <div class="recipes__cards"></div>
+            </div>
+        </section>
+
+        <section class="social">
+            <div class="container">
+                <div class="social__title"></div>
+                <div class="social__cards">
+
+                    <div class="card">
+                        <div class="card__header">
+                            <div class="icon"><img src="../icons/ic_twitter.svg" alt="ic_twitter"></div>
+                            <div class="subtitle">Twitter</div>
+                            <button class="btn">follow us</button>
+                        </div>
+                        <hr>
+                        <div class="card__main">
+                            <span></span>
+                            <h4 class="data">24 Jun at 16:20 pm</h4>
+                            <h4 class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
+                            <h4 class="name">@DennisFerguson</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card__header">
+                            <div class="icon"><img src="../icons/ic_instagram.svg" alt="ic_instagram"></div>
+                            <div class="subtitle">Instagram</div>
+                            <button class="btn">follow us</button>
+                        </div>
+                        <hr>
+                        <div class="card__main">
+                            <span class="span__img"></span>
+                            <button class="arrow-card"><img src="icons/arrow.svg" alt="arrow"></button>
+                            <div class="card__main-img">
+                                <img src="img/placehholder6.png" alt="placehholder6">
+                                <img src="img/placehholder5.png" alt="placehholder5">
+                                <img src="img/placehholder4.png" alt="placehholder4">
+                                <img src="img/placehholder3.png" alt="placehholder3">
+                                <img src="img/placehholder2.png" alt="placehholder2">
+                                <img src="img/placehholder1.png" alt="placehholder1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card__header">
+                            <div class="icon"><img src="../icons/ic_facebook.svg" alt="ic_facebook"></div>
+                            <div class="subtitle">Facebook</div>
+                            <button class="btn">follow us</button>
+                        </div>
+                        <hr>
+                        <div class="card__main">
+                            <span></span>
+                            <h4 class="data">26 Jun at 16:20 pm</h4>
+                            <h4 class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <ul class="contact" id="contact">
+                <li class="contact__info">
+                    <img src="icons/ic_watch_later.svg" alt="ic_watch_later">
+                    <a href="#" target="_self" class="contact__info-title">Today 10:00 am - 7:00 pm</a>
+                    <h4 class="contact__info-subtitle">Working hours</h4>
+                </li>
+                <li class="contact__info">
+                    <img src="icons/ic_near_me.svg" alt="ic_near_me">
+                    <a href="https://goo.gl/maps/8VTd6biYdAWWSjAv5" target="_blank" class="contact__info-title">Velyka Vasylkivska 100</a>
+                    <h4 class="contact__info-subtitle">Get Directions</h4>
+                </li>
+                <li class="contact__info">
+                    <img src="icons/ic_call.svg" alt="ic_call">
+                    <a href="tel:+80638332415" target="_self" class="contact__info-title">+38 (063)833 24 15</a>
+                    <h4 class="contact__info-subtitle">Call Online</h4>
+                </li>
+            </ul>
+        </div>
+        <hr>
+        <div class="footer__logo">
+            <img src="icons/logo.svg" alt="logo">
+            <img src="icons/logo-title.svg" alt="logo-title">
+        </div>
+        <h4 class="footer__title">© Designed by Yellow Snow. All Rights Reserved.</h4>
     </footer>
     <script src="js/index.js"></script>
 </body>

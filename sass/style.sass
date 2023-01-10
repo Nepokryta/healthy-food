@@ -2,28 +2,35 @@
     background: #34C759
 
 @mixin button
-    @include green__color
-    display: block
-    border-radius: 43px
-    border: none
+    display: flex
+    justify-content: center
+    align-items: center    
+    color: #737373
+    background: #262626
+    border: 2px solid #303030
     font-weight: 700
-    font-size: 18px
-    color: #1A1A1A
-    
- 
-body
-    display: grid
-    grid-template-rows: auto 1fr auto
+    box-sizing: border-box
+    cursor: pointer
+    &:hover
+        background: #34C759
+        border: 2px solid #34C759
+        color: #1A1A1A
+
+
+
+html
     font-family: 'Helvetica'
     color: #fff
+    scroll-behavior: smooth
+ 
+body
     padding: 0px
     margin: 0px auto
-    background-image: url('../img/main-photo.png')
+    background: #1A1A1A url('../img/main-photo.png')
     background-repeat: no-repeat
-    background-size: contain
-    background-color: #1A1A1A
-    max-width: 100%
-    height: auto
+    background-size: contain 
+    height: 100%
+    width: 100%
  
 .container
     width: 1110px
@@ -41,8 +48,15 @@ a
 @import "./about"
 @import "./works"
 @import "./dish"
+@import "./chefs"
+@import "./recipes"
+@import "./social"
+@import "./footer"
 
 @import "./contact"
 @import "./headline"
 @import "./works-card"
 @import "./dish-card"
+@import "./recipes-card"
+
+// @import "./size-900"

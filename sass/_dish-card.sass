@@ -3,13 +3,17 @@
     background: #252525
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
     border-radius: 6px
+    position: relative
+    .arrow-card
+        top: 24px
+        right: 24px
     img
         width: 100%
         height: 260px
     &-title
         font-size: 32px
-        padding: 30px 30px 0
-        letter-spacing: none
+        padding: 18px 30px 0
+        letter-spacing: 1px
         text-transform: capitalize
     &-subtitle
         font-size: 12px
@@ -23,8 +27,8 @@
         line-height: 1.4
         letter-spacing: 0.4px
         color: #85878C
-    &-active
-        padding: 20px 30px 24px 30px
+    &-action
+        padding: 22px 23px 22px 37px
         display: flex
         justify-content: space-between
         align-items: center
@@ -33,45 +37,20 @@
             align-items: center
             gap: 5px
             input
-                // border: 0
-                // width: 1px
-                // height: 1px
-                // overflow: hidden
-                // // position: absolute !important
-                // // clip: rect(1px 1px 1px 1px)
-                // // clip: rect(1px, 1px, 1px, 1px)
-                // opacity: 0
                 display: none
-            label
-                width: 20px
-                height: 19px
-                background-image: url(../icons/ic_star.svg)
-            // label:before 
-            //     margin: 5px
-            //     content: ''
-            //     font-family: FontAwesome
-            //     display: inline-block
-            //     font-size: 1.5em
-            //     color: #ccc
-            //     -webkit-user-select: none
-            //     -moz-user-select: none
-            //     user-select: none
-            // input:checked ~ label:before 
-            //     color: #FFC107
-            // label:hover ~ label:before 
-            //     color: #ffdb70
-            // label:hover:before 
-            //     color: #FFC107
         &-value
             font-size: 12px
             color: #B3B3B3
             padding-left: 10px
             padding-top: 3px
-        .card__active-btn
+        .card__action-btn
             @include button
             font-size: 10px
             letter-spacing: 0.2em
-            padding: 15px 32px
-
-        
+            padding: 14px 25px
+            border-radius: 30px
+.dish__card-action-stars:hover
+    label svg rect
+        fill: #F9AD3D
+                        
 
