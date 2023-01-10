@@ -1,0 +1,63 @@
+@mixin green__color
+    background: #34C759
+
+@mixin button
+    display: flex
+    justify-content: center
+    align-items: center    
+    color: #737373
+    background: #262626
+    border: 2px solid #303030
+    font-weight: 700
+    box-sizing: border-box
+    cursor: pointer
+    &:hover
+        background: #34C759
+        border: 2px solid #34C759
+        color: #1A1A1A
+
+
+
+html
+    font-family: 'Helvetica'
+    color: #fff
+    scroll-behavior: smooth
+ 
+body
+    padding: 0px
+    margin: 0px auto
+    background: #1A1A1A url('../img/main-photo.png')
+    background-repeat: no-repeat
+    background-size: contain 
+    height: 100%
+    width: 100%
+ 
+.container
+    width: 1110px
+    margin: 0 auto
+    position: relative
+
+a
+    text-decoration: none
+    font-size: 14px
+    color: #fff
+    
+@import "./fonts"
+@import "./description"
+@import "./header"
+@import "./main"
+@import "./about"
+@import "./works"
+@import "./dish"
+@import "./chefs"
+@import "./recipes"
+@import "./social"
+@import "./footer"
+
+@import "./contact"
+@import "./headline"
+@import "./works-card"
+@import "./dish-card"
+@import "./recipes-card"
+
+// @import "./size-900"
