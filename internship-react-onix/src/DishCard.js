@@ -1,11 +1,5 @@
 import React from 'react';
 
-
-
-// import ic_star_border from './icons/ic_star_border.svg'
-// import ic_star_half from './icons/ic_star_half.svg'
-// import ic_star from './icons/ic_star.svg'
-
 const DishCard = ({src, alt}) => {
    
     return(
