@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { ReactComponent as Arrow} from './icons/arrow.svg';
-import { ReactComponent as RemoveRedEye} from './icons/ic_remove_red_eye.svg';
-import { ReactComponent as QuestionAnswer} from './icons/ic_question_answer.svg';
+import { ReactComponent as Arrow } from './icons/arrow.svg';
+import { ReactComponent as RemoveRedEye } from './icons/ic_remove_red_eye.svg';
+import { ReactComponent as QuestionAnswer } from './icons/ic_question_answer.svg';
 
 const RecipesCard = ({size, background, subtitle, title}) => {
 

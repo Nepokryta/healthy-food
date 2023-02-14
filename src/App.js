@@ -57,7 +57,7 @@ const App = () => {
         <>
             <header className="header">
                 <div className="container">
-                    <a className="logo" href="*">
+                    <a className="logo" href="/">
                         <img src={logo} alt="logo"/>
                         <img src={logoTitle} alt="logo-title"/>
                     </a>
@@ -86,17 +86,31 @@ const App = () => {
                         <ul className="contact">
                             <li className="contact__info">
                                 <img src={ic_watch_later} alt="ic_watch_later"/>
-                                <a href="*" target="_self" className="contact__info-title">Today 10:00 am - 7:00 pm</a>
+                                <a 
+                                    className="contact__info-title"
+                                    href="/">
+                                    Today 10:00 am - 7:00 pm
+                                </a>
                                 <h4 className="contact__info-subtitle">Working hours</h4>
                             </li>
                             <li className="contact__info">
                                 <img src={ic_near_me} alt="ic_near_me"/>
-                                <a href="https://goo.gl/maps/8VTd6biYdAWWSjAv5" target="_blank" rel="noopener noreferrer" className="contact__info-title">Velyka Vasylkivska 100</a>
+                                <a 
+                                    className="contact__info-title" 
+                                    href="https://goo.gl/maps/8VTd6biYdAWWSjAv5" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer">
+                                    Velyka Vasylkivska 100
+                                </a>
                                 <h4 className="contact__info-subtitle">Get Directions</h4>
                             </li>
                             <li className="contact__info">
                                 <img src={ic_call} alt="ic_call"/>
-                                <a href="tel:+80638332415" target="_self" className="contact__info-title">+38 (063)833 24 15</a>
+                                <a 
+                                    className="contact__info-title"
+                                    href="tel:+80638332415">
+                                    +38 (063)833 24 15
+                                </a>
                                 <h4 className="contact__info-subtitle">Call Online</h4>
                             </li>
                         </ul>
@@ -108,19 +122,27 @@ const App = () => {
                         <div className="about__title">
                             <div className="headline">
                                 <h2>"The Basics Of Healthy Food"</h2>
-                                <div className="headline__subtitle"><img src={ABOUT} alt="ABOUT"/></div>
+                                <div className="headline__subtitle">
+                                    <img src={ABOUT} alt="ABOUT"/>
+                                </div>
                             </div>
                         </div>
                         <h3 className="about__subtitle">
-                            In aliqua ea ullamco ad est ex non deserunt nulla. Consectetur sint ea aliquip aliquip consectetur 
-                            voluptate est. Eu minim dolore laboris enim mollit voluptate irure esse aliquip.</h3>
+                            In aliqua ea ullamco ad est ex non deserunt nulla. 
+                            Consectetur sint ea aliquip aliquip consectetur 
+                            voluptate est. Eu minim dolore laboris enim mollit 
+                            voluptate irure esse aliquip.</h3>
                         <div className="about__slider">
                             <div className="cards">
                                 <img src={fish} alt="fish"/>
                                 <img src={salad_vegetables} alt="salad-vegetables"/>
                             </div>
-                            <button className="btn btn__left"><img src={arrow} alt="arrow"/></button>
-                            <button className="btn btn__right"><img src={arrow} alt="arrow"/></button>
+                            <button className="btn btn__left">
+                                <img src={arrow} alt="arrow"/>
+                            </button>
+                            <button className="btn btn__right">
+                                <img src={arrow} alt="arrow"/>
+                            </button>
                         </div>
                     </div>
                 </section>
@@ -130,23 +152,29 @@ const App = () => {
                         <div className="works__title">
                             <div className="headline">
                                 <h2>how it works</h2>
-                                <div className="headline__subtitle"><img src={WORK} alt="WORK"/></div>
+                                <div className="headline__subtitle">
+                                    <img src={WORK} alt="WORK"/>
+                                </div>
                             </div>
                             <span className="green__line"></span>
                         </div>
                         <div className="works__cards">
                             <WorksCard 
                                 title='Pick meals' 
-                                subtitle='Choose your meals from our diverse weekly menu. Find gluten or dairy free, low carb & veggie options.'/>
+                                subtitle='Choose your meals from our diverse weekly menu. 
+                                Find gluten or dairy free, low carb & veggie options.'/>
                             <WorksCard 
                                 title='Choose how often' 
-                                subtitle='Our team of chefs do the prep work - no more chopping, measuring, or sink full of dishes!'/>
+                                subtitle='Our team of chefs do the prep work - no more chopping, 
+                                measuring, or sink full of dishes!'/>
                             <WorksCard 
                                 title='fast deliveries' 
-                                subtitle='Your freshly prepped 15-min dinner kits arrive on your doorstep in a refrigerated box.'/>
+                                subtitle='Your freshly prepped 15-min dinner kits arrive on your 
+                                doorstep in a refrigerated box.'/>
                             <WorksCard 
                                 title='tasty meals' 
-                                subtitle='Gobble makes cooking fast, so you have more time to unwind and be with family.'/>
+                                subtitle='Gobble makes cooking fast, so you have more time to 
+                                unwind and be with family.'/>
                         </div>
                     </div>
                 </section>
@@ -156,7 +184,9 @@ const App = () => {
                         <div className="dish__title">
                             <div className="headline">
                                 <h2>Dish Of The Day</h2>
-                                <div className="headline__subtitle"><img src={DISHES} alt="DISHES"/></div>
+                                <div className="headline__subtitle">
+                                    <img src={DISHES} alt="DISHES"/>
+                                </div>
                             </div>
                             <span className="green__line"></span>
                         </div>
@@ -188,7 +218,9 @@ const App = () => {
                         <div className="chefs__title">
                             <div className="headline">
                                 <h2>This month's chefs</h2>
-                                <div className="headline__subtitle"><img src={CHEFS} alt= "CHEFS"/></div>
+                                <div className="headline__subtitle">
+                                    <img src={CHEFS} alt= "CHEFS"/>
+                                </div>
                             </div>
                             <span className="green__line"></span>
                         </div>
@@ -249,7 +281,9 @@ const App = () => {
                         <div className="recipes__title">
                             <div className="headline">
                                 <h2>Recipes From Our Chefs</h2>
-                                <div className="headline__subtitle"><img src={RECIPES} alt="RECIPES"/></div>
+                                <div className="headline__subtitle">
+                                    <img src={RECIPES} alt="RECIPES"/>
+                                </div>
                             </div>
                             <span className="green__line"></span>
                         </div>
@@ -283,7 +317,9 @@ const App = () => {
                         <div className="social__title">
                             <div className="headline">
                                 <h2>We in Social</h2>
-                                <div className="headline__subtitle"><img src={SOCIAL} alt="SOCIAL"/></div>
+                                <div className="headline__subtitle">
+                                    <img src={SOCIAL} alt="SOCIAL"/>
+                                </div>
                             </div>
                             <span className="green__line"></span>
                         </div>
@@ -291,7 +327,9 @@ const App = () => {
 
                             <div className="card">
                                 <div className="card__header">
-                                    <div className="icon"><img src={ic_twitter} alt="ic_twitter"/></div>
+                                    <div className="icon">
+                                        <img src={ic_twitter} alt="ic_twitter"/>
+                                    </div>
                                     <div className="subtitle">Twitter</div>
                                     <button className="btn">follow us</button>
                                 </div>
@@ -299,20 +337,27 @@ const App = () => {
                                 <div className="card__main">
                                     <span></span>
                                     <h4 className="data">24 Jun at 16:20 pm</h4>
-                                    <h4 className="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
+                                    <h4 className="title">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                        sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, 
+                                        consectetur adipiscing</h4>
                                     <h4 className="name">@DennisFerguson</h4>
                                 </div>
                             </div>
                             <div className="card">
                                 <div className="card__header">
-                                    <div className="icon"><img src={ic_instagram} alt="ic_instagram"/></div>
+                                    <div className="icon">
+                                        <img src={ic_instagram} alt="ic_instagram"/>
+                                    </div>
                                     <div className="subtitle">Instagram</div>
                                     <button className="btn">follow us</button>
                                 </div>
                                 <hr/>
                                 <div className="card__main">
                                     <span className="span__img"></span>
-                                    <button className="arrow-card"><img src={arrow} alt="arrow"/></button>
+                                    <button className="arrow-card">
+                                        <img src={arrow} alt="arrow"/>
+                                    </button>
                                     <div className="card__main-img">
                                         <img src={placehholder6} alt="placehholder6"/>
                                         <img src={placehholder5} alt="placehholder5"/>
@@ -325,7 +370,9 @@ const App = () => {
                             </div>
                             <div className="card">
                                 <div className="card__header">
-                                    <div className="icon"><img src={ic_facebook} alt="ic_facebook"/></div>
+                                    <div className="icon">
+                                        <img src={ic_facebook} alt="ic_facebook"/>
+                                    </div>
                                     <div className="subtitle">Facebook</div>
                                     <button className="btn">follow us</button>
                                 </div>
@@ -333,7 +380,10 @@ const App = () => {
                                 <div className="card__main">
                                     <span></span>
                                     <h4 className="data">26 Jun at 16:20 pm</h4>
-                                    <h4 className="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
+                                    <h4 className="title">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                        sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, 
+                                        consectetur adipiscing Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
                                 </div>
                             </div>
 
@@ -346,34 +396,54 @@ const App = () => {
                     <ul className="contact" id="contact">
                         <li className="contact__info">
                             <img src={ic_watch_later} alt="ic_watch_later"/>
-                            <a href="*" target="_self" className="contact__info-title">Today 10:00 am - 7:00 pm</a>
+                            <a
+                                className="contact__info-title"
+                                href="/">
+                                Today 10:00 am - 7:00 pm
+                            </a>
                             <h4 className="contact__info-subtitle">Working hours</h4>
                         </li>
                         <li className="contact__info">
                             <img src={ic_near_me} alt="ic_near_me"/>
-                            <a href="https://goo.gl/maps/8VTd6biYdAWWSjAv5" target="_blank" rel="noopener noreferrer" className="contact__info-title">Velyka Vasylkivska 100</a>
+                            <a 
+                                className="contact__info-title"
+                                href="https://goo.gl/maps/8VTd6biYdAWWSjAv5" 
+                                target="_blank" 
+                                rel="noopener noreferrer">
+                                Velyka Vasylkivska 100
+                            </a>
                             <h4 className="contact__info-subtitle">Get Directions</h4>
                         </li>
                         <li className="contact__info">
                             <img src={ic_call} alt="ic_call"/>
-                            <a href="tel:+80638332415" target="_self" className="contact__info-title">+38 (063)833 24 15</a>
+                            <a 
+                                className="contact__info-title"
+                                href="tel:+80638332415">
+                                +38 (063)833 24 15
+                            </a>
                             <h4 className="contact__info-subtitle">Call Online</h4>
                         </li>
                     </ul>
                 </div>
                 <hr/>
-                <a className="footer__logo" href="*">
+                <a className="footer__logo" href="/">
                     <img src={logo} alt="logo"/>
                     <img src={logoTitle} alt="logo-title"/>
                 </a>
                 <h4 className="footer__title">© Designed by Yellow Snow. All Rights Reserved.</h4>
                 <div className="description">
                     <h2>Olena Nepokryta</h2>
-                    <a href="https://github.com/Nepokryta" target="_blank" rel="noopener noreferrer"> 
+                    <a 
+                        href="https://github.com/Nepokryta" 
+                        target="_blank" 
+                        rel="noopener noreferrer"> 
                         <Github/>
                         Github
                     </a>
-                    <a href="https://www.figma.com/file/DmIkAGpRNjIg7EqJRXQV4I/Healthy-food?node-id=0%3A1" target="_blank" rel="noopener noreferrer">
+                    <a 
+                        href="https://www.figma.com/file/DmIkAGpRNjIg7EqJRXQV4I/Healthy-food?node-id=0%3A1" 
+                        target="_blank" 
+                        rel="noopener noreferrer">
                         <Figma/> 
                         Figma
                     </a>
