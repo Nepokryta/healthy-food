@@ -57,7 +57,7 @@ const App = () => {
         <>
             <header className="header">
                 <div className="container">
-                    <a className="logo" href="#">
+                    <a className="logo" href="*">
                         <img src={logo} alt="logo"/>
                         <img src={logoTitle} alt="logo-title"/>
                     </a>
@@ -86,12 +86,12 @@ const App = () => {
                         <ul className="contact">
                             <li className="contact__info">
                                 <img src={ic_watch_later} alt="ic_watch_later"/>
-                                <a href="#" target="_self" className="contact__info-title">Today 10:00 am - 7:00 pm</a>
+                                <a href="*" target="_self" className="contact__info-title">Today 10:00 am - 7:00 pm</a>
                                 <h4 className="contact__info-subtitle">Working hours</h4>
                             </li>
                             <li className="contact__info">
                                 <img src={ic_near_me} alt="ic_near_me"/>
-                                <a href="https://goo.gl/maps/8VTd6biYdAWWSjAv5" target="_blank" className="contact__info-title">Velyka Vasylkivska 100</a>
+                                <a href="https://goo.gl/maps/8VTd6biYdAWWSjAv5" target="_blank" rel="noopener noreferrer" className="contact__info-title">Velyka Vasylkivska 100</a>
                                 <h4 className="contact__info-subtitle">Get Directions</h4>
                             </li>
                             <li className="contact__info">
@@ -346,12 +346,12 @@ const App = () => {
                     <ul className="contact" id="contact">
                         <li className="contact__info">
                             <img src={ic_watch_later} alt="ic_watch_later"/>
-                            <a href="#" target="_self" className="contact__info-title">Today 10:00 am - 7:00 pm</a>
+                            <a href="*" target="_self" className="contact__info-title">Today 10:00 am - 7:00 pm</a>
                             <h4 className="contact__info-subtitle">Working hours</h4>
                         </li>
                         <li className="contact__info">
                             <img src={ic_near_me} alt="ic_near_me"/>
-                            <a href="https://goo.gl/maps/8VTd6biYdAWWSjAv5" target="_blank" className="contact__info-title">Velyka Vasylkivska 100</a>
+                            <a href="https://goo.gl/maps/8VTd6biYdAWWSjAv5" target="_blank" rel="noopener noreferrer" className="contact__info-title">Velyka Vasylkivska 100</a>
                             <h4 className="contact__info-subtitle">Get Directions</h4>
                         </li>
                         <li className="contact__info">
@@ -362,18 +362,18 @@ const App = () => {
                     </ul>
                 </div>
                 <hr/>
-                <a className="footer__logo" href="#">
+                <a className="footer__logo" href="*">
                     <img src={logo} alt="logo"/>
                     <img src={logoTitle} alt="logo-title"/>
                 </a>
                 <h4 className="footer__title">© Designed by Yellow Snow. All Rights Reserved.</h4>
                 <div className="description">
                     <h2>Olena Nepokryta</h2>
-                    <a href="https://github.com/Nepokryta" target="_blank"> 
+                    <a href="https://github.com/Nepokryta" target="_blank" rel="noopener noreferrer"> 
                         <Github/>
                         Github
                     </a>
-                    <a href="https://www.figma.com/file/DmIkAGpRNjIg7EqJRXQV4I/Healthy-food?node-id=0%3A1" target="_blank">
+                    <a href="https://www.figma.com/file/DmIkAGpRNjIg7EqJRXQV4I/Healthy-food?node-id=0%3A1" target="_blank" rel="noopener noreferrer">
                         <Figma/> 
                         Figma
                     </a>
