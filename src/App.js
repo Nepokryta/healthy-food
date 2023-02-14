@@ -5,6 +5,9 @@ import WorksCard from './WorksCard'
 import RecipesCard from './RecipesCard'
 import DishCard from './DishCard'
 
+import { ReactComponent as Github } from './icons/github.svg';
+import { ReactComponent as Figma } from './icons/figma.svg';
+
 import avatar1 from './img/avatar1.png'
 import avatar2 from './img/avatar2.png'
 import avatar3 from './img/avatar3.png'
@@ -71,9 +74,9 @@ const App = () => {
             <main>
                 <section className="main">
                     <div className="container">
-                        <h1 className="main__title">This project is a Food Delivery website
-                            {/* <span>Your</span> favourite food <br/>
-                            <span>delivered</span> hot & fresh */}
+                        <h1 className="main__title">
+                            <span>Your</span> favourite food <br/>
+                            <span>delivered</span> hot & fresh
                         </h1>
                         <h3 className="main__subtitle">
                             HEALTHY SWITCHER chefs do all the prep work, like peeling, chopping & 
@@ -108,7 +111,9 @@ const App = () => {
                                 <div className="headline__subtitle"><img src={ABOUT} alt="ABOUT"/></div>
                             </div>
                         </div>
-                        <h3 className="about__subtitle">In aliqua ea ullamco ad est ex non deserunt nulla. Consectetur sint ea aliquip aliquip consectetur voluptate est. Eu minim dolore laboris enim mollit voluptate irure esse aliquip.</h3>
+                        <h3 className="about__subtitle">
+                            In aliqua ea ullamco ad est ex non deserunt nulla. Consectetur sint ea aliquip aliquip consectetur 
+                            voluptate est. Eu minim dolore laboris enim mollit voluptate irure esse aliquip.</h3>
                         <div className="about__slider">
                             <div className="cards">
                                 <img src={fish} alt="fish"/>
@@ -130,10 +135,18 @@ const App = () => {
                             <span className="green__line"></span>
                         </div>
                         <div className="works__cards">
-                            <WorksCard title='Pick meals' subtitle='Choose your meals from our diverse weekly menu. Find gluten or dairy free, low carb & veggie options.'/>
-                            <WorksCard title='Choose how often' subtitle='Our team of chefs do the prep work - no more chopping, measuring, or sink full of dishes!'/>
-                            <WorksCard title='fast deliveries' subtitle='Your freshly prepped 15-min dinner kits arrive on your doorstep in a refrigerated box.'/>
-                            <WorksCard title='tasty meals' subtitle='Gobble makes cooking fast, so you have more time to unwind and be with family.'/>
+                            <WorksCard 
+                                title='Pick meals' 
+                                subtitle='Choose your meals from our diverse weekly menu. Find gluten or dairy free, low carb & veggie options.'/>
+                            <WorksCard 
+                                title='Choose how often' 
+                                subtitle='Our team of chefs do the prep work - no more chopping, measuring, or sink full of dishes!'/>
+                            <WorksCard 
+                                title='fast deliveries' 
+                                subtitle='Your freshly prepped 15-min dinner kits arrive on your doorstep in a refrigerated box.'/>
+                            <WorksCard 
+                                title='tasty meals' 
+                                subtitle='Gobble makes cooking fast, so you have more time to unwind and be with family.'/>
                         </div>
                     </div>
                 </section>
@@ -191,9 +204,9 @@ const App = () => {
                                     </div>
                                 </div>
                                 <div className="card__photo">
-                                <img src={big_img1} alt="big-img1" className="card__photo-big"/>
-                                <img src={img1_2} alt="img1-2" className="card__photo-small"/>
-                                <img src={img1_3} alt="img1-3" className="card__photo-small"/>
+                                    <img src={big_img1} alt="big-img1" className="card__photo-big"/>
+                                    <img src={img1_2} alt="img1-2" className="card__photo-small"/>
+                                    <img src={img1_3} alt="img1-3" className="card__photo-small"/>
                                 </div>
                             </div>
 
@@ -206,9 +219,9 @@ const App = () => {
                                     </div>
                                 </div>
                                 <div className="card__photo">
-                                <img src={big_img2} alt="big-img2" className="card__photo-big"/>
-                                <img src={img2_2} alt="img2-2" className="card__photo-small"/>
-                                <img src={img2_3} alt="img2-3" className="card__photo-small"/>
+                                    <img src={big_img2} alt="big-img2" className="card__photo-big"/>
+                                    <img src={img2_2} alt="img2-2" className="card__photo-small"/>
+                                    <img src={img2_3} alt="img2-3" className="card__photo-small"/>
                                 </div>
                             </div>
 
@@ -221,9 +234,9 @@ const App = () => {
                                     </div>
                                 </div>
                                 <div className="card__photo">
-                                <img src={big_img3} alt="big-img3" className="card__photo-big"/>
-                                <img src={img3_2} alt="img3-2" className="card__photo-small"/>
-                                <img src={img3_3} alt="img3-3" className="card__photo-small"/>
+                                    <img src={big_img3} alt="big-img3" className="card__photo-big"/>
+                                    <img src={img3_2} alt="img3-2" className="card__photo-small"/>
+                                    <img src={img3_3} alt="img3-3" className="card__photo-small"/>
                                 </div>
                             </div>
 
@@ -356,12 +369,14 @@ const App = () => {
                 <h4 className="footer__title">© Designed by Yellow Snow. All Rights Reserved.</h4>
                 <div className="description">
                     <h2>Olena Nepokryta</h2>
-                    <a href="https://github.com/Nepokryta" target="_blank"  aria-label="Homepage" className="footer-octicon" title="GitHub"> 
-                        <svg aria-hidden="true" className="octicon octicon-mark-github" height="30" version="1.1" viewBox="0 0 16 16" width="30"><path fillRule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> 
-                    Github</a>
-                <a href="https://www.figma.com/file/DmIkAGpRNjIg7EqJRXQV4I/Healthy-food?node-id=0%3A1" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" viewBox="0 0 512 512"><path d="M336,176a80,80,0,0,0,0-160H176a80,80,0,0,0,0,160,80,80,0,0,0,0,160,80,80,0,1,0,80,80V176Z"/><circle cx="336" cy="256" r="80"/></svg>
-                Figma</a>
+                    <a href="https://github.com/Nepokryta" target="_blank"> 
+                        <Github/>
+                        Github
+                    </a>
+                    <a href="https://www.figma.com/file/DmIkAGpRNjIg7EqJRXQV4I/Healthy-food?node-id=0%3A1" target="_blank">
+                        <Figma/> 
+                        Figma
+                    </a>
                 </div>
             </footer>
         </>
