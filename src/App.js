@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './css/style.min.css'
 
+import Contacts from './Contacts';
 import WorkCardList from './WorkCardList'
 import RecipesCard from './RecipesCard'
 import DishCard from './DishCard'
@@ -40,12 +41,9 @@ import ABOUT from './icons/ABOUT.svg'
 import arrow from './icons/arrow.svg'
 import CHEFS from './icons/CHEFS.svg'
 import DISHES from './icons/DISHES.svg'
-import ic_call from './icons/ic_call.svg'
 import ic_facebook from './icons/ic_facebook.svg'
 import ic_instagram from './icons/ic_instagram.svg'
-import ic_near_me from './icons/ic_near_me.svg'
 import ic_twitter from './icons/ic_twitter.svg'
-import ic_watch_later from './icons/ic_watch_later.svg'
 import logoTitle from './icons/logo-title.svg'
 import logo from './icons/logo.svg'
 import RECIPES from './icons/RECIPES.svg'
@@ -234,37 +232,7 @@ class App extends Component {
                                 marinating, so you can cook a fresh homemade dinner in just 15 minutes.
                             </h3>
                             <button className="main__btn">Order Now</button>
-                            <ul className="contact">
-                                <li className="contact__info">
-                                    <img src={ic_watch_later} alt="ic_watch_later"/>
-                                    <a 
-                                        className="contact__info-title"
-                                        href="/">
-                                        Today 10:00 am - 7:00 pm
-                                    </a>
-                                    <h4 className="contact__info-subtitle">Working hours</h4>
-                                </li>
-                                <li className="contact__info">
-                                    <img src={ic_near_me} alt="ic_near_me"/>
-                                    <a 
-                                        className="contact__info-title" 
-                                        href="https://goo.gl/maps/8VTd6biYdAWWSjAv5" 
-                                        target="_blank" 
-                                        rel="noopener noreferrer">
-                                        Velyka Vasylkivska 100
-                                    </a>
-                                    <h4 className="contact__info-subtitle">Get Directions</h4>
-                                </li>
-                                <li className="contact__info">
-                                    <img src={ic_call} alt="ic_call"/>
-                                    <a 
-                                        className="contact__info-title"
-                                        href="tel:+80638332415">
-                                        +38 (063)833 24 15
-                                    </a>
-                                    <h4 className="contact__info-subtitle">Call Online</h4>
-                                </li>
-                            </ul>
+                            <Contacts/>
                         </div>
                     </section>
     
@@ -487,37 +455,7 @@ class App extends Component {
                 </main>
                 <footer className="footer">
                     <div className="container">
-                        <ul className="contact" id="contact">
-                            <li className="contact__info">
-                                <img src={ic_watch_later} alt="ic_watch_later"/>
-                                <a
-                                    className="contact__info-title"
-                                    href="/">
-                                    Today 10:00 am - 7:00 pm
-                                </a>
-                                <h4 className="contact__info-subtitle">Working hours</h4>
-                            </li>
-                            <li className="contact__info">
-                                <img src={ic_near_me} alt="ic_near_me"/>
-                                <a 
-                                    className="contact__info-title"
-                                    href="https://goo.gl/maps/8VTd6biYdAWWSjAv5" 
-                                    target="_blank" 
-                                    rel="noopener noreferrer">
-                                    Velyka Vasylkivska 100
-                                </a>
-                                <h4 className="contact__info-subtitle">Get Directions</h4>
-                            </li>
-                            <li className="contact__info">
-                                <img src={ic_call} alt="ic_call"/>
-                                <a 
-                                    className="contact__info-title"
-                                    href="tel:+80638332415">
-                                    +38 (063)833 24 15
-                                </a>
-                                <h4 className="contact__info-subtitle">Call Online</h4>
-                            </li>
-                        </ul>
+                        <Contacts/>
                     </div>
                     <hr/>
                     <a className="footer__logo" href="/">
