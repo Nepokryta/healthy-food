@@ -3,7 +3,7 @@ import './css/style.min.css'
 
 import Contacts from './Contacts';
 import WorkCardList from './WorkCardList'
-import RecipesCard from './RecipesCard'
+import RecipeCardList from './RecipeCardList'
 import DishCardList from './DishCardList'
 
 import { ReactComponent as Github } from './icons/github.svg';
@@ -371,9 +371,7 @@ class App extends Component {
                                 </div>
                                 <span className="green__line"></span>
                             </div>
-                            <div className="recipes__cards">
-                                <RecipesCard recipes={this.state.recipes}/>
-                            </div>
+                            <RecipeCardList recipes={this.state.recipes}/>
                         </div>
                     </section>
     
