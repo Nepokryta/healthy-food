@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './css/style.min.css'
 
-import WorksCard from './WorksCard'
+import WorkCardList from './WorkCardList'
 import RecipesCard from './RecipesCard'
 import DishCard from './DishCard'
 
@@ -310,9 +310,7 @@ class App extends Component {
                                 </div>
                                 <span className="green__line"></span>
                             </div>
-                            <div className="works__cards">
-                                <WorksCard works={this.state.works}/>
-                            </div>
+                            <WorkCardList works={this.state.works}/>
                         </div>
                     </section>
     
