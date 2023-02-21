@@ -64,7 +64,7 @@ class App extends Component {
                 {
                     key: 2,
                     src: salad_vegetables,
-                    alt: "salad-vegetables",
+                    alt: "salad_vegetables",
                 },
             ],
             works: [
@@ -93,12 +93,12 @@ class App extends Component {
                 {
                     key: 1,
                     src: yellow_soup,
-                    alt: 'yellow-soup'
+                    alt: 'yellow_soup'
                 },
                 {
                     key: 2,
                     src: beans_and_peppers,
-                    alt: 'beans-and-peppers'
+                    alt: 'beans_and_peppers'
                 },
                 {
                     key: 3,
@@ -118,7 +118,7 @@ class App extends Component {
                 {
                     key: 6,
                     src: three_salads,
-                    alt: 'three-salads'
+                    alt: 'three_salads'
                 },
             ],
             recipes: [
@@ -214,7 +214,7 @@ class App extends Component {
                     <div className="container">
                         <a className="logo" href="/">
                             <img src={logo} alt="logo"/>
-                            <img src={logoTitle} alt="logo-title"/>
+                            <img src={logoTitle} alt="logoTitle"/>
                         </a>
                         <nav className="nav">
                             <a href="#menu">Menu</a>
@@ -314,9 +314,9 @@ class App extends Component {
                                         </div>
                                     </div>
                                     <div className="card__photo">
-                                        <img src={big_img1} alt="big-img1" className="card__photo-big"/>
-                                        <img src={img1_2} alt="img1-2" className="card__photo-small"/>
-                                        <img src={img1_3} alt="img1-3" className="card__photo-small"/>
+                                        <img src={big_img1} alt="big_img1" className="card__photo-big"/>
+                                        <img src={img1_2} alt="img1_2" className="card__photo-small"/>
+                                        <img src={img1_3} alt="img1_3" className="card__photo-small"/>
                                     </div>
                                 </div>
     
@@ -329,9 +329,9 @@ class App extends Component {
                                         </div>
                                     </div>
                                     <div className="card__photo">
-                                        <img src={big_img2} alt="big-img2" className="card__photo-big"/>
-                                        <img src={img2_2} alt="img2-2" className="card__photo-small"/>
-                                        <img src={img2_3} alt="img2-3" className="card__photo-small"/>
+                                        <img src={big_img2} alt="big_img2" className="card__photo-big"/>
+                                        <img src={img2_2} alt="img2_2" className="card__photo-small"/>
+                                        <img src={img2_3} alt="img2_3" className="card__photo-small"/>
                                     </div>
                                 </div>
     
@@ -344,9 +344,9 @@ class App extends Component {
                                         </div>
                                     </div>
                                     <div className="card__photo">
-                                        <img src={big_img3} alt="big-img3" className="card__photo-big"/>
-                                        <img src={img3_2} alt="img3-2" className="card__photo-small"/>
-                                        <img src={img3_3} alt="img3-3" className="card__photo-small"/>
+                                        <img src={big_img3} alt="big_img3" className="card__photo-big"/>
+                                        <img src={img3_2} alt="img3_2" className="card__photo-small"/>
+                                        <img src={img3_3} alt="img3_3" className="card__photo-small"/>
                                     </div>
                                 </div>
     
@@ -450,7 +450,7 @@ class App extends Component {
                     <hr/>
                     <a className="footer__logo" href="/">
                         <img src={logo} alt="logo"/>
-                        <img src={logoTitle} alt="logo-title"/>
+                        <img src={logoTitle} alt="logoTitle"/>
                     </a>
                     <h4 className="footer__title">© Designed by Yellow Snow. All Rights Reserved.</h4>
                     <div className="description">
