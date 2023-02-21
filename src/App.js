@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './css/style.min.css'
 
 import Contacts from './Contacts';
+import SliderCards from './SliderCards';
 import WorkCardList from './WorkCardList'
 import RecipeCardList from './RecipeCardList'
 import DishCardList from './DishCardList'
@@ -52,7 +53,7 @@ import WORK from './icons/WORK.svg'
 
 class App extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             slider: [
                 {
@@ -201,7 +202,12 @@ class App extends Component {
 
         }
     }
+
     render() {
+
+        const { slider, works, dish, recipes, facebook, twitter, instagram } = this.state;
+
+
         return (
             <>
                 <header className="header">
@@ -251,19 +257,7 @@ class App extends Component {
                                 Consectetur sint ea aliquip aliquip consectetur 
                                 voluptate est. Eu minim dolore laboris enim mollit 
                                 voluptate irure esse aliquip.</h3>
-                            <div className="about__slider">
-                                <div className="cards">
-                                    {this.state.slider.map(el => (
-                                        <img key={el.key} src={el.src} alt={el.alt}/>
-                                    ))}
-                                </div>
-                                <button className="btn btn__left">
-                                    <img src={arrow} alt="arrow"/>
-                                </button>
-                                <button className="btn btn__right">
-                                    <img src={arrow} alt="arrow"/>
-                                </button>
-                            </div>
+                            <SliderCards slider={slider}/>
                         </div>
                     </section>
     
@@ -278,7 +272,7 @@ class App extends Component {
                                 </div>
                                 <span className="green__line"></span>
                             </div>
-                            <WorkCardList works={this.state.works}/>
+                            <WorkCardList works={works}/>
                         </div>
                     </section>
     
@@ -293,7 +287,7 @@ class App extends Component {
                                 </div>
                                 <span className="green__line"></span>
                             </div>
-                            <DishCardList dish={this.state.dish}/>
+                            <DishCardList dish={dish}/>
                         </div>
                     </section>
     
@@ -371,7 +365,7 @@ class App extends Component {
                                 </div>
                                 <span className="green__line"></span>
                             </div>
-                            <RecipeCardList recipes={this.state.recipes}/>
+                            <RecipeCardList recipes={recipes}/>
                         </div>
                     </section>
     
@@ -397,7 +391,7 @@ class App extends Component {
                                         <button className="btn">follow us</button>
                                     </div>
                                     <hr/>
-                                    {this.state.twitter.map(el => (
+                                    {twitter.map(el => (
                                         <div key={el.key} className="card__main">
                                             <span></span>
                                                 <h4 className="data">{el.data}</h4>
@@ -421,7 +415,7 @@ class App extends Component {
                                             <img src={arrow} alt="arrow"/>
                                         </button>
                                         <div className="card__main-img">
-                                            {this.state.instagram.map(el => (
+                                            {instagram.map(el => (
                                                 <img key={el.key} src={el.src} alt={el.alt}/>
                                             ))}
                                         </div>
@@ -436,7 +430,7 @@ class App extends Component {
                                         <button className="btn">follow us</button>
                                     </div>
                                     <hr/>
-                                    {this.state.facebook.map(el => (
+                                    {facebook.map(el => (
                                         <div key={el.key} className="card__main">
                                             <span></span>
                                             <h4 className="data">{el.data}</h4>
