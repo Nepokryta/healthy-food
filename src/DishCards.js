@@ -7,7 +7,7 @@ import { ReactComponent as Share2 } from './icons/ic_share2.svg'
 
 const Card = (props) => {
 
-    const {src, alt} = props;
+    const {src, alt, title, subtitle, description} = props;
 
     return (
         <div className="dish__card">
@@ -15,11 +15,9 @@ const Card = (props) => {
                 <Share2/>
             </button>
             <img src={src} alt={alt}/>
-            <h2 className="dish__card-title">Featured Meal</h2>
-            <h3 className="dish__card-subtitle">Served with french fries + drink</h3>
-            <h4 className="dish__card-description">
-                Choice of: Coke, Fanta, Sprite, Upgrade to large fries, 
-                Add whopper patty, Add Tender crisp patty and more...</h4>
+            <h2 className="dish__card-title">{title}</h2>
+            <h3 className="dish__card-subtitle">{subtitle}</h3>
+            <h4 className="dish__card-description">{description.length > 135 ? `${description.slice(0, 135)} ...` : description}</h4>
             <div className="dish__card-action">
                 <div className="dish__card-action-stars">
 
