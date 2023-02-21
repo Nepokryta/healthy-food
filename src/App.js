@@ -93,32 +93,50 @@ class App extends Component {
                 {
                     key: 1,
                     src: yellow_soup,
-                    alt: 'yellow_soup'
+                    alt: 'yellow_soup',
+                    title: 'Pumpkin soup',
+                    subtitle: 'Served with sour cream and chopped herbs.',
+                    description: 'Pumpkin cream soup can be served hot or cold, depending on personal preference. This soup is perfect for chilly autumn evenings, and its rich and creamy texture makes it a comforting and satisfying meal.',
                 },
                 {
                     key: 2,
                     src: beans_and_peppers,
-                    alt: 'beans_and_peppers'
+                    alt: 'beans_and_peppers',
+                    title: 'Three Bean Salad',
+                    subtitle: 'Served with vinaigrette sauce and chopped parsley.',
+                    description: 'A refreshing salad made with mixed beans, diced vegetables, and a simple vinaigrette dressing.',
                 },
                 {
                     key: 3,
                     src: eggs,
-                    alt: 'eggs'
+                    alt: 'eggs',
+                    title: 'Egg toast',
+                    subtitle: 'Served with a cup of coffee or tea.',
+                    description: 'A delicious breakfast or brunch option featuring a slice of toast topped with a perfectly cooked egg.',
                 },
                 {
                     key: 4,
                     src: fish,
-                    alt: 'fish'
+                    alt: 'fish',
+                    title: 'Red fish',
+                    subtitle: 'Served with fried or grilled vegetables.',
+                    description: 'A flavorful and nutritious fish that is often grilled or baked and served with a variety of side dishes.',
                 },
                 {
                     key: 5,
                     src: salad,
-                    alt: 'salad'
+                    alt: 'salad',
+                    title: 'Egg bowl',
+                    subtitle: 'Served with a cup of coffee or orange juice.',
+                    description: 'A breakfast or brunch dish that typically consists of scrambled eggs served with a variety of toppings, such as diced vegetables, cheese, and avocado.',
                 },
                 {
                     key: 6,
                     src: three_salads,
-                    alt: 'three_salads'
+                    alt: 'three_salads',
+                    title: 'Veggie bowl',
+                    subtitle: 'Served with a little tahini sauce.',
+                    description: 'A healthy and colorful bowl filled with a variety of fresh, raw or roasted vegetables, often served over a bed of grains or greens.',
                 },
             ],
             recipes: [
