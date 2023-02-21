@@ -4,8 +4,8 @@ import './css/style.min.css'
 import Contacts from './Contacts';
 import SliderCards from './SliderCards';
 import WorkCards from './WorkCards'
-import RecipeCardList from './RecipeCardList'
-import DishCardList from './DishCardList'
+import RecipeCards from './RecipeCards'
+import DishCards from './DishCards'
 
 import { ReactComponent as Github } from './icons/github.svg';
 import { ReactComponent as Figma } from './icons/figma.svg';
@@ -287,7 +287,7 @@ class App extends Component {
                                 </div>
                                 <span className="green__line"></span>
                             </div>
-                            <DishCardList dish={dish}/>
+                            <DishCards dish={dish}/>
                         </div>
                     </section>
     
@@ -365,7 +365,7 @@ class App extends Component {
                                 </div>
                                 <span className="green__line"></span>
                             </div>
-                            <RecipeCardList recipes={recipes}/>
+                            <RecipeCards recipes={recipes}/>
                         </div>
                     </section>
     
