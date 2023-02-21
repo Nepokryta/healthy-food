@@ -151,61 +151,12 @@ class App extends Component {
                     title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
                 },
             ],
-            twitter: [
-                {
-                    key: 1,
-                    data: '24 Jun at 16:20 pm',
-                    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing',
-                    name: '@DennisFerguson',
-                }
-            ],
-            instagram: [
-                {
-                    key: 1,
-                    src: placehholder1,
-                    alt: "placehholder1",
-                },
-                {
-                    key: 2,
-                    src: placehholder2,
-                    alt: "placehholder2",
-                },
-                {
-                    key: 3,
-                    src: placehholder3,
-                    alt: "placehholder3",
-                },
-                {
-                    key: 4,
-                    src: placehholder4,
-                    alt: "placehholder4",
-                },
-                {
-                    key: 5,
-                    src: placehholder5,
-                    alt: "placehholder5",
-                },
-                {
-                    key: 6,
-                    src: placehholder6,
-                    alt: "placehholder6",
-                },
-            ],
-            facebook: [
-                {
-                    key: 1,
-                    data: '26 Jun at 16:20 pm',
-                    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing Lorem ipsum dolor sit amet, consectetur adipiscing',
-                },
-            ],
-
-
         }
     }
 
     render() {
 
-        const { slider, works, dish, recipes, facebook, twitter, instagram } = this.state;
+        const { slider, works, dish, recipes } = this.state;
 
 
         return (
@@ -391,14 +342,14 @@ class App extends Component {
                                         <button className="btn">follow us</button>
                                     </div>
                                     <hr/>
-                                    {twitter.map(el => (
-                                        <div key={el.key} className="card__main">
-                                            <span></span>
-                                                <h4 className="data">{el.data}</h4>
-                                                <h4 className="title">{el.title}</h4>
-                                                <h4 className="name">{el.name}</h4>
-                                        </div>
-                                    ))}
+                                    <div className="card__main">
+                                        <span></span>
+                                            <h4 className="data">24 Jun at 16:20 pm</h4>
+                                            <h4 className="title">Lorem ipsum dolor sit amet, consectetur adipiscing 
+                                            elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, 
+                                            consectetur adipiscing</h4>
+                                            <h4 className="name">@DennisFerguson</h4>
+                                    </div>
                                 </div>
                                 <div className="card">
                                     <div className="card__header">
@@ -415,9 +366,12 @@ class App extends Component {
                                             <img src={arrow} alt="arrow"/>
                                         </button>
                                         <div className="card__main-img">
-                                            {instagram.map(el => (
-                                                <img key={el.key} src={el.src} alt={el.alt}/>
-                                            ))}
+                                            <img src={placehholder1} alt="placehholder1"/>
+                                            <img src={placehholder2} alt="placehholder2"/>
+                                            <img src={placehholder3} alt="placehholder3"/>
+                                            <img src={placehholder4} alt="placehholder4"/>
+                                            <img src={placehholder5} alt="placehholder5"/>
+                                            <img src={placehholder6} alt="placehholder6"/>
                                         </div>
                                     </div>
                                 </div>
@@ -430,13 +384,13 @@ class App extends Component {
                                         <button className="btn">follow us</button>
                                     </div>
                                     <hr/>
-                                    {facebook.map(el => (
-                                        <div key={el.key} className="card__main">
-                                            <span></span>
-                                            <h4 className="data">{el.data}</h4>
-                                            <h4 className="title">{el.title}</h4>
-                                        </div>
-                                    ))}
+                                    <div className="card__main">
+                                        <span></span>
+                                        <h4 className="data">26 Jun at 16:20 pm</h4>
+                                        <h4 className="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                        sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur 
+                                        adipiscing Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
+                                    </div>
                                 </div>
     
                             </div>
