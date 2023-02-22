@@ -5,6 +5,23 @@ import { ReactComponent as StarHalf } from './icons/ic_star_half.svg'
 import { ReactComponent as Star } from './icons/ic_star.svg'
 import { ReactComponent as Share2 } from './icons/ic_share2.svg'
 
+const DishCards = ({dish}) => {
+    
+    const elements = dish.map(item => {
+        const {id, ...itemProps} = item;
+        
+        return (
+            <Card key={id} {...itemProps}/>
+            )
+        })
+        
+        return (
+            <div className="dish__cards">
+            {elements}
+        </div>
+    )
+}
+
 const Card = (props) => {
 
     const {src, alt, title, subtitle, description} = props;
@@ -50,23 +67,6 @@ const Card = (props) => {
                 </div>
                 <button className="card__action-btn">ORDER</button>
             </div>
-        </div>
-    )
-}
-
-const DishCards = ({dish}) => {
-   
-    const elements = dish.map(item => {
-        const {id, ...itemProps} = item;
-
-        return (
-            <Card key={id} {...itemProps}/>
-        )
-    })
-
-    return (
-        <div className="dish__cards">
-            {elements}
         </div>
     )
 }

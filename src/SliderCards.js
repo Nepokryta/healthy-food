@@ -2,15 +2,6 @@ import React from 'react';
 
 import arrow from './icons/arrow.svg'
 
-const Card = (props) => {
-
-    const {src, alt} = props;
-
-    return (
-        <img src={src} alt={alt}/>
-    )
-}
-
 const SliderCards = ({slider}) => {
 
     const elements = slider.map(item => {
@@ -34,6 +25,15 @@ const SliderCards = ({slider}) => {
             </button>
         </div>
 
+    )
+}
+
+const Card = (props) => {
+
+    const {src, alt} = props;
+
+    return (
+        <img src={src} alt={alt}/>
     )
 }
 

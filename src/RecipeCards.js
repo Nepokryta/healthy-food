@@ -4,6 +4,22 @@ import { ReactComponent as Arrow } from './icons/arrow.svg';
 import { ReactComponent as RemoveRedEye } from './icons/ic_remove_red_eye.svg';
 import { ReactComponent as QuestionAnswer } from './icons/ic_question_answer.svg';
 
+const RecipeCards = ({recipes}) => {
+    
+    const elements = recipes.map(item => {
+        const {id, ...itemProps} = item;
+        
+        return (
+            <Card key={id} {...itemProps}/>
+            )
+        })
+        return (
+            <div className="recipes__cards">
+            {elements}
+        </div> 
+    )
+}
+
 const Card = (props) => {
 
     const {size, background, subtitle, title} = props;
@@ -28,23 +44,6 @@ const Card = (props) => {
                 </div>
             </div>
         </div>
-    )
-}
-
-
-const RecipeCards = ({recipes}) => {
-
-    const elements = recipes.map(item => {
-        const {id, ...itemProps} = item;
-
-        return (
-            <Card key={id} {...itemProps}/>
-        )
-    })
-    return (
-        <div className="recipes__cards">
-            {elements}
-        </div> 
     )
 }
 
