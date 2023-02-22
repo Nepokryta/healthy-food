@@ -1,25 +1,56 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import { ReactComponent as StarBorder } from './icons/ic_star_border.svg'
 import { ReactComponent as StarHalf } from './icons/ic_star_half.svg'
 import { ReactComponent as Star } from './icons/ic_star.svg'
 import { ReactComponent as Share2 } from './icons/ic_share2.svg'
 
-const DishCards = ({dish}) => {
-    
-    const elements = dish.map(item => {
-        const {id, ...itemProps} = item;
-        
-        return (
-            <Card key={id} {...itemProps}/>
-            )
-        })
-        
-        return (
-            <div className="dish__cards">
-            {elements}
-        </div>
-    )
+class DishCards extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            dish: props.dish
+        };
+    }
+
+    handleSort = () => {
+        const arr = [...this.state.dish].sort((a, b) => b.key - a.key)
+
+        this.setState({dish: arr})
+    }
+
+    handleRandomSort = () => {
+        const arr = [...this.state.dish]
+        for (let i = arr.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * i)
+            let k = arr[i]
+            arr[i] = arr[j]
+            arr[j] = k
+        }
+        this.setState({dish: arr})
+
+    }
+
+    render() {
+        const elements = this.state.dish.map(item => {
+            const {id, ...itemProps} = item;
+            
+            return (
+                <Card key={id} {...itemProps} onDelete={() => this.onDelete()}/>
+                )
+            })
+            return (
+                <>
+                <div className="dish__cards">
+                    {elements}
+                </div>
+                <div className="btn">
+                    <button className="action-btn" onClick={this.handleRandomSort}>RANDOM</button>
+                    <button className="action-btn" onClick={this.handleSort}>SORT</button>
+                </div>
+            </>
+        )
+    }
 }
 
 const Card = (props) => {
