@@ -11,6 +11,7 @@ class DishCards extends Component {
         this.state = {
             dish: props.dish
         };
+        this.maxId = 7;
     }
 
     handleSort = () => {
@@ -36,11 +37,32 @@ class DishCards extends Component {
         this.setState({dish: arr})
     }
 
+    handleAddCardClick = (src, alt, title, subtitle, description) => {
+        const newItem = {
+            key: this.maxId++,
+            src, 
+            alt, 
+            title, 
+            subtitle, 
+            description,
+        }
+
+        const arr = [...this.state.dish]
+        const newArr = [...arr, newItem];
+        this.setState({dish: newArr})
+        console.log(newArr)
+    }
+
     render() {
         const elements = this.state.dish.map(item => {
             const {id, ...itemProps} = item;
             return (
-                <Card key={id} id={itemProps.key} {...itemProps} onCardClick={this.handleCardClick}/>
+                <Card 
+                    key={id} 
+                    id={itemProps.key} 
+                    {...itemProps} 
+                    onCardClick={this.handleCardClick} 
+                    onAddCardClick={this.handleAddCardClick}/>
                 )
             })
         return (
@@ -63,6 +85,12 @@ class Card extends Component {
         const {id, onCardClick} = this.props;
         onCardClick(id);
     }
+
+    handleAddCardClick = () => {
+        const {src, alt, title, subtitle, description, onAddCardClick} = this.props;
+        onAddCardClick(src, alt, title, subtitle, description);
+    }
+
     render() {
 
         const {src, alt, title, subtitle, description} = this.props;
@@ -105,7 +133,7 @@ class Card extends Component {
     
                         <div className="dish__card-action-value">12</div>
                     </div>
-                    <button className="card__action-btn">ORDER</button>
+                    <button className="card__action-btn" onClick={this.handleAddCardClick}>ADD CARD</button>
                 </div>
             </div>
         )
