@@ -102,42 +102,79 @@ class Card extends Component {
                 <img src={src} alt={alt}/>
                 <h2 className="dish__card-title">{title}</h2>
                 <h3 className="dish__card-subtitle">{subtitle}</h3>
-                <h4 className="dish__card-description">{description.length > 135 ? `${description.slice(0, 135)} ...` : description}</h4>
-                <div className="dish__card-action">
-                    <div className="dish__card-action-stars">
-    
-                        <input type="checkbox" id="st1" value="1" />
-                        <label htmlFor="st1">
-                            <Star/>
-                        </label>
-    
-                        <input type="checkbox" id="st2" value="2" />
-                        <label htmlFor="st2">
-                            <Star/>
-                        </label>
-    
-                        <input type="checkbox" id="st3" value="3" />
-                        <label htmlFor="st3">
-                            <Star/>
-                        </label>
-    
-                        <input type="checkbox" id="st4" value="4" />
-                        <label htmlFor="st4">
-                            <StarHalf/>
-                        </label>
-    
-                        <input type="checkbox" id="st5" value="5" />
-                        <label htmlFor="st5">
-                            <StarBorder/>
-                        </label>
-    
-                        <div className="dish__card-action-value">12</div>
-                    </div>
+                <h4 className="dish__card-description">
+                    {description.length > 135 ? `${description.slice(0, 135)} ...` : description}</h4>
+                    <div className="dish__card-action">
+                        <Rating/>
                     <button className="card__action-btn" onClick={this.handleAddCardClick}>ADD CARD</button>
                 </div>
             </div>
         )
     }
 }
+
+class Rating extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            rating: 4,
+            starValue: 20,
+        };
+    }
+
+    handleStarClick = (rating, starValue) => {
+        this.setState({ rating });
+        let newStarValue = 0;
+        switch (rating) {
+            case 1:
+                newStarValue += 5;
+                break
+            case 2:
+                newStarValue += 10;
+                break
+            case 3:
+                newStarValue += 15;
+                break
+            case 4:
+                newStarValue += 20;
+                break
+            case 5:
+                newStarValue += 25;
+                break
+            default:
+                newStarValue += 0;
+        } 
+        starValue = newStarValue
+        this.setState({ starValue });
+    }
+
+    
+    render() {
+        const { rating, starValue } = this.state;
+        const stars = [];
+        for (let i = 1; i <= 5; i++) {
+            stars.push(
+                <RatingStar 
+                key={i} 
+                filled={i <= rating}
+                onClick={() => this.handleStarClick(i)}/>
+                );
+            }
+        return (
+            <div className="dish__card-action-stars">
+                {stars}
+                <div className="dish__card-action-value">{starValue}</div>
+            </div>
+        );
+    }
+}
+
+const RatingStar = ({ filled, onClick }) => {
+    return (
+        <span className="Star" onClick={onClick}>
+            {filled  ? <Star/> : <StarBorder/>}
+        </span>
+    );
+};
 
 export default DishCards;
