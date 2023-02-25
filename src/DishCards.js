@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { ReactComponent as StarBorder } from './icons/ic_star_border.svg'
-import { ReactComponent as StarHalf } from './icons/ic_star_half.svg'
+// import { ReactComponent as StarHalf } from './icons/ic_star_half.svg'
 import { ReactComponent as Star } from './icons/ic_star.svg'
 import { ReactComponent as Close } from './icons/close.svg'
 
@@ -50,7 +50,18 @@ class DishCards extends Component {
         const arr = [...this.state.dish]
         const newArr = [...arr, newItem];
         this.setState({dish: newArr})
-        console.log(newArr)
+    }
+   
+    handleAddElement = (id) => {
+        const newItem = [...this.state.dish]
+        newItem.find((item) => item.key === id).title = 'My favorite'
+        this.setState({ dish: newItem});
+    }
+
+    handleDeleteElement = (id) => {
+        const newItem = [...this.state.dish]
+        newItem.find((item) => item.key === id).subtitle = ''
+        this.setState({ dish: newItem});
     }
 
     render() {
@@ -62,6 +73,8 @@ class DishCards extends Component {
                     id={itemProps.key} 
                     {...itemProps} 
                     onCardClick={this.handleCardClick} 
+                    onAddElement={this.handleAddElement}
+                    onDeleteElement={this.handleDeleteElement}
                     onAddCardClick={this.handleAddCardClick}/>
                 )
             })
@@ -91,6 +104,15 @@ class Card extends Component {
         onAddCardClick(src, alt, title, subtitle, description);
     }
 
+    handleDeleteElement = () => {
+        const {id, onDeleteElement} = this.props;
+        onDeleteElement(id)
+    }
+    handleAddElement = () => {
+        const {id, onAddElement} = this.props;
+        onAddElement(id)
+    }
+
     render() {
 
         const {src, alt, title, subtitle, description} = this.props;
@@ -104,8 +126,10 @@ class Card extends Component {
                 <h3 className="dish__card-subtitle">{subtitle}</h3>
                 <h4 className="dish__card-description">
                     {description.length > 135 ? `${description.slice(0, 135)} ...` : description}</h4>
-                    <div className="dish__card-action">
-                        <Rating/>
+                <button className="card__action-btn" onClick={this.handleAddElement}>MY FAVORITE</button>
+                <button className="card__action-btn" onClick={this.handleDeleteElement}>DELETE</button>
+                <div className="dish__card-action">
+                    <Rating/>
                     <button className="card__action-btn" onClick={this.handleAddCardClick}>ADD CARD</button>
                 </div>
             </div>
