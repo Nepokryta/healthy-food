@@ -63,6 +63,12 @@ class DishCards extends Component {
         newItem.find((item) => item.key === id).subtitle = ''
         this.setState({ dish: newItem});
     }
+    handleAddElementOnClick = (id) => {
+        const newItem = [...this.state.dish]
+        newItem.find((item) => item.key === id).newSubtitle = `Great choice!`
+        this.setState({ dish: newItem});
+    }
+
 
     render() {
         const elements = this.state.dish.map(item => {
@@ -75,6 +81,7 @@ class DishCards extends Component {
                     onCardClick={this.handleCardClick} 
                     onAddElement={this.handleAddElement}
                     onDeleteElement={this.handleDeleteElement}
+                    onAddElementOnClick={this.handleAddElementOnClick}
                     onAddCardClick={this.handleAddCardClick}/>
                 )
             })
@@ -112,10 +119,14 @@ class Card extends Component {
         const {id, onAddElement} = this.props;
         onAddElement(id)
     }
+    handleAddElementOnClick = () => {
+        const {id, onAddElementOnClick} = this.props;
+        onAddElementOnClick(id)
+    }
 
     render() {
 
-        const {src, alt, title, subtitle, description} = this.props;
+        const {src, alt, title, subtitle, newSubtitle, description} = this.props;
         return (
             <div className="dish__card">
                 <button className="arrow-card" onClick={this.handleCardClick}>
@@ -125,9 +136,16 @@ class Card extends Component {
                 <div className="dish__card-details">
                     <h2 className="dish__card-title">{title}</h2>
                     <h3 className="dish__card-subtitle">{subtitle}</h3>
+                    <h3 
+                        className="dish__card-subtitle"
+                        style={{color: '#3be967', fontSize: '15px', fontWeight: '400'}}>
+                            {newSubtitle}</h3>
                     <h4 className="dish__card-description">{description}</h4>
                     <button className="card__action-btn" onClick={this.handleAddElement}>MY FAVORITE</button>
-                    <button className="card__action-btn" onClick={this.handleDeleteElement}>DELETE</button>
+                    <div style={{display : 'flex', gap : '10px'}} >
+                        <button className="card__action-btn" onClick={this.handleDeleteElement}>DELETE</button>
+                        <button className="card__action-btn" onClick={this.handleAddElementOnClick}>ADD</button>
+                    </div>
                 </div>
                 <div className="dish__card-action">
                     <Rating/>
