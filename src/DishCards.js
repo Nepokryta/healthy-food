@@ -124,8 +124,7 @@ class Card extends Component {
                 <img src={src} alt={alt}/>
                 <h2 className="dish__card-title">{title}</h2>
                 <h3 className="dish__card-subtitle">{subtitle}</h3>
-                <h4 className="dish__card-description">
-                    {description.length > 135 ? `${description.slice(0, 135)} ...` : description}</h4>
+                <h4 className="dish__card-description">{description}</h4>
                 <button className="card__action-btn" onClick={this.handleAddElement}>MY FAVORITE</button>
                 <button className="card__action-btn" onClick={this.handleDeleteElement}>DELETE</button>
                 <div className="dish__card-action">
