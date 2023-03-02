@@ -7,26 +7,15 @@ import Slider from './components/Slider/Slider';
 import DescriptionOfWork from './components/DescriptionOfWork/DescriptionOfWork';
 import RecipeCards from './components/RecipeCards/RecipeCards';
 import DishCards from './components/DishCards/DishCards';
+import ChefsCards from './components/ChefsCards/ChefsCards';
 
 import { ReactComponent as Github } from './assets/icons/github.svg';
 import { ReactComponent as Figma } from './assets/icons/figma.svg';
 
-import Avatar1 from './assets/img/avatar1.png';
-import Avatar2 from './assets/img/avatar2.png';
-import Avatar3 from './assets/img/avatar3.png';
 import BeansAndPeppers from './assets/img/beans-and-peppers.png';
-import BigImg1 from './assets/img/big-img1.png';
-import BigImg2 from './assets/img/big-img2.png';
-import BigImg3 from './assets/img/big-img3.png';
 import Eggs from './assets/img/eggs.png';
 import Fish from './assets/img/fish.png';
 import GreenSalad from './assets/img/green-salad.png';
-import Img1 from './assets/img/img1-2.png';
-import Img2 from './assets/img/img1-3.png';
-import Img3 from './assets/img/img2-2.png';
-import Img4 from './assets/img/img2-3.png';
-import Img5 from './assets/img/img3-2.png';
-import Img6 from './assets/img/img3-3.png';
 import Placehholder1 from './assets/img/placehholder1.png';
 import Placehholder2 from './assets/img/placehholder2.png';
 import Placehholder3 from './assets/img/placehholder3.png';
@@ -279,55 +268,8 @@ class App extends Component {
                 </div>
                 <span className="green__line" />
               </div>
-    
-              <div className="chefs__cards">
-    
-                <div className="chefs__card">
-                  <div className="card__info">
-                    <img src={Avatar1} alt="avatar1" />
-                    <div className="card__info__name">
-                      <h2 className="card__info__name-title">Gregory Flores</h2>
-                      <h3 className="card__info__name-subtitle">Chef of the cold</h3>
-                    </div>
-                  </div>
-                  <div className="card__photo">
-                    <img src={BigImg1} alt="big_img1" className="card__photo-big" />
-                    <img src={Img1} alt="img1_2" className="card__photo-small" />
-                    <img src={Img2} alt="img1_3" className="card__photo-small" />
-                  </div>
-                </div>
-    
-                <div className="chefs__card">
-                  <div className="card__info">
-                    <img src={Avatar2} alt="avatar2" />
-                    <div className="card__info__name">
-                      <h2 className="card__info__name-title">Annette Cooper</h2>
-                      <h3 className="card__info__name-subtitle">Chef of the hot</h3>
-                    </div>
-                  </div>
-                  <div className="card__photo">
-                    <img src={BigImg2} alt="big_img2" className="card__photo-big" />
-                    <img src={Img3} alt="img2_2" className="card__photo-small" />
-                    <img src={Img4} alt="img2_3" className="card__photo-small" />
-                  </div>
-                </div>
-    
-                <div className="chefs__card">
-                  <div className="card__info">
-                    <img src={Avatar3} alt="avatar3" />
-                    <div className="card__info__name">
-                      <h2 className="card__info__name-title">Greg Fox</h2>
-                      <h3 className="card__info__name-subtitle">Сhef macro kitchen</h3>
-                    </div>
-                  </div>
-                  <div className="card__photo">
-                    <img src={BigImg3} alt="big_img3" className="card__photo-big" />
-                    <img src={Img5} alt="img3_2" className="card__photo-small" />
-                    <img src={Img6} alt="img3_3" className="card__photo-small" />
-                  </div>
-                </div>
-    
-              </div>
+              
+              <ChefsCards />
             </div>
           </section>
     
