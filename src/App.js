@@ -4,7 +4,7 @@ import './css/style.min.css';
 
 import Contacts from './components/Contacts/Contacts';
 import Slider from './components/Slider/Slider';
-import WorkCards from './components/Work/WorkCards';
+import DescriptionOfWork from './components/DescriptionOfWork/DescriptionOfWork';
 import RecipeCards from './components/Recipe/RecipeCards';
 import DishCards from './components/Dish/DishCards';
 
@@ -249,7 +249,7 @@ class App extends Component {
                 </div>
                 <span className="green__line" />
               </div>
-              <WorkCards works={works} />
+              <DescriptionOfWork works={works} />
             </div>
           </section>
     

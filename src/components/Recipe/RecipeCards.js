@@ -34,7 +34,7 @@ RecipeCards.propTypes = {
     })
   ).isRequired,
 };
-
+// View
 function Card({
   size, background, subtitle, title 
 }) {
