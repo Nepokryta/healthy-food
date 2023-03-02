@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Rating from './Rating';
-
+import RatingStars from './RatingStars/RatingStars';
 import { ReactComponent as Close } from '../../assets/icons/close.svg';
 
-class Card extends Component {                  
+class DishCardsView extends Component {                  
   render() {
     const {
       id, src, alt, title, subtitle, newSubtitle, description, 
@@ -35,7 +34,7 @@ class Card extends Component {
           </div>
         </div>
         <div className="dish__card-action">
-          <Rating />
+          <RatingStars />
           <button 
             className="card__action-btn" 
             type="submit"
@@ -49,7 +48,7 @@ class Card extends Component {
   }
 }
 
-Card.propTypes = {
+DishCardsView.propTypes = {
   id: PropTypes.number.isRequired, 
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
@@ -64,4 +63,4 @@ Card.propTypes = {
   onAddCardClick: PropTypes.func.isRequired,
 };
 
-export default Card;
+export default DishCardsView;

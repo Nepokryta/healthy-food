@@ -6,7 +6,7 @@ import Contacts from './components/Contacts/Contacts';
 import Slider from './components/Slider/Slider';
 import DescriptionOfWork from './components/DescriptionOfWork/DescriptionOfWork';
 import RecipeCards from './components/Recipe/RecipeCards';
-import DishCards from './components/Dish/DishCards';
+import DishCards from './components/DishCards/DishCards';
 
 import { ReactComponent as Github } from './assets/icons/github.svg';
 import { ReactComponent as Figma } from './assets/icons/figma.svg';

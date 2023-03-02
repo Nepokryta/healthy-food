@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-import { ReactComponent as StarBorder } from '../../assets/icons/ic_star_border.svg';
-// import { ReactComponent as StarHalf } from '../../assets/icons/ic_star_half.svg'
-import { ReactComponent as Star } from '../../assets/icons/ic_star.svg';
+import RatingStarsView from './RatingStarsView';
 
-class Rating extends Component {
+class RatingStars extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,7 +42,7 @@ class Rating extends Component {
     const stars = [];
     for (let i = 1; i <= 5; i += 1) {
       stars.push(
-        <RatingStar 
+        <RatingStarsView 
           key={i} 
           filled={i <= rating}
           onClick={() => this.handleStarClick(i)}
@@ -61,26 +58,4 @@ class Rating extends Component {
   }
 }
 
-// Rating.propTypes = {
-//   rating: PropTypes.number.isRequired, 
-//   starValue: PropTypes.number.isRequired, 
-// };
-
-function RatingStar({ filled, onClick }) {
-  return (
-    <button
-      className="Star"
-      onClick={() => onClick()}
-      type="submit" 
-      style={{ backgroundColor: 'transparent', padding: '0', border: '0' }}
-    >
-      { filled ? <Star /> : <StarBorder />}
-    </button>
-  );
-}
-RatingStar.propTypes = {
-  filled: PropTypes.bool.isRequired,
-  onClick: PropTypes.func.isRequired
-};
-
-export default Rating;
+export default RatingStars;
