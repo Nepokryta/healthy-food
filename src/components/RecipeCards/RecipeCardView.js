@@ -1,41 +1,10 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 
 import { ReactComponent as Arrow } from '../../assets/icons/arrow.svg';
 import { ReactComponent as RemoveRedEye } from '../../assets/icons/ic_remove_red_eye.svg';
 import { ReactComponent as QuestionAnswer } from '../../assets/icons/ic_question_answer.svg';
 
-function RecipeCards({ recipes }) {
-  const elements = recipes.map((item) => (
-    <Card 
-      key={item.key} 
-      size={item.size} 
-      background={item.background} 
-      subtitle={item.subtitle} 
-      title={item.title}
-    />
-  ));
-    
-  return (
-    <div className="recipes__cards">
-      {elements}
-    </div> 
-  );
-}
-
-RecipeCards.propTypes = {
-  recipes: PropTypes.arrayOf(
-    PropTypes.shape({
-      key: PropTypes.number.isRequired,
-      size: PropTypes.string.isRequired,
-      background: PropTypes.string.isRequired,
-      subtitle: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-};
-// View
-function Card({
+function RecipeCardView({
   size, background, subtitle, title 
 }) {
   return (
@@ -61,11 +30,11 @@ function Card({
   );
 }
 
-Card.propTypes = {
+RecipeCardView.propTypes = {
   size: PropTypes.string.isRequired,
   background: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };
 
-export default RecipeCards;
+export default RecipeCardView;

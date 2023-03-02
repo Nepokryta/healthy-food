@@ -5,7 +5,7 @@ import './css/style.min.css';
 import Contacts from './components/Contacts/Contacts';
 import Slider from './components/Slider/Slider';
 import DescriptionOfWork from './components/DescriptionOfWork/DescriptionOfWork';
-import RecipeCards from './components/Recipe/RecipeCards';
+import RecipeCards from './components/RecipeCards/RecipeCards';
 import DishCards from './components/DishCards/DishCards';
 
 import { ReactComponent as Github } from './assets/icons/github.svg';
