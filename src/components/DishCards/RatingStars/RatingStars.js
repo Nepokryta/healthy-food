@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import RatingStarsView from './RatingStarsView';
+import RatingStarView from './RatingStarView';
 
 class RatingStars extends Component {
   constructor(props) {
@@ -42,7 +42,7 @@ class RatingStars extends Component {
     const stars = [];
     for (let i = 1; i <= 5; i += 1) {
       stars.push(
-        <RatingStarsView 
+        <RatingStarView 
           key={i} 
           filled={i <= rating}
           onClick={() => this.handleStarClick(i)}

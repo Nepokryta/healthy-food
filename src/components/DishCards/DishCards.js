@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import DishCardsView from './DishCardsView';
+import DishCardView from './DishCardView';
 
 class DishCards extends Component {
   constructor(props) {
@@ -73,7 +73,7 @@ class DishCards extends Component {
   render() {
     const { dish } = this.state;
     const elements = dish.map((item) => (
-      <DishCardsView 
+      <DishCardView 
         key={item.key} 
         id={item.key} 
         src={item.src}

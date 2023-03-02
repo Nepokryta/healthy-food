@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import RatingStars from './RatingStars/RatingStars';
 import { ReactComponent as Close } from '../../assets/icons/close.svg';
 
-class DishCardsView extends Component {                  
+class DishCardView extends Component {                  
   render() {
     const {
       id, src, alt, title, subtitle, newSubtitle, description, 
@@ -48,7 +48,7 @@ class DishCardsView extends Component {
   }
 }
 
-DishCardsView.propTypes = {
+DishCardView.propTypes = {
   id: PropTypes.number.isRequired, 
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
@@ -63,4 +63,4 @@ DishCardsView.propTypes = {
   onAddCardClick: PropTypes.func.isRequired,
 };
 
-export default DishCardsView;
+export default DishCardView;

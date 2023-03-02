@@ -4,7 +4,7 @@ import { ReactComponent as StarBorder } from '../../../assets/icons/ic_star_bord
 // import { ReactComponent as StarHalf } from '../../assets/icons/ic_star_half.svg'
 import { ReactComponent as Star } from '../../../assets/icons/ic_star.svg';
 
-function RatingStarsView({ filled, onClick }) {
+function RatingStarView({ filled, onClick }) {
   return (
     <button
       className="Star"
@@ -16,9 +16,9 @@ function RatingStarsView({ filled, onClick }) {
     </button>
   );
 }
-RatingStarsView.propTypes = {
+RatingStarView.propTypes = {
   filled: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired
 };
   
-export default RatingStarsView;
+export default RatingStarView;
