@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './css/style.min.css';
 
 import Contacts from './components/Contacts/Contacts';
-import SliderCards from './components/Slider/SliderCards';
+import Slider from './components/Slider/Slider';
 import WorkCards from './components/Work/WorkCards';
 import RecipeCards from './components/Recipe/RecipeCards';
 import DishCards from './components/Dish/DishCards';
@@ -234,7 +234,7 @@ class App extends Component {
                 voluptate est. Eu minim dolore laboris enim mollit 
                 voluptate irure esse aliquip.
               </h3>
-              <SliderCards slider={slider} />
+              <Slider slider={slider} />
             </div>
           </section>
     

@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import SliderView from './SliderView';
 import Arrow from '../../assets/icons/arrow.svg';
 
-function SliderCards({ slider }) {
+function Slider({ slider }) {
   const elements = slider.map((item) => (
-    <Card key={item.key} src={item.src} alt={item.alt} />
+    <SliderView key={item.key} src={item.src} alt={item.alt} />
   ));
 
   return (
@@ -23,7 +24,7 @@ function SliderCards({ slider }) {
   );
 }
 
-SliderCards.propTypes = {
+Slider.propTypes = {
   slider: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.number.isRequired,
@@ -33,14 +34,4 @@ SliderCards.propTypes = {
   ).isRequired,
 };
 
-function Card({ src, alt }) {
-  return (
-    <img src={src} alt={alt} />
-  );
-}
-Card.propTypes = {
-  src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
-};
-
-export default SliderCards;
+export default Slider;
