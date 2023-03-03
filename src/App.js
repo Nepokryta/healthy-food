@@ -8,6 +8,7 @@ import DescriptionOfWork from './components/DescriptionOfWork/DescriptionOfWork'
 import RecipeCards from './components/RecipeCards/RecipeCards';
 import DishCards from './components/DishCards/DishCards';
 import ChefsCards from './components/ChefsCards/ChefsCards';
+import Headline from './components/Headline/Headline';
 
 import { ReactComponent as Github } from './assets/icons/github.svg';
 import { ReactComponent as Figma } from './assets/icons/figma.svg';
@@ -209,14 +210,12 @@ class App extends Component {
     
           <section className="about">
             <div className="container">
-              <div className="about__title">
-                <div className="headline">
-                  <h2>`&quot;`The Basics Of Healthy Food`&quot;`</h2>
-                  <div className="headline__subtitle">
-                    <img src={ABOUT} alt="ABOUT" />
-                  </div>
-                </div>
-              </div>
+              <Headline
+                title="&quot;The Basics Of Healthy Food&quot;"
+                src={ABOUT}
+                alt="ABOUT"
+                greenLine="_inline"
+              />
               <h3 className="about__subtitle">
                 In aliqua ea ullamco ad est ex non deserunt nulla. 
                 Consectetur sint ea aliquip aliquip consectetur 
@@ -229,76 +228,60 @@ class App extends Component {
     
           <section className="works">
             <div className="container">
-              <div className="works__title">
-                <div className="headline">
-                  <h2>how it works</h2>
-                  <div className="headline__subtitle">
-                    <img src={WORK} alt="WORK" />
-                  </div>
-                </div>
-                <span className="green__line" />
-              </div>
+              <Headline
+                title="how it works"
+                src={WORK}
+                alt="WORK"
+                greenLine=""
+              />
               <DescriptionOfWork works={works} />
             </div>
           </section>
     
           <section className="dish" id="menu">
             <div className="container">
-              <div className="dish__title">
-                <div className="headline">
-                  <h2>Dish Of The Day</h2>
-                  <div className="headline__subtitle">
-                    <img src={DISHES} alt="DISHES" />
-                  </div>
-                </div>
-                <span className="green__line" />
-              </div>
+              <Headline
+                title="Dish Of The Day"
+                src={DISHES}
+                alt="DISHES"
+                greenLine=""
+              />
               <DishCards dish={dish} />
             </div>
           </section>
     
           <section className="chefs" id="chefs">
             <div className="container">
-              <div className="chefs__title">
-                <div className="headline">
-                  <h2>This month`&apos;`s chefs</h2>
-                  <div className="headline__subtitle">
-                    <img src={CHEFS} alt="CHEFS" />
-                  </div>
-                </div>
-                <span className="green__line" />
-              </div>
-              
+              <Headline
+                title="This month`&apos;`s chefs"
+                src={CHEFS}
+                alt="CHEFS"
+                greenLine=""
+              />
               <ChefsCards />
             </div>
           </section>
     
           <section className="recipes" id="recipes">
             <div className="container">
-              <div className="recipes__title">
-                <div className="headline">
-                  <h2>Recipes From Our Chefs</h2>
-                  <div className="headline__subtitle">
-                    <img src={RECIPES} alt="RECIPES" />
-                  </div>
-                </div>
-                <span className="green__line" />
-              </div>
+              <Headline
+                title="Recipes From Our Chefs"
+                src={RECIPES}
+                alt="RECIPES"
+                greenLine=""
+              />
               <RecipeCards recipes={recipes} />
             </div>
           </section>
     
           <section className="social">
             <div className="container">
-              <div className="social__title">
-                <div className="headline">
-                  <h2>We in Social</h2>
-                  <div className="headline__subtitle">
-                    <img src={SOCIAL} alt="SOCIAL" />
-                  </div>
-                </div>
-                <span className="green__line" />
-              </div>
+              <Headline
+                title="We in Social"
+                src={SOCIAL}
+                alt="SOCIAL"
+                greenLine=""
+              />
               <div className="social__cards">
     
                 <div className="card">
