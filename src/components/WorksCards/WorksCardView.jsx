@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 
-function DescriptionOfWorkView({ title, subtitle }) {
+import './sass/WorksCardView.sass';
+
+function WorksCardView({ title, subtitle }) {
   return (
     <div className="work__card">
       <h2 className="work__card-title">{title}</h2>
@@ -10,9 +12,9 @@ function DescriptionOfWorkView({ title, subtitle }) {
   );
 }
   
-DescriptionOfWorkView.propTypes = {
+WorksCardView.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
 };
 
-export default DescriptionOfWorkView;
+export default WorksCardView;

@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import DescriptionOfWorkView from './DescriptionOfWorkView';
+import WorksCardsView from './WorksCardView';
+import './sass/WorksCards.sass';
 
-function DescriptionOfWork({ works }) {
+function WorksCards({ works }) {
   const elements = works.map((item) => (
-    <DescriptionOfWorkView key={item.key} title={item.title} subtitle={item.subtitle} />
+    <WorksCardsView key={item.key} title={item.title} subtitle={item.subtitle} />
   ));
 
   return (
@@ -15,7 +16,7 @@ function DescriptionOfWork({ works }) {
   );
 }
 
-DescriptionOfWork.propTypes = {
+WorksCards.propTypes = {
   works: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.number.isRequired,
@@ -25,4 +26,4 @@ DescriptionOfWork.propTypes = {
   ).isRequired,
 };
 
-export default DescriptionOfWork;
+export default WorksCards;
