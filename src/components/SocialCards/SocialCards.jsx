@@ -11,6 +11,8 @@ import IcInstagram from '../../assets/icons/ic_instagram.svg';
 import IcTwitter from '../../assets/icons/ic_twitter.svg';
 import arrow from '../../assets/icons/arrow.svg';
 
+import './sass/SocialCards.sass';
+
 function SocialCards() {
   return (
     <div className="social__cards">
@@ -21,7 +23,7 @@ function SocialCards() {
           title="Twitter"
         />
         <div className="card__main">
-          <span />
+          <span className="span__right" />
           <h4 className="data">24 Jun at 16:20 pm</h4>
           <h4 className="title">
             Lorem ipsum dolor sit amet, consectetur adipiscing 
@@ -59,7 +61,7 @@ function SocialCards() {
           title="Facebook"
         />
         <div className="card__main">
-          <span />
+          <span className="span__right" />
           <h4 className="data">26 Jun at 16:20 pm</h4>
           <h4 className="title">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, 

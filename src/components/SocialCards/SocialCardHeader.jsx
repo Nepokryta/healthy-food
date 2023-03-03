@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 
+import './sass/SocialCardHeader.sass';
+
 function SocialCardHeader({ src, alt, title }) {
   return (
     <>
@@ -8,7 +10,7 @@ function SocialCardHeader({ src, alt, title }) {
           <img src={src} alt={alt} />
         </div>
         <div className="subtitle">{title}</div>
-        <button className="btn" type="submit">follow us</button>
+        <button className="card__action-btn button" type="submit">follow us</button>
       </div>
       <hr />
     </>
