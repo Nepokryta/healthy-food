@@ -13,6 +13,8 @@ import Img4 from '../../assets/img/img2-3.png';
 import Img5 from '../../assets/img/img3-2.png';
 import Img6 from '../../assets/img/img3-3.png';
 
+import './sass/ChefsCards.sass';
+
 function ChefsCards() {
   return (
     <div className="chefs__cards">

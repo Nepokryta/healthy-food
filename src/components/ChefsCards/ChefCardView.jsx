@@ -1,21 +1,23 @@
 import PropTypes from 'prop-types';
 
+import './sass/ChefCardView.sass';
+
 function ChefCardView({
   avatar, avatarAlt, name, title, bigImg, bigImgAlt, smallImg1, smallImg1Alt, smallImg2, smallImg2Alt 
 }) {
   return (
-    <div className="chefs__card">
-      <div className="card__info">
-        <img src={avatar} alt={avatarAlt} />
-        <div className="card__info__name">
-          <h2 className="card__info__name-title">{name}</h2>
-          <h3 className="card__info__name-subtitle">{title}</h3>
+    <div className="chefs">
+      <div className="chef">
+        <img src={avatar} alt={avatarAlt} className="chef__photo" />
+        <div className="chef__name">
+          <h2 className="chef__name_title">{name}</h2>
+          <h3 className="chef__name_subtitle">{title}</h3>
         </div>
       </div>
-      <div className="card__photo">
-        <img src={bigImg} alt={bigImgAlt} className="card__photo-big" />
-        <img src={smallImg1} alt={smallImg1Alt} className="card__photo-small" />
-        <img src={smallImg2} alt={smallImg2Alt} className="card__photo-small" />
+      <div className="chef__card-photo">
+        <img className="chef__card-photo-big" src={bigImg} alt={bigImgAlt} />
+        <img className="chef__card-photo-small" src={smallImg1} alt={smallImg1Alt} />
+        <img className="chef__card-photo-small" src={smallImg2} alt={smallImg2Alt} />
       </div>
     </div>
   );
