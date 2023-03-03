@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import RatingStars from './RatingStars/RatingStars';
 import { ReactComponent as Close } from '../../assets/icons/close.svg';
 
+import './sass/DishCardView.sass';
+
 class DishCardView extends Component {                  
   render() {
     const {
@@ -20,23 +22,18 @@ class DishCardView extends Component {
         <div className="dish__card-details">
           <h2 className="dish__card-title">{title}</h2>
           <h3 className="dish__card-subtitle">{subtitle}</h3>
-          <h3 
-            className="dish__card-subtitle"
-            style={{ color: '#3be967', fontSize: '15px', fontWeight: '400' }}
-          >
-            {newSubtitle}
-          </h3>
+          <h3 className="dish__card-newsubtitle">{newSubtitle}</h3>
           <h4 className="dish__card-description">{description}</h4>
-          <button className="card__action-btn" type="submit" onClick={() => onAddElement(id)}>MY FAVORITE</button>
-          <div style={{ display: 'flex', gap: '10px' }}>
-            <button className="card__action-btn" type="submit" onClick={() => onDeleteElement(id)}>DELETE</button>
-            <button className="card__action-btn" type="submit" onClick={() => onAddElementOnClick(id)}>ADD</button>
+          <button className="card__action-btn button" type="submit" onClick={() => onAddElement(id)}>MY FAVORITE</button>
+          <div className="botton_block">
+            <button className="card__action-btn button" type="submit" onClick={() => onDeleteElement(id)}>DELETE</button>
+            <button className="card__action-btn button" type="submit" onClick={() => onAddElementOnClick(id)}>ADD</button>
           </div>
         </div>
         <div className="dish__card-action">
           <RatingStars />
           <button 
-            className="card__action-btn" 
+            className="card__action-btn button" 
             type="submit"
             onClick={() => onAddCardClick(src, alt, title, subtitle, description)}
           >

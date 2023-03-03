@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import DishCardView from './DishCardView';
 
+import './sass/DishCards.sass';
+
 class DishCards extends Component {
   constructor(props) {
     super(props);
@@ -91,15 +93,15 @@ class DishCards extends Component {
     ));
 
     return (
-      <>
+      <div className="container">
         <div className="dish__cards">
           {elements}
         </div>
-        <div className="btn">
-          <button className="action-btn" type="submit" onClick={this.handleRandomSort}>RANDOM</button>
-          <button className="action-btn" type="submit" onClick={this.handleSort}>SORT</button>
+        <div className="sortBtn">
+          <button className="action-btn button" type="submit" onClick={this.handleRandomSort}>RANDOM</button>
+          <button className="action-btn button" type="submit" onClick={this.handleSort}>SORT</button>
         </div>
-      </>
+      </div>
     );
   }
 }
