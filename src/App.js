@@ -9,6 +9,7 @@ import RecipeCards from './components/RecipeCards/RecipeCards';
 import DishCards from './components/DishCards/DishCards';
 import ChefsCards from './components/ChefsCards/ChefsCards';
 import Headline from './components/Headline/Headline';
+import SocialCards from './components/SocialCards/SocialCards';
 
 import { ReactComponent as Github } from './assets/icons/github.svg';
 import { ReactComponent as Figma } from './assets/icons/figma.svg';
@@ -17,12 +18,6 @@ import BeansAndPeppers from './assets/img/beans-and-peppers.png';
 import Eggs from './assets/img/eggs.png';
 import Fish from './assets/img/fish.png';
 import GreenSalad from './assets/img/green-salad.png';
-import Placehholder1 from './assets/img/placehholder1.png';
-import Placehholder2 from './assets/img/placehholder2.png';
-import Placehholder3 from './assets/img/placehholder3.png';
-import Placehholder4 from './assets/img/placehholder4.png';
-import Placehholder5 from './assets/img/placehholder5.png';
-import Placehholder6 from './assets/img/placehholder6.png';
 import SaladVegetables from './assets/img/salad-vegetables.png';
 import Salad from './assets/img/salad.png';
 import ThreeSalads from './assets/img/three-salads.png';
@@ -30,12 +25,8 @@ import Vegetables from './assets/img/vegetables.png';
 import YellowSoup from './assets/img/yellow-soup.png';
 
 import ABOUT from './assets/icons/ABOUT.svg';
-import arrow from './assets/icons/arrow.svg';
 import CHEFS from './assets/icons/CHEFS.svg';
 import DISHES from './assets/icons/DISHES.svg';
-import IcFacebook from './assets/icons/ic_facebook.svg';
-import IcInstagram from './assets/icons/ic_instagram.svg';
-import IcTwitter from './assets/icons/ic_twitter.svg';
 import LogoTitle from './assets/icons/logo-title.svg';
 import Logo from './assets/icons/logo.svg';
 import RECIPES from './assets/icons/RECIPES.svg';
@@ -282,73 +273,7 @@ class App extends Component {
                 alt="SOCIAL"
                 greenLine=""
               />
-              <div className="social__cards">
-    
-                <div className="card">
-                  <div className="card__header">
-                    <div className="icon">
-                      <img src={IcTwitter} alt="ic_twitter" />
-                    </div>
-                    <div className="subtitle">Twitter</div>
-                    <button className="btn" type="submit">follow us</button>
-                  </div>
-                  <hr />
-                  <div className="card__main">
-                    <span />
-                    <h4 className="data">24 Jun at 16:20 pm</h4>
-                    <h4 className="title">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing 
-                      elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, 
-                      consectetur adipiscing
-                    </h4>
-                    <h4 className="name">@DennisFerguson</h4>
-                  </div>
-                </div>
-                <div className="card">
-                  <div className="card__header">
-                    <div className="icon">
-                      <img src={IcInstagram} alt="ic_instagram" />
-                    </div>
-                    <div className="subtitle">Instagram</div>
-                    <button className="btn" type="submit">follow us</button>
-                  </div>
-                  <hr />
-                  <div className="card__main">
-                    <span className="span__img" />
-                    <button className="arrow-card" type="submit">
-                      <img src={arrow} alt="arrow" />
-                    </button>
-                    <div className="card__main-img">
-                      <img src={Placehholder1} alt="placehholder1" />
-                      <img src={Placehholder2} alt="placehholder2" />
-                      <img src={Placehholder3} alt="placehholder3" />
-                      <img src={Placehholder4} alt="placehholder4" />
-                      <img src={Placehholder5} alt="placehholder5" />
-                      <img src={Placehholder6} alt="placehholder6" />
-                    </div>
-                  </div>
-                </div>
-                <div className="card">
-                  <div className="card__header">
-                    <div className="icon">
-                      <img src={IcFacebook} alt="ic_facebook" />
-                    </div>
-                    <div className="subtitle">Facebook</div>
-                    <button type="submit" className="btn">follow us</button>
-                  </div>
-                  <hr />
-                  <div className="card__main">
-                    <span />
-                    <h4 className="data">26 Jun at 16:20 pm</h4>
-                    <h4 className="title">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                      sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur 
-                      adipiscing Lorem ipsum dolor sit amet, consectetur adipiscing
-                    </h4>
-                  </div>
-                </div>
-    
-              </div>
+              <SocialCards />
             </div>
           </section>
         </main>
