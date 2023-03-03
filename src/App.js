@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
 
-import './css/style.min.css';
-
-import Logo from './components/Logo/Logo';
-import Contacts from './components/Contacts/Contacts';
+import Header from './components/Header/Header';
+import Main from './components/Main/Main';
 import Slider from './components/Slider/Slider';
-import DescriptionOfWork from './components/DescriptionOfWork/DescriptionOfWork';
+import WorksCards from './components/WorksCards/WorksCards';
 import RecipeCards from './components/RecipeCards/RecipeCards';
 import DishCards from './components/DishCards/DishCards';
 import ChefsCards from './components/ChefsCards/ChefsCards';
 import Headline from './components/Headline/Headline';
 import SocialCards from './components/SocialCards/SocialCards';
-
-import { ReactComponent as Github } from './assets/icons/github.svg';
-import { ReactComponent as Figma } from './assets/icons/figma.svg';
+import Footer from './components/Footer/Footer';
 
 import BeansAndPeppers from './assets/img/beans-and-peppers.png';
 import Eggs from './assets/img/eggs.png';
@@ -53,7 +49,7 @@ class App extends Component {
           key: 1,
           title: 'Pick meals',
           subtitle: `Choose your meals from our diverse weekly menu. Find gluten or dairy free, 
-            low carb & veggie options.`
+          low carb & veggie options.`
         },
         {
           key: 2,
@@ -161,145 +157,62 @@ class App extends Component {
 
     return (
       <>
-        <header className="header">
-          <div className="container">
-            <Logo className="logo" />
-            <nav className="nav">
-              <a href="#menu">Menu</a>
-              <a href="#recipes">Recipes</a>
-              <a href="#chefs">Chefs</a>
-              <a href="#contact">Contacts</a>
-            </nav>
-          </div>
-          <hr />
-        </header>
-    
+        <Header />
+        <hr />            
         <main>
-          <section className="main">
-            <div className="container">
-              <h1 className="main__title">
-                <span>Your</span>
-                {' '}
-                favourite food
-                <br />
-                <span>delivered</span>
-                {' '}
-                hot & fresh
-              </h1>
-              <h3 className="main__subtitle">
-                HEALTHY SWITCHER chefs do all the prep work, like peeling, chopping & 
-                marinating, so you can cook a fresh homemade dinner in just 15 minutes.
-              </h3>
-              <button className="main__btn" type="submit">Order Now</button>
-              <Contacts />
-            </div>
-          </section>
+          <Main />
     
           <section className="about">
-            <div className="container">
-              <Headline
-                title="&quot;The Basics Of Healthy Food&quot;"
-                src={ABOUT}
-                alt="ABOUT"
-                greenLine="_inline"
-              />
-              <h3 className="about__subtitle">
-                In aliqua ea ullamco ad est ex non deserunt nulla. 
-                Consectetur sint ea aliquip aliquip consectetur 
-                voluptate est. Eu minim dolore laboris enim mollit 
-                voluptate irure esse aliquip.
-              </h3>
-              <Slider slider={slider} />
-            </div>
+            <Headline
+              title="The Basics Of Healthy Food"
+              src={ABOUT}
+              alt="ABOUT"
+              greenLine="_inline"
+            />
+            <Slider slider={slider} />
           </section>
     
-          <section className="works">
-            <div className="container">
-              <Headline
-                title="how it works"
-                src={WORK}
-                alt="WORK"
-                greenLine=""
-              />
-              <DescriptionOfWork works={works} />
-            </div>
-          </section>
-    
-          <section className="dish" id="menu">
-            <div className="container">
-              <Headline
-                title="Dish Of The Day"
-                src={DISHES}
-                alt="DISHES"
-                greenLine=""
-              />
-              <DishCards dish={dish} />
-            </div>
-          </section>
-    
-          <section className="chefs" id="chefs">
-            <div className="container">
-              <Headline
-                title="This month`&apos;`s chefs"
-                src={CHEFS}
-                alt="CHEFS"
-                greenLine=""
-              />
-              <ChefsCards />
-            </div>
-          </section>
-    
-          <section className="recipes" id="recipes">
-            <div className="container">
-              <Headline
-                title="Recipes From Our Chefs"
-                src={RECIPES}
-                alt="RECIPES"
-                greenLine=""
-              />
-              <RecipeCards recipes={recipes} />
-            </div>
-          </section>
-    
-          <section className="social">
-            <div className="container">
-              <Headline
-                title="We in Social"
-                src={SOCIAL}
-                alt="SOCIAL"
-                greenLine=""
-              />
-              <SocialCards />
-            </div>
-          </section>
+          <Headline
+            title="how it works"
+            src={WORK}
+            alt="WORK"
+            greenLine=""
+          />
+          <WorksCards works={works} />
+           
+          <Headline
+            title="Dish Of The Day"
+            src={DISHES}
+            alt="DISHES"
+            greenLine=""
+          />
+          <DishCards dish={dish} />
+            
+          <Headline
+            title="This month&apos;s chefs"
+            src={CHEFS}
+            alt="CHEFS"
+            greenLine=""
+          />
+          <ChefsCards />
+          
+          <Headline
+            title="Recipes From Our Chefs"
+            src={RECIPES}
+            alt="RECIPES"
+            greenLine=""
+          />
+          <RecipeCards recipes={recipes} />
+           
+          <Headline
+            title="We in Social"
+            src={SOCIAL}
+            alt="SOCIAL"
+            greenLine=""
+          />
+          <SocialCards />
         </main>
-        <footer className="footer">
-          <div className="container">
-            <Contacts />
-          </div>
-          <hr />
-          <Logo className="footer__logo" />
-          <h4 className="footer__title">© Designed by Yellow Snow. All Rights Reserved.</h4>
-          <div className="description">
-            <h2>Olena Nepokryta</h2>
-            <a 
-              href="https://github.com/Nepokryta" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            > 
-              <Github />
-              Github
-            </a>
-            <a 
-              href="https://www.figma.com/file/DmIkAGpRNjIg7EqJRXQV4I/Healthy-food?node-id=0%3A1" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <Figma /> 
-              Figma
-            </a>
-          </div>
-        </footer>
+        <Footer />
       </>
     );
   }
