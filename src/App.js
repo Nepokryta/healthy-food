@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import './css/style.min.css';
 
+import Logo from './components/Logo/Logo';
 import Contacts from './components/Contacts/Contacts';
 import Slider from './components/Slider/Slider';
 import DescriptionOfWork from './components/DescriptionOfWork/DescriptionOfWork';
@@ -27,8 +28,6 @@ import YellowSoup from './assets/img/yellow-soup.png';
 import ABOUT from './assets/icons/ABOUT.svg';
 import CHEFS from './assets/icons/CHEFS.svg';
 import DISHES from './assets/icons/DISHES.svg';
-import LogoTitle from './assets/icons/logo-title.svg';
-import Logo from './assets/icons/logo.svg';
 import RECIPES from './assets/icons/RECIPES.svg';
 import SOCIAL from './assets/icons/SOCIAL.svg';
 import WORK from './assets/icons/WORK.svg';
@@ -164,10 +163,7 @@ class App extends Component {
       <>
         <header className="header">
           <div className="container">
-            <a className="logo" href="/">
-              <img src={Logo} alt="logo" />
-              <img src={LogoTitle} alt="logoTitle" />
-            </a>
+            <Logo className="logo" />
             <nav className="nav">
               <a href="#menu">Menu</a>
               <a href="#recipes">Recipes</a>
@@ -282,10 +278,7 @@ class App extends Component {
             <Contacts />
           </div>
           <hr />
-          <a className="footer__logo" href="/">
-            <img src={Logo} alt="logo" />
-            <img src={LogoTitle} alt="logoTitle" />
-          </a>
+          <Logo className="footer__logo" />
           <h4 className="footer__title">© Designed by Yellow Snow. All Rights Reserved.</h4>
           <div className="description">
             <h2>Olena Nepokryta</h2>
