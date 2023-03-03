@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import RatingStarView from './RatingStarView';
+import '../sass/RatingStars.sass';
 
 class RatingStars extends Component {
   constructor(props) {

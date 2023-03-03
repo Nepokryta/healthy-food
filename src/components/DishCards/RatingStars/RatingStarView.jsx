@@ -4,13 +4,14 @@ import { ReactComponent as StarBorder } from '../../../assets/icons/ic_star_bord
 // import { ReactComponent as StarHalf } from '../../assets/icons/ic_star_half.svg'
 import { ReactComponent as Star } from '../../../assets/icons/ic_star.svg';
 
+import '../sass/RatingStarView.sass';
+
 function RatingStarView({ filled, onClick }) {
   return (
     <button
-      className="Star"
+      className="star"
       onClick={() => onClick()}
-      type="submit" 
-      style={{ backgroundColor: 'transparent', padding: '0', border: '0' }}
+      type="submit"
     >
       { filled ? <Star /> : <StarBorder />}
     </button>
