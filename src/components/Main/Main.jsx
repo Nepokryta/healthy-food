@@ -1,6 +1,6 @@
 import Contacts from '../Contacts/Contacts';
 
-import './sass/Main.sass';
+import './Main.sass';
 
 function Main() {
   return (

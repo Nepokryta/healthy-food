@@ -1,6 +1,6 @@
 import Logo from '../Logo/Logo';
 
-import './sass/Header.sass';
+import './Header.sass';
 
 function Header() {
   return (
