@@ -4,6 +4,8 @@ import IcWatchLater from '../../assets/icons/ic_watch_later.svg';
 import IcNearMe from '../../assets/icons/ic_near_me.svg';
 import IcCall from '../../assets/icons/ic_call.svg';
 
+import './sass/Contact.sass';
+
 class Contacts extends Component {
   render() {
     return (
