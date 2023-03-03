@@ -4,6 +4,8 @@ import { ReactComponent as Arrow } from '../../assets/icons/arrow.svg';
 import { ReactComponent as RemoveRedEye } from '../../assets/icons/ic_remove_red_eye.svg';
 import { ReactComponent as QuestionAnswer } from '../../assets/icons/ic_question_answer.svg';
 
+import './sass/RecipeCardView.sass';
+
 function RecipeCardView({
   size, background, subtitle, title 
 }) {

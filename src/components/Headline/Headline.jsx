@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types';
 
+import './sass/Headline.sass';
+
 function Headline({
   title, src, alt, greenLine 
 }) {
   return (
     <>
       <div className="headline">
-        <h2>{title}</h2>
+        <h2 className="headline__title">{title}</h2>
         <div className="headline__subtitle">
           <img src={src} alt={alt} />
         </div>

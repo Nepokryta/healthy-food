@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RecipeCardView from './RecipeCardView';
 
+import './sass/RecipeCards.sass';
+
 function RecipeCards({ recipes }) {
   const elements = recipes.map((item) => (
     <RecipeCardView 
