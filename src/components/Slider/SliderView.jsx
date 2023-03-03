@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
+import './sass/SliderView.sass';
 
 function SliderView({ src, alt }) {
   return (
-    <img src={src} alt={alt} />
+    <img className="slider__card" src={src} alt={alt} />
   );
 }
 
