@@ -35,7 +35,8 @@ class DishCards extends Component {
 
   handleCardClick = (id) => {
     this.setState(({ dish }) => ({
-      dish: dish.filter((item) => item.key !== id)
+    //   dish: dish.filter((item) => item.key !== id)
+      dish: dish.filter((item) => item.id !== undefined && item.key !== id)
     }));
   };
 
@@ -45,7 +46,7 @@ class DishCards extends Component {
       src, 
       alt, 
       title, 
-      subtitle, 
+      subtitle,
       description,
     };
     this.maxId += 1;
@@ -74,34 +75,17 @@ class DishCards extends Component {
 
   render() {
     const { dish } = this.state;
-    const elements = dish.map((item) => (
+    return (
       <DishCardView 
-        key={item.key} 
-        id={item.key} 
-        src={item.src}
-        alt={item.alt}
-        title={item.title}
-        subtitle={item.subtitle}
-        newSubtitle={item.newSubtitle}
-        description={item.description}
+        dish={dish} 
+        onSort={this.handleSort}
+        onRandomSort={this.handleRandomSort}
         onCardClick={this.handleCardClick} 
         onAddElement={this.handleAddElement}
         onDeleteElement={this.handleDeleteElement}
         onAddElementOnClick={this.handleAddElementOnClick}
         onAddCardClick={this.handleAddCardClick}
-      />
-    ));
-
-    return (
-      <div className="container">
-        <div className="dish__cards">
-          {elements}
-        </div>
-        <div className="sortBtn">
-          <button className="action-btn button" type="submit" onClick={this.handleRandomSort}>RANDOM</button>
-          <button className="action-btn button" type="submit" onClick={this.handleSort}>SORT</button>
-        </div>
-      </div>
+      /> 
     );
   }
 }
