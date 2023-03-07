@@ -40,7 +40,7 @@ class DishCards extends Component {
     }));
   };
 
-  handleAddCardClick = (src, alt, title, subtitle, description) => {
+  handleAddCardClick = (src, alt, title, subtitle, description, newSubtitle) => {
     const newItem = {
       key: this.maxId + 1,
       src, 
@@ -48,6 +48,7 @@ class DishCards extends Component {
       title, 
       subtitle,
       description,
+      newSubtitle,
     };
     this.maxId += 1;
     this.setState(({ dish }) => ({
@@ -57,19 +58,40 @@ class DishCards extends Component {
    
   handleAddElement = (id) => {
     this.setState(({ dish }) => ({
-      dish: dish.map((item) => (item.key === id ? { ...item, title: 'My favorite' } : item))
+      dish: dish.map((item) => (item.key === id
+        ? {
+          ...item,
+          isFavorite: !item.isFavorite,
+          title: item.isFavorite ? item.prevTitle : 'My favorite',
+          prevTitle: item.title,
+        }
+        : item)),
     }));
   };
 
-  handleDeleteElement = (key) => {
+  handleDeleteElement = (id) => {
     this.setState(({ dish }) => ({
-      dish: dish.map((item) => (item.key === key ? { ...item, subtitle: '' } : item))
+      dish: dish.map((item) => (item.key === id 
+        ? {
+          ...item,
+          isDelete: !item.isDelete,
+          subtitle: item.isDelete ? item.prevSubtitle : ' ',
+          prevSubtitle: item.subtitle,
+        }
+        : item)),
     }));
   };
 
   handleAddElementOnClick = (id) => {
     this.setState(({ dish }) => ({
-      dish: dish.map((item) => (item.key === id ? { ...item, newSubtitle: 'Great choice!' } : item))
+      dish: dish.map((item) => (item.key === id 
+        ? { 
+          ...item,
+          isAdd: !item.isAdd,
+          newSubtitle: item.isAdd ? item.prevNewSubtitle : 'Great choice!',
+          prevNewSubtitle: ' ',
+        } 
+        : item))
     }));
   };
 
