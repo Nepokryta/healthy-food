@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import RatingStarView from './RatingStarView';
+import StarValue from '../../../constants/StarValue';
 import '../sass/RatingStars.sass';
 
 class RatingStars extends Component {
@@ -14,27 +15,7 @@ class RatingStars extends Component {
 
   handleStarClick = (rating) => {
     this.setState({ rating });
-    let newStarValue = 0;
-    switch (rating) {
-      case 1:
-        newStarValue = 5;
-        break;
-      case 2:
-        newStarValue = 10;
-        break;
-      case 3:
-        newStarValue = 15;
-        break;
-      case 4:
-        newStarValue = 20;
-        break;
-      case 5:
-        newStarValue = 25;
-        break;
-      default:
-        newStarValue = 0;
-    }
-
+    const newStarValue = StarValue[rating] || 0;
     this.setState({ starValue: newStarValue });
   };
     
