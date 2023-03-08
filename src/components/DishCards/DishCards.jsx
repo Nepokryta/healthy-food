@@ -113,6 +113,7 @@ class DishCards extends Component {
 
   render() {
     const { dish, activeCard } = this.state;
+    dish[0].id = 0;
     return (
       <DishCardView 
         dish={dish} 
@@ -135,20 +136,20 @@ DishCards.propTypes = {
   dish: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.number.isRequired, 
-      id: PropTypes.number.isRequired, 
+      id: PropTypes.number, 
       src: PropTypes.string.isRequired,
       alt: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       subtitle: PropTypes.string.isRequired,
       newSubtitle: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
-      onCardClick: PropTypes.func.isRequired, 
-      onAddElement: PropTypes.func.isRequired,
-      onDeleteElement: PropTypes.func.isRequired,
-      onAddElementOnClick: PropTypes.func.isRequired,
-      onAddCardClick: PropTypes.func.isRequired,
-      toggleActive: PropTypes.func.isRequired,
-      toggleActiveCard: PropTypes.func.isRequired,
+      onCardClick: PropTypes.func, 
+      onAddElement: PropTypes.func,
+      onDeleteElement: PropTypes.func,
+      onAddElementOnClick: PropTypes.func,
+      onAddCardClick: PropTypes.func,
+      toggleActive: PropTypes.func,
+      toggleActiveCard: PropTypes.func,
     })
   ).isRequired,
 };
