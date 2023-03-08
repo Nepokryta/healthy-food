@@ -10,7 +10,7 @@ class DishCardView extends Component {
   render() {
     const {
       dish, onSort, onRandomSort, onCardClick, onAddElement, 
-      onDeleteElement, onAddElementOnClick, onAddCardClick 
+      onDeleteElement, onAddElementOnClick, onAddCardClick, toggleActive, toggleActiveCard
     } = this.props;
     const elements = dish.map((item) => (
       <DishCard
@@ -29,6 +29,8 @@ class DishCardView extends Component {
         onDeleteElement={onDeleteElement}
         onAddElementOnClick={onAddElementOnClick}
         onAddCardClick={onAddCardClick}
+        toggleActive={toggleActive}
+        toggleActiveCard={toggleActiveCard}
       />
     ));
       
@@ -49,10 +51,17 @@ class DishCardView extends Component {
 function DishCard(props) {                  
   const {
     id, src, alt, title, subtitle, newSubtitle, description, 
-    onCardClick, onAddElement, onDeleteElement, onAddElementOnClick, onAddCardClick
+    onCardClick, onAddElement, onDeleteElement, onAddElementOnClick, onAddCardClick, toggleActive, toggleActiveCard
   } = props;
+
   return (
-    <div className="dish__card">
+    <div 
+      className={toggleActiveCard()}
+      onClick={() => toggleActive(id)} 
+      onKeyDown={() => console.log('bbb')} 
+      tabIndex={0} 
+      role="button"
+    >
       <button className="arrow-card" type="submit" onClick={() => onCardClick(id)}>
         <Close />
       </button>
@@ -62,16 +71,16 @@ function DishCard(props) {
         <h3 className="dish__card-subtitle">{subtitle}</h3>
         <h3 className="dish__card-newsubtitle">{newSubtitle}</h3>
         <h4 className="dish__card-description">{description}</h4>
-        <button className="card__action-btn button" type="submit" onClick={() => onAddElement(id)}>MY FAVORITE</button>
+        <button className="activityBTN button" type="submit" onClick={() => onAddElement(id)}>MY FAVORITE</button>
         <div className="botton_block">
-          <button className="card__action-btn button" type="submit" onClick={() => onDeleteElement(id)}>DELETE</button>
-          <button className="card__action-btn button" type="submit" onClick={() => onAddElementOnClick(id)}>ADD</button>
+          <button className="activityBTN button" type="submit" onClick={() => onDeleteElement(id)}>DELETE</button>
+          <button className="activityBTN button" type="submit" onClick={() => onAddElementOnClick(id)}>ADD</button>
         </div>
       </div>
       <div className="dish__card-action">
         <RatingStars />
         <button 
-          className="card__action-btn button" 
+          className="activityBTN button" 
           type="submit"
           onClick={() => onAddCardClick(src, alt, title, subtitle, description)}
         >
@@ -90,6 +99,8 @@ DishCardView.propTypes = {
   onDeleteElement: PropTypes.func.isRequired,
   onAddElementOnClick: PropTypes.func.isRequired,
   onAddCardClick: PropTypes.func.isRequired,
+  toggleActive: PropTypes.func.isRequired,
+  toggleActiveCard: PropTypes.func.isRequired,
   dish: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired, 
@@ -104,6 +115,8 @@ DishCardView.propTypes = {
       onDeleteElement: PropTypes.func.isRequired,
       onAddElementOnClick: PropTypes.func.isRequired,
       onAddCardClick: PropTypes.func.isRequired,
+      toggleActive: PropTypes.func.isRequired,
+      toggleActiveCard: PropTypes.func.isRequired,
     }).isRequired
   ).isRequired,
 };
@@ -121,6 +134,8 @@ DishCard.propTypes = {
   onDeleteElement: PropTypes.func.isRequired,
   onAddElementOnClick: PropTypes.func.isRequired,
   onAddCardClick: PropTypes.func.isRequired,
+  toggleActive: PropTypes.func.isRequired,
+  toggleActiveCard: PropTypes.func.isRequired,
 };
 
 export default DishCardView;

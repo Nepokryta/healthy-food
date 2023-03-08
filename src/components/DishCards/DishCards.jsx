@@ -9,9 +9,10 @@ class DishCards extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dish: props.dish
+      dish: props.dish,
+      activeCard: 0,
     };
-    this.maxId = 7;
+    this.maxId = 6;
   }
 
   handleSort = () => {
@@ -35,7 +36,6 @@ class DishCards extends Component {
 
   handleCardClick = (id) => {
     this.setState(({ dish }) => ({
-    //   dish: dish.filter((item) => item.key !== id)
       dish: dish.filter((item) => item.id !== undefined && item.key !== id)
     }));
   };
@@ -95,11 +95,28 @@ class DishCards extends Component {
     }));
   };
 
-  render() {
+  toggleActive = (id) => {
     const { dish } = this.state;
+    const newId = id;
+    const newItem = dish.map((item) => (item.key === id ? item.key : item));
+ 
+    this.setState(({ activeCard }) => ({
+      activeCard: activeCard === 0 || activeCard !== newId ? newItem[id - 1] : 0
+    }));
+  };
+
+  toggleActiveCard = () => {
+    const { activeCard, dish } = this.state;
+    return dish.map((item) => (item.key === activeCard 
+      ? 'dish__card active' : 'dish__card inactive'));
+  };
+
+  render() {
+    const { dish, activeCard } = this.state;
     return (
       <DishCardView 
         dish={dish} 
+        activeCard={activeCard}
         onSort={this.handleSort}
         onRandomSort={this.handleRandomSort}
         onCardClick={this.handleCardClick} 
@@ -107,6 +124,8 @@ class DishCards extends Component {
         onDeleteElement={this.handleDeleteElement}
         onAddElementOnClick={this.handleAddElementOnClick}
         onAddCardClick={this.handleAddCardClick}
+        toggleActive={this.toggleActive}
+        toggleActiveCard={this.toggleActiveCard}
       /> 
     );
   }
@@ -128,6 +147,8 @@ DishCards.propTypes = {
       onDeleteElement: PropTypes.func.isRequired,
       onAddElementOnClick: PropTypes.func.isRequired,
       onAddCardClick: PropTypes.func.isRequired,
+      toggleActive: PropTypes.func.isRequired,
+      toggleActiveCard: PropTypes.func.isRequired,
     })
   ).isRequired,
 };
