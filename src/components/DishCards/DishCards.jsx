@@ -96,19 +96,9 @@ class DishCards extends Component {
   };
 
   toggleActive = (id) => {
-    const { dish } = this.state;
-    const newId = id;
-    const newItem = dish.map((item) => (item.key === id ? item.key : item));
- 
     this.setState(({ activeCard }) => ({
-      activeCard: activeCard === 0 || activeCard !== newId ? newItem[id - 1] : 0
+      activeCard: activeCard === 0 || activeCard !== id ? id : 0
     }));
-  };
-
-  toggleActiveCard = () => {
-    const { activeCard, dish } = this.state;
-    return dish.map((item) => (item.key === activeCard 
-      ? 'dish__card active' : 'dish__card inactive'));
   };
 
   render() {
@@ -126,7 +116,6 @@ class DishCards extends Component {
         onAddElementOnClick={this.handleAddElementOnClick}
         onAddCardClick={this.handleAddCardClick}
         toggleActive={this.toggleActive}
-        toggleActiveCard={this.toggleActiveCard}
       /> 
     );
   }
@@ -149,7 +138,6 @@ DishCards.propTypes = {
       onAddElementOnClick: PropTypes.func,
       onAddCardClick: PropTypes.func,
       toggleActive: PropTypes.func,
-      toggleActiveCard: PropTypes.func,
     })
   ).isRequired,
 };
