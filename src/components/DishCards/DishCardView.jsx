@@ -8,28 +8,42 @@ class DishCardView extends Component {
   render() {
     const {
       dish, onSort, onRandomSort, onCardClick, onAddElement, 
-      onDeleteElement, onAddElementOnClick, onAddCardClick, toggleActive, activeCard
+      onDeleteElement, onAddElementOnClick, onAddCardClick, activeCard,
+      onDragStart, onDragOver, onDrop, onDragLeave, onDragEnd, sortCards, toggleActive, 
     } = this.props;
-    const elements = dish.map((item) => (
-      <OneDishCardView
-        key={item.key} 
-        id={item.key} 
-        src={item.src}
-        alt={item.alt}
-        title={item.title}
-        subtitle={item.subtitle}
-        newSubtitle={item.newSubtitle}
-        description={item.description}
-        onSort={onSort}
-        onRandomSort={onRandomSort}
-        onCardClick={onCardClick} 
-        onAddElement={onAddElement}
-        onDeleteElement={onDeleteElement}
-        onAddElementOnClick={onAddElementOnClick}
-        onAddCardClick={onAddCardClick}
-        toggleActive={toggleActive}
-        activeCard={activeCard}
-      />
+    const elements = dish.sort(sortCards).map((item) => (
+      <div
+        className={activeCard === item.key ? 'dish__card active' : 'dish__card inactive'}
+        draggable
+        onDragStart={(e) => onDragStart(e, item)}
+        onDragLeave={(e) => onDragLeave(e)}
+        onDragEnd={(e) => onDragEnd(e)}
+        onDragOver={(e) => onDragOver(e)}
+        onDrop={(e) => onDrop(e, item)}
+        onKeyDown={() => console.log('DishCardView')} 
+        tabIndex={0} 
+        role="button"
+        key={item.key}
+      >
+        <OneDishCardView
+          id={item.key} 
+          src={item.src}
+          alt={item.alt}
+          title={item.title}
+          subtitle={item.subtitle}
+          newSubtitle={item.newSubtitle}
+          description={item.description}
+          onSort={onSort}
+          onRandomSort={onRandomSort}
+          onCardClick={onCardClick} 
+          onAddElement={onAddElement}
+          onDeleteElement={onDeleteElement}
+          onAddElementOnClick={onAddElementOnClick}
+          onAddCardClick={onAddCardClick}
+          toggleActive={toggleActive}
+          activeCard={activeCard}
+        />
+      </div>
     ));
       
     return (
@@ -56,6 +70,12 @@ DishCardView.propTypes = {
   onAddCardClick: PropTypes.func.isRequired,
   toggleActive: PropTypes.func.isRequired,
   activeCard: PropTypes.number.isRequired,
+  onDragStart: PropTypes.func.isRequired,
+  onDragLeave: PropTypes.func.isRequired,
+  onDragEnd: PropTypes.func.isRequired,
+  onDragOver: PropTypes.func.isRequired,
+  onDrop: PropTypes.func.isRequired,
+  sortCards: PropTypes.func.isRequired,
   dish: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number, 

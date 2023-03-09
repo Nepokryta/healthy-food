@@ -7,12 +7,10 @@ import { ReactComponent as Close } from '../../assets/icons/close.svg';
 function OneDishCardView(props) {  
   const {
     id, src, alt, title, subtitle, newSubtitle, description, 
-    onCardClick, onAddElement, onDeleteElement, onAddElementOnClick, onAddCardClick, toggleActive, activeCard
+    onCardClick, onAddElement, onDeleteElement, onAddElementOnClick, onAddCardClick, toggleActive,
   } = props;
-  
   return (
     <div 
-      className={activeCard === id ? 'dish__card active' : 'dish__card inactive'}
       onClick={() => toggleActive(id)} 
       onKeyDown={() => console.log('bbb')} 
       tabIndex={0} 
@@ -48,7 +46,6 @@ function OneDishCardView(props) {
 }
 
 OneDishCardView.propTypes = {
-  activeCard: PropTypes.number.isRequired, 
   id: PropTypes.number.isRequired, 
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,

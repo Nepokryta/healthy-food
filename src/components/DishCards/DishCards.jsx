@@ -11,6 +11,7 @@ class DishCards extends Component {
     this.state = {
       dish: props.dish,
       activeCard: 0,
+      currentCard: 0,
     };
     this.maxId = 6;
   }
@@ -97,8 +98,47 @@ class DishCards extends Component {
 
   toggleActive = (id) => {
     this.setState(({ activeCard }) => ({
-      activeCard: activeCard === 0 || activeCard !== id ? id : 0
+      activeCard: activeCard === 0 || activeCard !== id ? id : 0,
     }));
+  };
+
+  dragStarHandler = (e, card) => {
+    this.setState(({ currentCard }) => ({
+      currentCard: currentCard === 0 ? card : 0,
+    }));
+  };
+
+  dragEndHandler = (e) => {
+    const { target } = e;
+    target.style.opacity = '1'; 
+  };
+
+  dragOverHandler = (e) => {
+    e.preventDefault();
+    const { target } = e;
+    target.style.opacity = '0.5';
+  };
+
+  dropHandler = (e, card) => {
+    e.preventDefault();
+    this.setState(({ dish, currentCard }) => ({
+      dish: dish.map((item) => {
+        if (item.key === card.key) {
+          return { ...item, key: currentCard.key };
+        } if (item.key === currentCard.key) {
+          return { ...item, key: card.key };
+        }
+        
+        return item;
+      }),
+      currentCard: currentCard === 0 ? card : 0,
+    }));
+    const { target } = e;
+    target.style.opacity = '1';
+  };
+
+  sortCards = (a, b) => {
+    return (a.key > b.key) ? 1 : -1;
   };
 
   render() {
@@ -116,6 +156,12 @@ class DishCards extends Component {
         onAddElementOnClick={this.handleAddElementOnClick}
         onAddCardClick={this.handleAddCardClick}
         toggleActive={this.toggleActive}
+        onDragStart={this.dragStarHandler}
+        onDragLeave={this.dragEndHandler}
+        onDragEnd={this.dragEndHandler}
+        onDragOver={this.dragOverHandler}
+        onDrop={this.dropHandler}
+        sortCards={this.sortCards}
       /> 
     );
   }
@@ -138,6 +184,11 @@ DishCards.propTypes = {
       onAddElementOnClick: PropTypes.func,
       onAddCardClick: PropTypes.func,
       toggleActive: PropTypes.func,
+      onDragStart: PropTypes.func,
+      onDragLeave: PropTypes.func,
+      onDragEnd: PropTypes.func,
+      onDragOver: PropTypes.func,
+      onDrop: PropTypes.func,
     })
   ).isRequired,
 };
