@@ -53,7 +53,7 @@ class DishCards extends Component {
     }));
   };
 
-  handleAddCardClick = (src, alt, title, subtitle, description, newSubtitle) => {
+  handleAddCardClick = (src, alt, title, subtitle, description, newSubtitle = false) => {
     const newItem = {
       key: this.maxId + 1,
       src, 
@@ -100,9 +100,7 @@ class DishCards extends Component {
       dish: dish.map((item) => (item.key === id 
         ? { 
           ...item,
-          isAdd: !item.isAdd,
-          newSubtitle: item.isAdd ? item.prevNewSubtitle : 'Great choice!',
-          prevNewSubtitle: ' ',
+          newSubtitle: !item.newSubtitle,
         } 
         : item))
     }));
@@ -230,7 +228,7 @@ DishCards.propTypes = {
       alt: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       subtitle: PropTypes.string.isRequired,
-      newSubtitle: PropTypes.string.isRequired,
+      newSubtitle: PropTypes.bool.isRequired,
       description: PropTypes.string.isRequired,
       onCardClick: PropTypes.func, 
       onAddElement: PropTypes.func,

@@ -19,7 +19,7 @@ function OneDishCardView(props) {
       <div className="dish__card-details">
         <h2 className="dish__card-title">{title}</h2>
         <h3 className="dish__card-subtitle">{subtitle}</h3>
-        <h3 className="dish__card-newsubtitle">{newSubtitle}</h3>
+        <h3 className="dish__card-newsubtitle">{newSubtitle ? 'Great choice!' : false}</h3>
         <h4 className="dish__card-description">{description}</h4>
         <button className="activityBTN button" type="submit" onClick={() => onAddElement(id)}>MY FAVORITE</button>
         <div className="botton_block">
@@ -47,7 +47,7 @@ OneDishCardView.propTypes = {
   alt: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
-  newSubtitle: PropTypes.string.isRequired,
+  newSubtitle: PropTypes.bool.isRequired,
   description: PropTypes.string.isRequired,
   onCardClick: PropTypes.func.isRequired, 
   onAddElement: PropTypes.func.isRequired,

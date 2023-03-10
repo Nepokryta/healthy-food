@@ -87,7 +87,7 @@ DishCardView.propTypes = {
       alt: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       subtitle: PropTypes.string.isRequired,
-      newSubtitle: PropTypes.string.isRequired,
+      newSubtitle: PropTypes.bool.isRequired,
       description: PropTypes.string.isRequired,
       onCardClick: PropTypes.func, 
       onAddElement: PropTypes.func,
