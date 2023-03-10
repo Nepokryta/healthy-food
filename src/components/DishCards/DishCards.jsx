@@ -49,7 +49,7 @@ class DishCards extends Component {
 
   handleCardClick = (id) => {
     this.setState(({ dish }) => ({
-      dish: dish.filter((item) => item.id !== undefined && item.key !== id)
+      dish: dish.filter((item) => item.key !== id)
     }));
   };
 
