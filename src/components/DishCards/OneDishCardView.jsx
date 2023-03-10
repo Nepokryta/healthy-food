@@ -7,15 +7,11 @@ import { ReactComponent as Close } from '../../assets/icons/close.svg';
 function OneDishCardView(props) {  
   const {
     id, src, alt, title, subtitle, newSubtitle, description, 
-    onCardClick, onAddElement, onDeleteElement, onAddElementOnClick, onAddCardClick, toggleActive,
+    onCardClick, onAddElement, onDeleteElement, onAddElementOnClick, onAddCardClick, 
   } = props;
+
   return (
-    <div 
-      onClick={() => toggleActive(id)} 
-      onKeyDown={() => console.log('bbb')} 
-      tabIndex={0} 
-      role="button"
-    >
+    <>
       <button className="arrow-card" type="submit" onClick={() => onCardClick(id)}>
         <Close />
       </button>
@@ -41,7 +37,7 @@ function OneDishCardView(props) {
           ADD CARD
         </button>
       </div>
-    </div>
+    </>
   );
 }
 
@@ -58,7 +54,6 @@ OneDishCardView.propTypes = {
   onDeleteElement: PropTypes.func.isRequired,
   onAddElementOnClick: PropTypes.func.isRequired,
   onAddCardClick: PropTypes.func.isRequired,
-  toggleActive: PropTypes.func.isRequired,
 };
 
 export default OneDishCardView;

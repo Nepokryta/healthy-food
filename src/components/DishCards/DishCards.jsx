@@ -12,8 +12,19 @@ class DishCards extends Component {
       dish: props.dish,
       activeCard: 0,
       currentCard: 0,
+      isShiftLeftAndDPresser: false,
     };
     this.maxId = 6;
+  }
+
+  componentDidMount() {
+    window.addEventListener('keydown', this.handleKeyDown);
+    window.addEventListener('keyup', this.handleKeyUp);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.handleKeyDown);
+    window.removeEventListener('keyup', this.handleKeyUp);
   }
 
   handleSort = () => {
@@ -141,12 +152,41 @@ class DishCards extends Component {
     return (a.key > b.key) ? 1 : -1;
   };
 
+  handleKeyDown = (e) => {
+    const { isShiftLeftAndDPresser, activeCard } = this.state;
+    if (e.code === 'KeyD') {
+      this.keyDPressed = true;
+    }
+    if (e.code === 'ShiftLeft') {
+      this.keyShiftLeftPressed = true;
+    }
+    if (this.keyDPressed && this.keyShiftLeftPressed && !isShiftLeftAndDPresser) {
+      this.setState({ isShiftLeftAndDPresser: true, activeCard: activeCard + 1 });
+    }
+  };
+
+  handleKeyUp = (e) => {
+    const { activeCard, dish } = this.state;
+    if (e.code === 'KeyD') {
+      this.keyDPressed = false;
+    }
+    if (e.code === 'ShiftLeft') {
+      this.keyShiftLeftPressed = false;
+    }
+    if (!this.keyDPressed || !this.keyShiftLeftPressed) {
+      this.setState({ isShiftLeftAndDPresser: false, activeCard: activeCard > dish.length ? 1 : activeCard });
+    }
+  };
+  
   render() {
     const { dish, activeCard } = this.state;
     dish[0].id = 0;
+    const cardClass = activeCard ? 'dish__card active ShiftLeft-q-pressed' : 'dish__card inactive';
+
     return (
       <DishCardView 
-        dish={dish} 
+        dish={dish}
+        cardClass={cardClass}
         activeCard={activeCard}
         onSort={this.handleSort}
         onRandomSort={this.handleRandomSort}
@@ -162,6 +202,8 @@ class DishCards extends Component {
         onDragOver={this.dragOverHandler}
         onDrop={this.dropHandler}
         sortCards={this.sortCards}
+        onKeyDown={this.handleKeyDown}
+        onKeyUp={this.handleKeyUp}
       /> 
     );
   }
@@ -189,6 +231,9 @@ DishCards.propTypes = {
       onDragEnd: PropTypes.func,
       onDragOver: PropTypes.func,
       onDrop: PropTypes.func,
+      onKeyDown: PropTypes.func,
+      onKeyUp: PropTypes.func,
+      isShiftLeftAndDPresser: PropTypes.bool,
     })
   ).isRequired,
 };

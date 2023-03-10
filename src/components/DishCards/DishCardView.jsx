@@ -7,20 +7,22 @@ import './sass/DishCardView.sass';
 class DishCardView extends Component {
   render() {
     const {
-      dish, onSort, onRandomSort, onCardClick, onAddElement, 
-      onDeleteElement, onAddElementOnClick, onAddCardClick, activeCard,
-      onDragStart, onDragOver, onDrop, onDragLeave, onDragEnd, sortCards, toggleActive, 
+      dish, cardClass, activeCard, toggleActive, onSort, onRandomSort, onCardClick, onAddElement, 
+      onDeleteElement, onAddElementOnClick, onAddCardClick, onKeyDown, onKeyUp,
+      onDragStart, onDragOver, onDrop, onDragLeave, onDragEnd, sortCards, 
     } = this.props;
     const elements = dish.sort(sortCards).map((item) => (
       <div
-        className={activeCard === item.key ? 'dish__card active' : 'dish__card inactive'}
+        className={item.key === activeCard ? cardClass : 'dish__card inactive'}
+        onClick={() => toggleActive(item.key)}
         draggable
         onDragStart={(e) => onDragStart(e, item)}
         onDragLeave={(e) => onDragLeave(e)}
         onDragEnd={(e) => onDragEnd(e)}
         onDragOver={(e) => onDragOver(e)}
         onDrop={(e) => onDrop(e, item)}
-        onKeyDown={() => console.log('DishCardView')} 
+        onKeyDown={(e) => onKeyDown(e)}
+        onKeyUp={(e) => onKeyUp(e)}
         tabIndex={0} 
         role="button"
         key={item.key}
@@ -40,8 +42,6 @@ class DishCardView extends Component {
           onDeleteElement={onDeleteElement}
           onAddElementOnClick={onAddElementOnClick}
           onAddCardClick={onAddCardClick}
-          toggleActive={toggleActive}
-          activeCard={activeCard}
         />
       </div>
     ));
@@ -76,6 +76,8 @@ DishCardView.propTypes = {
   onDragOver: PropTypes.func.isRequired,
   onDrop: PropTypes.func.isRequired,
   sortCards: PropTypes.func.isRequired,
+  onKeyDown: PropTypes.func.isRequired,
+  onKeyUp: PropTypes.func.isRequired,
   dish: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number, 
@@ -90,10 +92,9 @@ DishCardView.propTypes = {
       onDeleteElement: PropTypes.func,
       onAddElementOnClick: PropTypes.func,
       onAddCardClick: PropTypes.func,
-      toggleActive: PropTypes.func,
-      activeCard: PropTypes.number,
     }).isRequired
   ).isRequired,
+  cardClass: PropTypes.string.isRequired,
 };
 
 export default DishCardView;
