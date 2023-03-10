@@ -7,7 +7,7 @@ import { ReactComponent as Close } from '../../assets/icons/close.svg';
 function OneDishCardView(props) {  
   const {
     id, src, alt, title, subtitle, newSubtitle, description, 
-    onCardClick, onAddElement, onDeleteElement, onAddElementOnClick, onAddCardClick, 
+    onCardClick, onAddElement, onDeleteElement, onAddElementOnClick, onAddCardClick, chekImg
   } = props;
 
   return (
@@ -15,7 +15,7 @@ function OneDishCardView(props) {
       <button className="arrow-card" type="submit" onClick={() => onCardClick(id)}>
         <Close />
       </button>
-      <img src={src} alt={alt} />
+      <img src={src} alt={alt} onLoad={(e) => chekImg(e)} onError={(e) => chekImg(e)} />
       <div className="dish__card-details">
         <h2 className="dish__card-title">{title}</h2>
         <h3 className="dish__card-subtitle">{subtitle}</h3>
@@ -54,6 +54,7 @@ OneDishCardView.propTypes = {
   onDeleteElement: PropTypes.func.isRequired,
   onAddElementOnClick: PropTypes.func.isRequired,
   onAddCardClick: PropTypes.func.isRequired,
+  chekImg: PropTypes.func.isRequired,
 };
 
 export default OneDishCardView;

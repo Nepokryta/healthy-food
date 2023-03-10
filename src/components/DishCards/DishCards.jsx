@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import DishCardView from './DishCardView';
+import ErrorRobot from '../../assets/img/error_robot.png';
 
 import './sass/DishCards.sass';
 
@@ -177,6 +178,16 @@ class DishCards extends Component {
       this.setState({ isShiftLeftAndDPresser: false, activeCard: activeCard > dish.length ? 1 : activeCard });
     }
   };
+
+  handCheckImage = (e) => {
+    const img = e.target;
+    if (img.complete && img.naturalHeight !== 0) {
+      console.log(`Image uploaded! - "${img.alt}"`);
+    } else {
+      console.log(`Image loading error! - "${img.alt}"`);
+      img.src = ErrorRobot;
+    }  
+  }; 
   
   render() {
     const { dish, activeCard } = this.state;
@@ -204,6 +215,7 @@ class DishCards extends Component {
         sortCards={this.sortCards}
         onKeyDown={this.handleKeyDown}
         onKeyUp={this.handleKeyUp}
+        chekImg={this.handCheckImage}
       /> 
     );
   }
@@ -233,6 +245,7 @@ DishCards.propTypes = {
       onDrop: PropTypes.func,
       onKeyDown: PropTypes.func,
       onKeyUp: PropTypes.func,
+      chekImg: PropTypes.func,
       isShiftLeftAndDPresser: PropTypes.bool,
     })
   ).isRequired,
