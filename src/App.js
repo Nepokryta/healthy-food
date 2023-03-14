@@ -11,15 +11,15 @@ import Headline from './components/Headline/Headline';
 import SocialCards from './components/SocialCards/SocialCards';
 import Footer from './components/Footer/Footer';
 
-// import BeansAndPeppers from './assets/img/beans-and-peppers.png';
-// import Eggs from './assets/img/eggs.png';
+import BeansAndPeppers from './assets/img/beans-and-peppers.png';
+import Eggs from './assets/img/eggs.png';
 import Fish from './assets/img/fish.png';
 import GreenSalad from './assets/img/green-salad.png';
 import SaladVegetables from './assets/img/salad-vegetables.png';
-// import Salad from './assets/img/salad.png';
-// import ThreeSalads from './assets/img/three-salads.png';
+import Salad from './assets/img/salad.png';
+import ThreeSalads from './assets/img/three-salads.png';
 import Vegetables from './assets/img/vegetables.png';
-// import YellowSoup from './assets/img/yellow-soup.png';
+import YellowSoup from './assets/img/yellow-soup.png';
 
 import ABOUT from './assets/icons/ABOUT.svg';
 import CHEFS from './assets/icons/CHEFS.svg';
@@ -67,69 +67,62 @@ class App extends Component {
           subtitle: 'Gobble makes cooking fast, so you have more time to unwind and be with family.'
         }
       ],
-      //   dish: [
-      //     {
-      //       key: 1,
-      //       src: YellowSoup,
-      //       alt: 'yellow_soup',
-      //       title: 'Pumpkin soup',
-      //       newSubtitle: false,
-      //       subtitle: 'Served with sour cream and chopped herbs.',
-      //       description: 'Pumpkin cream soup can be served hot or cold, depending on personal preference.
-      //    This soup is perfect for chilly autumn evenings, and its rich and creamy texture makes it a comforting 
-      //   and satisfying meal.',
-      //     },
-      //     {
-      //       key: 2,
-      //       src: BeansAndPeppers,
-      //       alt: 'beans_and_peppers',
-      //       title: 'Three Bean Salad',
-      //       newSubtitle: false,
-      //       subtitle: 'Served with vinaigrette sauce and chopped parsley.',
-      //       description: 'A refreshing salad made with mixed beans, diced vegetables, and a simple vinaigrette
-      //    dressing.',
-      //     },
-      //     {
-      //       key: 3,
-      //       src: Eggs,
-      //       alt: 'eggs',
-      //       title: 'Egg toast',
-      //       newSubtitle: false,
-      //       subtitle: 'Served with a cup of coffee or tea.',
-      //       description: 'A delicious breakfast or brunch option featuring a slice of toast topped with a perfectly 
-      //   cooked egg.',
-      //     },
-      //     {
-      //       key: 4,
-      //       src: Fish,
-      //       alt: 'fish',
-      //       title: 'Red fish',
-      //       newSubtitle: false,
-      //       subtitle: 'Served with fried or grilled vegetables.',
-      //       description: 'A flavorful and nutritious fish that is often grilled or baked and served with a variety 
-      //   of side dishes.',
-      //     },
-      //     {
-      //       key: 5,
-      //       src: Salad,
-      //       alt: 'salad',
-      //       title: 'Egg bowl',
-      //       newSubtitle: false,
-      //       subtitle: 'Served with a cup of coffee or orange juice.',
-      //       description: 'A breakfast or brunch dish that typically consists of scrambled eggs served with a 
-      //   variety of toppings, such as diced vegetables, cheese, and avocado.',
-      //     },
-      //     {
-      //       key: 6,
-      //       src: ThreeSalads,
-      //       alt: 'three_salads',
-      //       title: 'Veggie bowl',
-      //       newSubtitle: false,
-      //       subtitle: 'Served with a little tahini sauce.',
-      //       description: 'A healthy and colorful bowl filled with a variety of fresh, raw or roasted vegetables, 
-      //   often served over a bed of grains or greens.',
-      //     },
-      //   ],
+      dish: [
+        {
+          key: 1,
+          src: YellowSoup,
+          alt: 'yellow_soup',
+          title: 'Pumpkin soup',
+          newSubtitle: false,
+          subtitle: 'Served with sour cream and chopped herbs.',
+          description: 'Pumpkin cream soup can be served hot or cold, depending on personal preference.This soup is perfect for chilly autumn evenings, and its rich and creamy texture makes it a comforting and satisfying meal.',
+        },
+        {
+          key: 2,
+          src: BeansAndPeppers,
+          alt: 'beans_and_peppers',
+          title: 'Three Bean Salad',
+          newSubtitle: false,
+          subtitle: 'Served with vinaigrette sauce and chopped parsley.',
+          description: 'A refreshing salad made with mixed beans, diced vegetables, and a simple vinaigrette dressing.',
+        },
+        {
+          key: 3,
+          src: Eggs,
+          alt: 'eggs',
+          title: 'Egg toast',
+          newSubtitle: false,
+          subtitle: 'Served with a cup of coffee or tea.',
+          description: 'A delicious breakfast or brunch option featuring a slice of toast topped with a perfectly cooked egg.',
+        },
+        {
+          key: 4,
+          src: Fish,
+          alt: 'fish',
+          title: 'Red fish',
+          newSubtitle: false,
+          subtitle: 'Served with fried or grilled vegetables.',
+          description: 'A flavorful and nutritious fish that is often grilled or baked and served with a variety of side dishes.',
+        },
+        {
+          key: 5,
+          src: Salad,
+          alt: 'salad',
+          title: 'Egg bowl',
+          newSubtitle: false,
+          subtitle: 'Served with a cup of coffee or orange juice.',
+          description: 'A breakfast or brunch dish that typically consists of scrambled eggs served with a variety of toppings, such as diced vegetables, cheese, and avocado.',
+        },
+        {
+          key: 6,
+          src: ThreeSalads,
+          alt: 'three_salads',
+          title: 'Veggie bowl',
+          newSubtitle: false,
+          subtitle: 'Served with a little tahini sauce.',
+          description: 'A healthy and colorful bowl filled with a variety of fresh, raw or roasted vegetables, often served over a bed of grains or greens.',
+        },
+      ],
       recipes: [
         {
           key: 1,
@@ -165,7 +158,7 @@ class App extends Component {
 
   render() {
     const {
-      slider, works, recipes 
+      slider, works, dish, recipes 
     } = this.state;
 
     return (
@@ -199,7 +192,7 @@ class App extends Component {
             alt="DISHES"
             greenLine=""
           />
-          <DishCards />
+          <DishCards dish={dish} />
             
           <Headline
             title="This month&apos;s chefs"
