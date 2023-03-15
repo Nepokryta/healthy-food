@@ -7,12 +7,14 @@ import './sass/DishCardView.sass';
 class DishCardView extends Component {
   render() {
     const {
-      dish, cardClass, activeCard, toggleActive, onSort, onRandomSort, onCardClick, onAddElement, 
-      onDeleteElement, onAddElementOnClick, onAddCardClick, onKeyDown, onKeyUp,
-      onDragStart, onDragOver, onDrop, onDragLeave, onDragEnd, sortCards, chekImg
+      dish, onSort, onRandomSort, onCardClick, onAddCardClick, onAddElement, onDeleteElement, onAddElementOnClick, 
+      activeCard, cardClass, toggleActive, onDragStart, onDragOver, onDrop, onDragLeave, onDragEnd, myRef, 
+      onKeyDown, onKeyUp, chekImg
     } = this.props;
-    const elements = dish.sort(sortCards).map((item) => (
+    
+    const elements = dish.map((item) => (
       <div
+        ref={myRef}
         className={item.key === activeCard ? cardClass : 'dish__card inactive'}
         onClick={() => toggleActive(item.key)}
         draggable
@@ -28,20 +30,20 @@ class DishCardView extends Component {
         key={item.key}
       >
         <OneDishCardView
-          id={item.key} 
+          showElement={item.showElement}
+          cardKey={item.key}
+          id={item.id} 
           src={item.src}
           alt={item.alt}
           title={item.title}
           subtitle={item.subtitle}
           newSubtitle={item.newSubtitle}
           description={item.description}
-          onSort={onSort}
-          onRandomSort={onRandomSort}
           onCardClick={onCardClick} 
+          onAddCardClick={onAddCardClick}
           onAddElement={onAddElement}
           onDeleteElement={onDeleteElement}
           onAddElementOnClick={onAddElementOnClick}
-          onAddCardClick={onAddCardClick}
           chekImg={chekImg}
         />
       </div>
@@ -53,8 +55,8 @@ class DishCardView extends Component {
           {elements}
         </div>
         <div className="sortBtn">
-          <button className="action-btn button" type="submit" onClick={this.onRandomSort}>RANDOM</button>
-          <button className="action-btn button" type="submit" onClick={this.onSort}>SORT</button>
+          <button className="action-btn button" type="submit" onClick={() => onRandomSort()}>RANDOM</button>
+          <button className="action-btn button" type="submit" onClick={() => onSort()}>SORT</button>
         </div>
       </div>
     );
@@ -65,10 +67,11 @@ DishCardView.propTypes = {
   onSort: PropTypes.func.isRequired, 
   onRandomSort: PropTypes.func.isRequired, 
   onCardClick: PropTypes.func.isRequired, 
+  onAddCardClick: PropTypes.func.isRequired,
   onAddElement: PropTypes.func.isRequired,
   onDeleteElement: PropTypes.func.isRequired,
   onAddElementOnClick: PropTypes.func.isRequired,
-  onAddCardClick: PropTypes.func.isRequired,
+  cardClass: PropTypes.string.isRequired,
   toggleActive: PropTypes.func.isRequired,
   activeCard: PropTypes.number.isRequired,
   onDragStart: PropTypes.func.isRequired,
@@ -76,27 +79,22 @@ DishCardView.propTypes = {
   onDragEnd: PropTypes.func.isRequired,
   onDragOver: PropTypes.func.isRequired,
   onDrop: PropTypes.func.isRequired,
-  sortCards: PropTypes.func.isRequired,
+  myRef: PropTypes.shape({}).isRequired,
   onKeyDown: PropTypes.func.isRequired,
   onKeyUp: PropTypes.func.isRequired,
   chekImg: PropTypes.func.isRequired,
   dish: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number, 
+      id: PropTypes.string.isRequired, 
       src: PropTypes.string.isRequired,
       alt: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       subtitle: PropTypes.string.isRequired,
-      newSubtitle: PropTypes.bool.isRequired,
+      newSubtitle: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
-      onCardClick: PropTypes.func, 
-      onAddElement: PropTypes.func,
-      onDeleteElement: PropTypes.func,
-      onAddElementOnClick: PropTypes.func,
-      onAddCardClick: PropTypes.func,
+      showElement: PropTypes.bool
     }).isRequired
   ).isRequired,
-  cardClass: PropTypes.string.isRequired,
 };
 
 export default DishCardView;

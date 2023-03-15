@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
+import EdamamService from '../../services/EdamamService';
 
 import DishCardView from './DishCardView';
 import ErrorRobot from '../../assets/img/error_robot.png';
@@ -7,18 +8,25 @@ import ErrorRobot from '../../assets/img/error_robot.png';
 import './sass/DishCards.sass';
 
 class DishCards extends Component {
+  edamamService = new EdamamService();
+
   constructor(props) {
     super(props);
     this.state = {
-      dish: props.dish,
+      dish: [],
+      maxId: 0,
+      sortOrder: true,
       activeCard: 0,
       currentCard: 0,
       isShiftLeftAndDPresser: false,
     };
-    this.maxId = 6;
+    this.myRef = React.createRef();
   }
-
+  
   componentDidMount() {
+    this.edamamService.getDishs()
+      .then(this.onCardListLoaded)
+      .catch((error) => console.log('Error', error));
     window.addEventListener('keydown', this.handleKeyDown);
     window.addEventListener('keyup', this.handleKeyUp);
   }
@@ -28,9 +36,30 @@ class DishCards extends Component {
     window.removeEventListener('keyup', this.handleKeyUp);
   }
 
+  onCardListLoaded = (dish) => {
+    const updatedDish = dish
+      .filter((item) => item.title.length <= 26)
+      .slice(0, 6)
+      .map((item, i) => ({ 
+        ...item, 
+        key: i + 1, 
+        showElement: !item.showElement,
+      }));
+    this.setState({ 
+      dish: updatedDish,
+      maxId: (updatedDish.length - 1) + 1 
+    });
+  };
+
   handleSort = () => {
-    this.setState(({ dish }) => ({
-      dish: dish.sort((a, b) => b.key - a.key)
+    this.setState(({ dish, sortOrder }) => ({
+      sortOrder: !sortOrder,
+      dish: dish.sort((a, b) => { 
+        if (!sortOrder) {
+          return a.key - b.key;
+        } 
+        return b.key - a.key;
+      })
     }));
   };
 
@@ -47,86 +76,96 @@ class DishCards extends Component {
     });
   };
 
-  handleCardClick = (id) => {
+  handleCardClick = (id, cardKey) => {
     this.setState(({ dish }) => ({
-      dish: dish.filter((item) => item.key !== id)
+      dish: dish.filter((item) => item.id !== id || item.key !== cardKey)
     }));
   };
 
-  handleAddCardClick = (src, alt, title, subtitle, description, newSubtitle = false) => {
+  handleAddCardClick = (id, src, alt, title, subtitle, description, newSubtitle, showElement) => {
+    const { maxId } = this.state;
     const newItem = {
-      key: this.maxId + 1,
+      key: maxId + 1,
+      id,
       src, 
       alt, 
       title, 
       subtitle,
       description,
       newSubtitle,
+      showElement: !showElement
     };
-    this.maxId += 1;
     this.setState(({ dish }) => ({
-      dish: dish.concat(newItem)
+      dish: dish.concat(newItem),
+      maxId: maxId + 1
     }));
   };
    
-  handleAddElement = (id) => {
+  handleAddElement = (cardKey) => {
     this.setState(({ dish }) => ({
-      dish: dish.map((item) => (item.key === id
-        ? {
-          ...item,
-          isFavorite: !item.isFavorite,
-          title: item.isFavorite ? item.prevTitle : 'My favorite',
-          prevTitle: item.title,
+      dish: dish.map((item) => {
+        if (item.key === cardKey) {
+          return {
+            ...item,
+            isFavorite: !item.isFavorite,
+            prevTitle: item.title,
+            title: item.isFavorite ? item.prevTitle : 'My favorite',
+          };
         }
-        : item)),
+        return item;
+      })
     }));
   };
 
-  handleDeleteElement = (id) => {
+  handleDeleteElement = (cardKey) => {
     this.setState(({ dish }) => ({
-      dish: dish.map((item) => (item.key === id 
-        ? {
-          ...item,
-          isDelete: !item.isDelete,
-          subtitle: item.isDelete ? item.prevSubtitle : ' ',
-          prevSubtitle: item.subtitle,
+      dish: dish.map((item) => {
+        if (item.key === cardKey) {
+          return {
+            ...item,
+            isDelete: !item.isDelete,
+            prevSubtitle: item.subtitle,
+            subtitle: item.isDelete ? item.prevSubtitle : ' ',
+          };
         }
-        : item)),
+        return item;
+      }),
     }));
   };
 
-  handleAddElementOnClick = (id) => {
+  handleAddElementOnClick = (cardKey) => {
     this.setState(({ dish }) => ({
-      dish: dish.map((item) => (item.key === id 
-        ? { 
-          ...item,
-          newSubtitle: !item.newSubtitle,
+      dish: dish.map((item) => {
+        if (item.key === cardKey) {
+          return {
+            ...item,
+            showElement: !item.showElement
+          };
         } 
-        : item))
+        return item;
+      })
     }));
   };
 
-  toggleActive = (id) => {
+  toggleActive = (key) => {
     this.setState(({ activeCard }) => ({
-      activeCard: activeCard === 0 || activeCard !== id ? id : 0,
+      activeCard: activeCard === 0 || activeCard !== key ? key : 0,
     }));
   };
 
-  dragStarHandler = (e, card) => {
+  dragStartHandler = (e, card) => {
     this.setState(({ currentCard }) => ({
       currentCard: currentCard === 0 ? card : 0,
     }));
   };
 
-  dragEndHandler = (e) => {
-    const { target } = e;
-    target.style.opacity = '1'; 
+  dragEndHandler = () => {
+    this.myRef.current.style.opacity = '1';
   };
 
   dragOverHandler = (e) => {
     e.preventDefault();
-    const { target } = e;
-    target.style.opacity = '0.5';
+    this.myRef.current.style.opacity = '0.5';
   };
 
   dropHandler = (e, card) => {
@@ -140,15 +179,10 @@ class DishCards extends Component {
         }
         
         return item;
-      }),
+      }).sort((a, b) => (a.key > b.key ? 1 : -1)),
       currentCard: currentCard === 0 ? card : 0,
     }));
-    const { target } = e;
-    target.style.opacity = '1';
-  };
-
-  sortCards = (a, b) => {
-    return (a.key > b.key) ? 1 : -1;
+    this.myRef.current.style.opacity = '1';
   };
 
   handleKeyDown = (e) => {
@@ -189,28 +223,29 @@ class DishCards extends Component {
   
   render() {
     const { dish, activeCard } = this.state;
-    dish[0].id = 0;
+
     const cardClass = activeCard ? 'dish__card active ShiftLeft-q-pressed' : 'dish__card inactive';
 
     return (
       <DishCardView 
+        myRef={this.myRef}
         dish={dish}
         cardClass={cardClass}
         activeCard={activeCard}
         onSort={this.handleSort}
         onRandomSort={this.handleRandomSort}
         onCardClick={this.handleCardClick} 
+        onAddCardClick={this.handleAddCardClick}
         onAddElement={this.handleAddElement}
         onDeleteElement={this.handleDeleteElement}
         onAddElementOnClick={this.handleAddElementOnClick}
-        onAddCardClick={this.handleAddCardClick}
         toggleActive={this.toggleActive}
-        onDragStart={this.dragStarHandler}
+        onDragStart={this.dragStartHandler}
         onDragLeave={this.dragEndHandler}
         onDragEnd={this.dragEndHandler}
         onDragOver={this.dragOverHandler}
         onDrop={this.dropHandler}
-        sortCards={this.sortCards}
+        // sortCards={this.sortCards}
         onKeyDown={this.handleKeyDown}
         onKeyUp={this.handleKeyUp}
         chekImg={this.handCheckImage}
@@ -218,35 +253,5 @@ class DishCards extends Component {
     );
   }
 }
-
-DishCards.propTypes = {
-  dish: PropTypes.arrayOf(
-    PropTypes.shape({
-      key: PropTypes.number.isRequired, 
-      id: PropTypes.number, 
-      src: PropTypes.string.isRequired,
-      alt: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      subtitle: PropTypes.string.isRequired,
-      newSubtitle: PropTypes.bool.isRequired,
-      description: PropTypes.string.isRequired,
-      onCardClick: PropTypes.func, 
-      onAddElement: PropTypes.func,
-      onDeleteElement: PropTypes.func,
-      onAddElementOnClick: PropTypes.func,
-      onAddCardClick: PropTypes.func,
-      toggleActive: PropTypes.func,
-      onDragStart: PropTypes.func,
-      onDragLeave: PropTypes.func,
-      onDragEnd: PropTypes.func,
-      onDragOver: PropTypes.func,
-      onDrop: PropTypes.func,
-      onKeyDown: PropTypes.func,
-      onKeyUp: PropTypes.func,
-      chekImg: PropTypes.func,
-      isShiftLeftAndDPresser: PropTypes.bool,
-    })
-  ).isRequired,
-};
 
 export default DishCards;
