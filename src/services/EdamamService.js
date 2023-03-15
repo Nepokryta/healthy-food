@@ -21,13 +21,13 @@ class EdamamService {
     const res2 = await this.getResourse(res._links.next.href);
     const arr = res.hits.map(this.transformDishCard);
     const arr2 = res2.hits.map(this.transformDishCard);
-    
     return [...arr, ...arr2];
   };
   /* eslint-enable no-underscore-dangle */
 
   transformDishCard = (dish) => {
     return {
+      id: dish.recipe.uri.slice(51, 83),
       src: dish.recipe.images.REGULAR.url,
       alt: dish.recipe.label,
       title: dish.recipe.label,
