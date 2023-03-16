@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
 import EdamamService from '../../services/EdamamService';
 
 import DishCardView from './DishCardView';
@@ -22,7 +21,7 @@ class DishCards extends Component {
     };
     this.myRef = React.createRef();
   }
-  
+
   componentDidMount() {
     this.edamamService.getDishs()
       .then(this.onCardListLoaded)
@@ -245,7 +244,6 @@ class DishCards extends Component {
         onDragEnd={this.dragEndHandler}
         onDragOver={this.dragOverHandler}
         onDrop={this.dropHandler}
-        // sortCards={this.sortCards}
         onKeyDown={this.handleKeyDown}
         onKeyUp={this.handleKeyUp}
         chekImg={this.handCheckImage}
