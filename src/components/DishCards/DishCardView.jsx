@@ -8,14 +8,13 @@ class DishCardView extends Component {
   render() {
     const {
       dish, onSort, onRandomSort, onCardClick, onAddCardClick, onAddElement, onDeleteElement, onAddElementOnClick, 
-      activeCard, cardClass, toggleActive, onDragStart, onDragOver, onDrop, onDragLeave, onDragEnd, myRef, 
-      onKeyDown, onKeyUp, chekImg
+      activeCard, cardClass, toggleActive, onDragStart, onDragOver, onDrop, onDragLeave, onDragEnd, 
+      onKeyDown, onKeyUp, chekImg, dragging
     } = this.props;
     
     const elements = dish.map((item) => (
       <div
-        ref={myRef}
-        className={item.key === activeCard ? cardClass : 'dish__card inactive'}
+        className={item.key === activeCard || dragging ? cardClass : 'dish__card inactive'}
         onClick={() => toggleActive(item.key)}
         draggable
         onDragStart={(e) => onDragStart(e, item)}
@@ -79,7 +78,7 @@ DishCardView.propTypes = {
   onDragEnd: PropTypes.func.isRequired,
   onDragOver: PropTypes.func.isRequired,
   onDrop: PropTypes.func.isRequired,
-  myRef: PropTypes.shape({}).isRequired,
+  dragging: PropTypes.bool.isRequired,
   onKeyDown: PropTypes.func.isRequired,
   onKeyUp: PropTypes.func.isRequired,
   chekImg: PropTypes.func.isRequired,

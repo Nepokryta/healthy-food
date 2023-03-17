@@ -18,8 +18,8 @@ class DishCards extends Component {
       activeCard: 0,
       currentCard: 0,
       isShiftLeftAndDPresser: false,
+      dragging: false,
     };
-    this.myRef = React.createRef();
   }
 
   componentDidMount() {
@@ -159,12 +159,12 @@ class DishCards extends Component {
   };
 
   dragEndHandler = () => {
-    this.myRef.current.style.opacity = '1';
+    this.setState({ dragging: false });
   };
 
   dragOverHandler = (e) => {
     e.preventDefault();
-    this.myRef.current.style.opacity = '0.5';
+    this.setState({ dragging: true });
   };
 
   dropHandler = (e, card) => {
@@ -180,8 +180,8 @@ class DishCards extends Component {
         return item;
       }).sort((a, b) => (a.key > b.key ? 1 : -1)),
       currentCard: currentCard === 0 ? card : 0,
+      dragging: false
     }));
-    this.myRef.current.style.opacity = '1';
   };
 
   handleKeyDown = (e) => {
@@ -221,13 +221,22 @@ class DishCards extends Component {
   }; 
   
   render() {
-    const { dish, activeCard } = this.state;
+    const { dish, activeCard, dragging } = this.state;
 
-    const cardClass = activeCard ? 'dish__card active ShiftLeft-q-pressed' : 'dish__card inactive';
+    // const cardClass = activeCard ? 'dish__card active ShiftLeft-q-pressed' : 
+    //     dragging ? 'dish__card active ShiftLeft-q-pressed dragging' : 'dish__card inactive';
+    let cardClass = 'dish__card';
+    if (dragging) {
+      cardClass += ' dragging' || '';
+    } else if (activeCard) {
+      cardClass += ' active ShiftLeft-q-pressed';
+    } else {
+      cardClass += ' inactive';
+    }
 
     return (
-      <DishCardView 
-        myRef={this.myRef}
+        <DishCardView 
+        dragging={dragging}
         dish={dish}
         cardClass={cardClass}
         activeCard={activeCard}
