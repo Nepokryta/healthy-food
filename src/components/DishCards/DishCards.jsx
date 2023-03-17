@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import EdamamService from '../../services/EdamamService';
 
 import DishCardView from './DishCardView';
@@ -15,7 +16,7 @@ class DishCards extends Component {
       dish: [],
       maxId: 0,
       sortOrder: true,
-      activeCard: 0,
+      activeCard: '',
       currentCard: 0,
       isShiftLeftAndDPresser: false,
       dragging: false,
@@ -75,14 +76,15 @@ class DishCards extends Component {
     });
   };
 
-  handleCardClick = (id, cardKey) => {
+  handleCardClick = (id) => {
     this.setState(({ dish }) => ({
-      dish: dish.filter((item) => item.id !== id || item.key !== cardKey)
+      dish: dish.filter((item) => item.id !== id)
     }));
   };
 
-  handleAddCardClick = (id, src, alt, title, subtitle, description, newSubtitle, showElement) => {
+  handleAddCardClick = (src, alt, title, subtitle, description, newSubtitle, showElement) => {
     const { maxId } = this.state;
+    const id = uuidv4();
     const newItem = {
       key: maxId + 1,
       id,
@@ -100,10 +102,10 @@ class DishCards extends Component {
     }));
   };
    
-  handleAddElement = (cardKey) => {
+  handleAddElement = (id) => {
     this.setState(({ dish }) => ({
       dish: dish.map((item) => {
-        if (item.key === cardKey) {
+        if (item.id === id) {
           return {
             ...item,
             isFavorite: !item.isFavorite,
@@ -116,10 +118,10 @@ class DishCards extends Component {
     }));
   };
 
-  handleDeleteElement = (cardKey) => {
+  handleDeleteElement = (id) => {
     this.setState(({ dish }) => ({
       dish: dish.map((item) => {
-        if (item.key === cardKey) {
+        if (item.id === id) {
           return {
             ...item,
             isDelete: !item.isDelete,
@@ -132,10 +134,10 @@ class DishCards extends Component {
     }));
   };
 
-  handleAddElementOnClick = (cardKey) => {
+  handleAddElementOnClick = (id) => {
     this.setState(({ dish }) => ({
       dish: dish.map((item) => {
-        if (item.key === cardKey) {
+        if (item.id === id) {
           return {
             ...item,
             showElement: !item.showElement
@@ -146,9 +148,9 @@ class DishCards extends Component {
     }));
   };
 
-  toggleActive = (key) => {
+  toggleActive = (id) => {
     this.setState(({ activeCard }) => ({
-      activeCard: activeCard === 0 || activeCard !== key ? key : 0,
+      activeCard: activeCard === '' || activeCard !== id ? id : '',
     }));
   };
 
@@ -235,7 +237,7 @@ class DishCards extends Component {
     }
 
     return (
-        <DishCardView 
+      <DishCardView 
         dragging={dragging}
         dish={dish}
         cardClass={cardClass}

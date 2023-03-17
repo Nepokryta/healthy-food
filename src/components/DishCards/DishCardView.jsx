@@ -14,8 +14,8 @@ class DishCardView extends Component {
     
     const elements = dish.map((item) => (
       <div
-        className={item.key === activeCard || dragging ? cardClass : 'dish__card inactive'}
-        onClick={() => toggleActive(item.key)}
+        className={item.id === activeCard || dragging ? cardClass : 'dish__card inactive'}
+        onClick={() => toggleActive(item.id)}
         draggable
         onDragStart={(e) => onDragStart(e, item)}
         onDragLeave={(e) => onDragLeave(e)}
@@ -30,7 +30,6 @@ class DishCardView extends Component {
       >
         <OneDishCardView
           showElement={item.showElement}
-          cardKey={item.key}
           id={item.id} 
           src={item.src}
           alt={item.alt}
@@ -72,7 +71,7 @@ DishCardView.propTypes = {
   onAddElementOnClick: PropTypes.func.isRequired,
   cardClass: PropTypes.string.isRequired,
   toggleActive: PropTypes.func.isRequired,
-  activeCard: PropTypes.number.isRequired,
+  activeCard: PropTypes.string.isRequired,
   onDragStart: PropTypes.func.isRequired,
   onDragLeave: PropTypes.func.isRequired,
   onDragEnd: PropTypes.func.isRequired,

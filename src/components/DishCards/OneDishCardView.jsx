@@ -6,13 +6,13 @@ import { ReactComponent as Close } from '../../assets/icons/close.svg';
 
 function OneDishCardView(props) {  
   const {
-    id, cardKey, src, alt, title, subtitle, newSubtitle, description, onCardClick, onAddCardClick, onAddElement,
+    id, src, alt, title, subtitle, newSubtitle, description, onCardClick, onAddCardClick, onAddElement,
     onDeleteElement, onAddElementOnClick, showElement, chekImg,
   } = props;
 
   return (
     <>
-      <button className="arrow-card" type="submit" onClick={() => onCardClick(id, cardKey)}>
+      <button className="arrow-card" type="submit" onClick={() => onCardClick(id)}>
         <Close />
       </button>
       <img src={src} alt={alt} onLoad={(e) => chekImg(e)} onError={(e) => chekImg(e)} />
@@ -21,10 +21,10 @@ function OneDishCardView(props) {
         <h3 className="dish__card-subtitle">{subtitle}</h3>
         { showElement ? '' : <h3 className="dish__card-newsubtitle">{newSubtitle}</h3> }
         <h4 className="dish__card-description">{description}</h4>
-        <button className="activityBTN button" type="submit" onClick={() => onAddElement(cardKey, title)}>MY FAVORITE</button>
+        <button className="activityBTN button" type="submit" onClick={() => onAddElement(id)}>MY FAVORITE</button>
         <div className="botton_block">
-          <button className="activityBTN button" type="submit" onClick={() => onDeleteElement(cardKey)}>DELETE</button>
-          <button className="activityBTN button" type="submit" onClick={() => onAddElementOnClick(cardKey)}>ADD</button>
+          <button className="activityBTN button" type="submit" onClick={() => onDeleteElement(id)}>DELETE</button>
+          <button className="activityBTN button" type="submit" onClick={() => onAddElementOnClick(id)}>ADD</button>
         </div>
       </div>
       <div className="dish__card-action">
@@ -32,7 +32,7 @@ function OneDishCardView(props) {
         <button 
           className="activityBTN button" 
           type="submit"
-          onClick={() => onAddCardClick(id, src, alt, title, subtitle, description, newSubtitle)}
+          onClick={() => onAddCardClick(src, alt, title, subtitle, description, newSubtitle)}
         >
           ADD CARD
         </button>
@@ -42,7 +42,6 @@ function OneDishCardView(props) {
 }
 
 OneDishCardView.propTypes = {
-  cardKey: PropTypes.number.isRequired, 
   id: PropTypes.string.isRequired, 
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
