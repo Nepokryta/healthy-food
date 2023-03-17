@@ -27,12 +27,10 @@ class DishCards extends Component {
       .then(this.onCardListLoaded)
       .catch((error) => console.log('Error', error));
     window.addEventListener('keydown', this.handleKeyDown);
-    window.addEventListener('keyup', this.handleKeyUp);
   }
 
   componentWillUnmount() {
     window.removeEventListener('keydown', this.handleKeyDown);
-    window.removeEventListener('keyup', this.handleKeyUp);
   }
 
   onCardListLoaded = (dish) => {
@@ -186,6 +184,7 @@ class DishCards extends Component {
   };
 
   handleKeyDown = (e) => {
+    e.stopPropagation();
     const { dish, activeCard } = this.state;
     let newActiveCard;
     if (e.code === 'KeyD' && e.shiftKey) {
@@ -211,8 +210,6 @@ class DishCards extends Component {
   render() {
     const { dish, activeCard, dragging } = this.state;
 
-    // const cardClass = activeCard ? 'dish__card active ShiftLeft-q-pressed' : 
-    //     dragging ? 'dish__card active ShiftLeft-q-pressed dragging' : 'dish__card inactive';
     let cardClass = 'dish__card';
     if (dragging) {
       cardClass += ' dragging' || '';
