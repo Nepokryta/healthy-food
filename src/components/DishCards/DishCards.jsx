@@ -18,7 +18,6 @@ class DishCards extends Component {
       sortOrder: true,
       activeCard: '',
       currentCard: 0,
-      isShiftLeftAndDPresser: false,
       dragging: false,
     };
   }
@@ -187,28 +186,15 @@ class DishCards extends Component {
   };
 
   handleKeyDown = (e) => {
-    const { isShiftLeftAndDPresser, activeCard } = this.state;
-    if (e.code === 'KeyD') {
-      this.keyDPressed = true;
-    }
-    if (e.code === 'ShiftLeft') {
-      this.keyShiftLeftPressed = true;
-    }
-    if (this.keyDPressed && this.keyShiftLeftPressed && !isShiftLeftAndDPresser) {
-      this.setState({ isShiftLeftAndDPresser: true, activeCard: activeCard + 1 });
-    }
-  };
+    const { dish, activeCard } = this.state;
+    let newActiveCard;
+    if (e.code === 'KeyD' && e.shiftKey) {
+      const activeCardIndex = dish.findIndex((item) => item.id === activeCard);
+      const nextActiveCard = dish[activeCardIndex + 1];
+      const newIndex = nextActiveCard ? activeCardIndex + 1 : 0;
+      newActiveCard = dish[newIndex].id;
 
-  handleKeyUp = (e) => {
-    const { activeCard, dish } = this.state;
-    if (e.code === 'KeyD') {
-      this.keyDPressed = false;
-    }
-    if (e.code === 'ShiftLeft') {
-      this.keyShiftLeftPressed = false;
-    }
-    if (!this.keyDPressed || !this.keyShiftLeftPressed) {
-      this.setState({ isShiftLeftAndDPresser: false, activeCard: activeCard > dish.length ? 1 : activeCard });
+      this.setState(({ activeCard: newActiveCard })); 
     }
   };
 
@@ -256,7 +242,6 @@ class DishCards extends Component {
         onDragOver={this.dragOverHandler}
         onDrop={this.dropHandler}
         onKeyDown={this.handleKeyDown}
-        onKeyUp={this.handleKeyUp}
         chekImg={this.handCheckImage}
       /> 
     );
