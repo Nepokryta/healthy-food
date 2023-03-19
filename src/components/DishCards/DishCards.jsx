@@ -154,7 +154,7 @@ class DishCards extends Component {
   };
 
   dragEndHandler = () => {
-    this.setState({ dragging: false });
+    // this.setState({ dragging: false });
   };
 
   dragOverHandler = (e) => {
