@@ -14,10 +14,9 @@ class DishCards extends Component {
     super(props);
     this.state = {
       dish: [],
-      maxId: 0,
       sortOrder: true,
       activeCard: '',
-      currentCard: 0,
+      currentCard: '',
       dragging: false,
     };
   }
@@ -37,14 +36,13 @@ class DishCards extends Component {
     const updatedDish = dish
       .filter((item) => item.title.length <= 26)
       .slice(0, 6)
-      .map((item, i) => ({ 
+      .map((item) => ({ 
         ...item, 
-        key: i + 1, 
+        key: item.id, 
         showElement: !item.showElement,
       }));
     this.setState({ 
       dish: updatedDish,
-      maxId: (updatedDish.length - 1) + 1 
     });
   };
 
@@ -53,9 +51,9 @@ class DishCards extends Component {
       sortOrder: !sortOrder,
       dish: dish.sort((a, b) => { 
         if (!sortOrder) {
-          return a.key - b.key;
+          return a.title.localeCompare(b.title);
         } 
-        return b.key - a.key;
+        return b.title.localeCompare(a.title);
       })
     }));
   };
@@ -80,10 +78,9 @@ class DishCards extends Component {
   };
 
   handleAddCardClick = (src, alt, title, subtitle, description, newSubtitle, showElement) => {
-    const { maxId } = this.state;
     const id = uuidv4();
     const newItem = {
-      key: maxId + 1,
+      key: id,
       id,
       src, 
       alt, 
@@ -95,7 +92,6 @@ class DishCards extends Component {
     };
     this.setState(({ dish }) => ({
       dish: dish.concat(newItem),
-      maxId: maxId + 1
     }));
   };
    
@@ -153,7 +149,7 @@ class DishCards extends Component {
 
   dragStartHandler = (e, card) => {
     this.setState(({ currentCard }) => ({
-      currentCard: currentCard === 0 ? card : 0,
+      currentCard: currentCard === '' ? card : '',
     }));
   };
 
@@ -168,19 +164,19 @@ class DishCards extends Component {
 
   dropHandler = (e, card) => {
     e.preventDefault();
-    this.setState(({ dish, currentCard }) => ({
-      dish: dish.map((item) => {
-        if (item.key === card.key) {
-          return { ...item, key: currentCard.key };
-        } if (item.key === currentCard.key) {
-          return { ...item, key: card.key };
-        }
-        
-        return item;
-      }).sort((a, b) => (a.key > b.key ? 1 : -1)),
-      currentCard: currentCard === 0 ? card : 0,
-      dragging: false
-    }));
+    const { dish, currentCard } = this.state;
+    const dishCopy = dish.slice();
+    const cardIndex = dishCopy.findIndex((item) => item.key === card.key);
+    const currentCardIndex = dishCopy.findIndex((item) => item.key === currentCard.key);
+    const cardCopy = { ...card };
+    const currentCardCopy = { ...currentCard };
+    dishCopy.splice(cardIndex, 1, currentCardCopy);
+    dishCopy.splice(currentCardIndex, 1, cardCopy);
+    this.setState({
+      dish: dishCopy,
+      currentCard: '',
+      dragging: false,
+    });
   };
 
   handleKeyDown = (e) => {
