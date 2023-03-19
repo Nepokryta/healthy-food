@@ -143,7 +143,7 @@ class DishCards extends Component {
 
   toggleActive = (id) => {
     this.setState(({ activeCard }) => ({
-      activeCard: activeCard === '' || activeCard !== id ? id : '',
+      activeCard: activeCard === '' || activeCard !== id || activeCard === id ? id : '',
     }));
   };
 
