@@ -43,7 +43,8 @@ export default function withLoadingAndError(MyComponent) {
         console.log('Error', error);
         return <ErrorRobot />;
       }
-      return <MyComponent data={data} />;
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      return <MyComponent {...this.props} data={data} />; 
     }
   };
 }
