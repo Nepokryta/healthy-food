@@ -42,12 +42,7 @@ class DishCards extends Component {
   handleSort = () => {
     this.setState(({ dish, sortOrder }) => ({
       sortOrder: !sortOrder,
-      dish: dish.sort((a, b) => { 
-        if (!sortOrder) {
-          return a.title.localeCompare(b.title);
-        } 
-        return b.title.localeCompare(a.title);
-      })
+      dish: [...dish].sort((a, b) => (!sortOrder ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title)))
     }));
   };
 
@@ -135,9 +130,7 @@ class DishCards extends Component {
   };
 
   toggleActive = (id) => {
-    this.setState(({ activeCard }) => ({
-      activeCard: activeCard === '' || activeCard !== id || activeCard === id ? id : '',
-    }));
+    this.setState(({ activeCard: id }));
   };
 
   dragStartHandler = (e, card) => {
