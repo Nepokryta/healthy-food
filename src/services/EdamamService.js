@@ -16,24 +16,32 @@ class EdamamService {
     return res.json();
   };
 
-  getDishs = async () => {
+  getCards = async () => {
     const res = await this.getResourse(`${this._apiBase}?type=public&q=delish${this._apiIdAndKey}${this._options}`);
     const res2 = await this.getResourse(res._links.next.href);
-    const arr = res.hits.map(this.transformDishCard);
-    const arr2 = res2.hits.map(this.transformDishCard);
+    const arr = res.hits.map(this.transformCard);
+    const arr2 = res2.hits.map(this.transformCard);
     return [...arr, ...arr2];
   };
+
   /* eslint-enable no-underscore-dangle */
 
-  transformDishCard = (dish) => {
+  transformCard = (data) => {
+    const { recipe } = data;
+    const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+
     return {
-      id: dish.recipe.uri.slice(51, 83),
-      src: dish.recipe.images.REGULAR.url,
-      alt: dish.recipe.label,
-      title: dish.recipe.label,
-      newSubtitle: dish.recipe.source,
-      subtitle: dish.recipe.cuisineType.map((item) => item[0].toUpperCase() + item.slice(1))[0],
-      description: dish.recipe.ingredients.map((item) => item.food[0].toUpperCase() + item.food.slice(1)).join(', ')
+      id: recipe.uri.slice(51, 83),
+      src: recipe.images.REGULAR.url,
+      alt: recipe.label,
+      title: recipe.label,
+      newSubtitle: capitalize(recipe.cuisineType[0]),
+      subtitle: recipe.mealType[0].includes('/') ? recipe.mealType[0].split('/').map(capitalize).join(' / ') 
+        : capitalize(recipe.mealType[0]),
+      description: recipe.ingredients.map((item) => capitalize(item.food)).join(', '),
+      totalTime: recipe.totalTime,
+      totalWeight: recipe.totalWeight.toFixed(),
+      linkToRecipe: recipe.url
     };
   };
 }
