@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
-import EdamamService from '../../services/EdamamService';
-
+import withLoadingAndError from '../../hoc/withLoadingAndError';
 import DishCardView from './DishCardView';
 import ErrorRobot from '../../assets/img/error_robot.png';
 
 import './sass/DishCards.sass';
 
 class DishCards extends Component {
-  edamamService = new EdamamService();
-
   constructor(props) {
     super(props);
     this.state = {
@@ -20,20 +18,10 @@ class DishCards extends Component {
       dragging: false,
     };
   }
-
+  
   componentDidMount() {
-    this.edamamService.getDishs()
-      .then(this.onCardListLoaded)
-      .catch((error) => console.log('Error', error));
-    window.addEventListener('keydown', this.handleKeyDown);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('keydown', this.handleKeyDown);
-  }
-
-  onCardListLoaded = (dish) => {
-    const updatedDish = dish
+    const { data } = this.props;
+    const updatedDish = data
       .filter((item) => item.title.length <= 26)
       .slice(0, 6)
       .map((item) => ({ 
@@ -44,7 +32,12 @@ class DishCards extends Component {
     this.setState({ 
       dish: updatedDish,
     });
-  };
+    window.addEventListener('keydown', this.handleKeyDown);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.handleKeyDown);
+  }
 
   handleSort = () => {
     this.setState(({ dish, sortOrder }) => ({
@@ -241,4 +234,19 @@ class DishCards extends Component {
   }
 }
 
-export default DishCards;
+DishCards.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired, 
+      src: PropTypes.string.isRequired,
+      alt: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      subtitle: PropTypes.string.isRequired,
+      newSubtitle: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      showElement: PropTypes.bool
+    }).isRequired
+  ).isRequired,
+};
+
+export default withLoadingAndError(DishCards);
