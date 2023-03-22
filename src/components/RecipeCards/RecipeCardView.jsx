@@ -9,37 +9,33 @@ import './sass/RecipeCardView.sass';
 
 function RecipeCardView(props) {
   const {
-    src, subtitle, title, newSubtitle, linkToRecipe, totalTime, totalWeight, size
+    src, alt, subtitle, title, newSubtitle, linkToRecipe, totalTime, totalWeight, size
   } = props; 
 
   const className = size === 'big' ? 'recipes__card-big' : 'recipes__card-small';
-  const backgroundSize = size === 'big' ? { backgroundSize: 'cover' } : { backgroundSize: 'cover', backgroundPosition: 'center' };
 
   return (
-    <div 
-      className={className} 
-      style={{
-        background: `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${src})`, 
-        ...backgroundSize  
-      }}
-    >
-      <button className="arrow-card" type="submit">
-        <Arrow className="arrow" />
-      </button>
-      <button className="subtitle" type="submit">{newSubtitle}</button>
-      <h3 className="data">{subtitle}</h3>
-      <h2 className="title">{title}</h2>
-      <h3 className="name">
-        <a href={linkToRecipe}>View the recipe</a>
-      </h3>
-      <div className="action">
-        <div className="views">
-          <RemoveRedEye className="removeRedEye" />
-          <div className="views-value">{totalWeight}</div>
-        </div>
-        <div className="comments">
-          <QuestionAnswer className="questionAnswer" />
-          <div className="comments-value">{totalTime}</div>
+    <div className={className}>
+      <img src={src} alt={alt} className="recipe-img" />
+      <div className="recipe-info">
+        <button className="arrow-card" type="submit">
+          <Arrow className="arrow" />
+        </button>
+        <button className="subtitle" type="submit">{newSubtitle}</button>
+        <h3 className="data">{subtitle}</h3>
+        <h2 className="title">{title}</h2>
+        <h3 className="name">
+          <a href={linkToRecipe}>View the recipe</a>
+        </h3>
+        <div className="action">
+          <div className="views">
+            <RemoveRedEye className="removeRedEye" />
+            <div className="views-value">{totalWeight}</div>
+          </div>
+          <div className="comments">
+            <QuestionAnswer className="questionAnswer" />
+            <div className="comments-value">{totalTime}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -48,6 +44,7 @@ function RecipeCardView(props) {
 
 RecipeCardView.propTypes = {
   src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   newSubtitle: PropTypes.string.isRequired,
