@@ -1,10 +1,13 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import './sass/ChefCardView.sass';
 
-function ChefCardView({
-  avatar, avatarAlt, name, title, bigImg, bigImgAlt, smallImg1, smallImg1Alt, smallImg2, smallImg2Alt 
-}) {
+function ChefCardView(props) {
+  const { 
+    avatar, avatarAlt, name, title, bigImg, bigImgAlt, smallImg1, smallImg1Alt, smallImg2, smallImg2Alt 
+  } = props;
+
   return (
     <div className="chefs">
       <div className="chef">
