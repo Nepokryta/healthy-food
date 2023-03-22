@@ -17,9 +17,9 @@ import Footer from './components/Footer/Footer';
 // import ThreeSalads from './assets/img/three-salads.png';
 // import YellowSoup from './assets/img/yellow-soup.png';
 import Fish from './assets/img/fish.png';
-import GreenSalad from './assets/img/green-salad.png';
+// import GreenSalad from './assets/img/green-salad.png';
 import SaladVegetables from './assets/img/salad-vegetables.png';
-import Vegetables from './assets/img/vegetables.png';
+// import Vegetables from './assets/img/vegetables.png';
 
 import ABOUT from './assets/icons/ABOUT.svg';
 import CHEFS from './assets/icons/CHEFS.svg';
@@ -130,43 +130,41 @@ class App extends Component {
       //    often served over a bed of grains or greens.',
       //     },
       //   ],
-      recipes: [
-        {
-          key: 1,
-          size: 'recipes__card-big', 
-          background: `linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(${Vegetables})`,
-          subtitle: 'breakfast',
-          title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-        },
-        {
-          key: 2,
-          size: 'recipes__card-small',
-          background: '#252525',
-          subtitle: 'lunch',
-          title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
-        },
-        {
-          key: 3,
-          size: 'recipes__card-small',
-          background: `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${GreenSalad})`,
-          subtitle: 'dinner',
-          title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
-        },
-        {
-          key: 4,
-          size: 'recipes__card-small',
-          background: '#252525',
-          subtitle: 'sweets',
-          title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
-        },
-      ],
+    //   recipes: [
+    //     {
+    //       key: 1,
+    //       size: 'recipes__card-big', 
+    //       background: `linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(${Vegetables})`,
+    //       subtitle: 'breakfast',
+    //       title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    //     },
+    //     {
+    //       key: 2,
+    //       size: 'recipes__card-small',
+    //       background: '#252525',
+    //       subtitle: 'lunch',
+    //       title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
+    //     },
+    //     {
+    //       key: 3,
+    //       size: 'recipes__card-small',
+    //       background: `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${GreenSalad})`,
+    //       subtitle: 'dinner',
+    //       title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
+    //     },
+    //     {
+    //       key: 4,
+    //       size: 'recipes__card-small',
+    //       background: '#252525',
+    //       subtitle: 'sweets',
+    //       title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
+    //     },
+    //   ],
     };
   }
 
   render() {
-    const {
-      slider, works, recipes 
-    } = this.state;
+    const { slider, works } = this.state;
 
     return (
       <>
@@ -216,7 +214,8 @@ class App extends Component {
             alt="RECIPES"
             greenLine=""
           />
-          <RecipeCards recipes={recipes} />
+          <RecipeCards />
+          {/* <RecipeCards recipes={recipes} /> */}
            
           <Headline
             title="We in Social"
