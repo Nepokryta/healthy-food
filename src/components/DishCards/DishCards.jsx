@@ -171,10 +171,7 @@ class DishCards extends Component {
     let newActiveCard;
     if (e.code === 'KeyD' && e.shiftKey) {
       const activeCardIndex = dish.findIndex((item) => item.id === activeCard);
-      const nextActiveCard = dish[activeCardIndex + 1];
-      const newIndex = nextActiveCard ? activeCardIndex + 1 : 0;
-      newActiveCard = dish[newIndex].id;
-
+      newActiveCard = activeCardIndex === dish.length - 1 ? dish[0].id : dish[activeCardIndex + 1].id;
       this.setState(({ activeCard: newActiveCard })); 
     }
   };
