@@ -61,8 +61,8 @@ class DishCardView extends Component {
           {elements}
         </div>
         <div className="sortBtn">
-          <button className="action-btn button" type="submit" onClick={() => onRandomSort()}>RANDOM</button>
-          <button className="action-btn button" type="submit" onClick={() => onSort()}>SORT</button>
+          <button className="action-btn button" type="submit" onClick={onRandomSort}>RANDOM</button>
+          <button className="action-btn button" type="submit" onClick={onSort}>SORT</button>
         </div>
       </div>
     );
