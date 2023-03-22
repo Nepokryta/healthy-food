@@ -189,20 +189,10 @@ class DishCards extends Component {
   render() {
     const { dish, activeCard, dragging } = this.state;
 
-    let cardClass = 'dish__card';
-    if (dragging) {
-      cardClass += ' dragging' || '';
-    } else if (activeCard) {
-      cardClass += ' active ShiftLeft-q-pressed';
-    } else {
-      cardClass += ' inactive';
-    }
-
     return (
       <DishCardView 
         dragging={dragging}
         dish={dish}
-        cardClass={cardClass}
         activeCard={activeCard}
         onSort={this.handleSort}
         onRandomSort={this.handleRandomSort}
