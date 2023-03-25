@@ -22,6 +22,7 @@ class ChefsCards extends Component {
     this.state = {
       chefs: [
         {
+          id: 1,
           avatar: Avatar1,
           avatarAlt: 'avatar1',
           name: 'Gregory Flores',
@@ -34,6 +35,7 @@ class ChefsCards extends Component {
           smallImg2Alt: 'img1_3',
         },
         {
+          id: 2,
           avatar: Avatar2,
           avatarAlt: 'avatar2',
           name: 'Annette Cooper',
@@ -46,6 +48,7 @@ class ChefsCards extends Component {
           smallImg2Alt: 'img2_3',
         },
         {
+          id: 3,
           avatar: Avatar3,
           avatarAlt: 'avatar3',
           name: 'Greg Fox',
@@ -66,6 +69,7 @@ class ChefsCards extends Component {
 
     const elements = chefs.map((item) => (
       <ChefCardView 
+        key={item.id}
         avatar={item.avatar}
         avatarAlt={item.avatarAlt}
         name={item.name}

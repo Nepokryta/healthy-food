@@ -13,13 +13,17 @@ class Contacts extends Component {
     this.state = {
       contact: [
         {
+          id: 1,
           src: IcWatchLater,
           alt: 'ic_watch_later',
           href: '/',
           title: 'Today 10:00 am - 7:00 pm',
-          subtitle: 'Working hours'
+          subtitle: 'Working hours',
+          target: '_self',
+          rel: '',
         },
         {
+          id: 2,
           src: IcNearMe,
           alt: 'ic_near_me',
           href: 'https://goo.gl/maps/8VTd6biYdAWWSjAv5',
@@ -29,11 +33,14 @@ class Contacts extends Component {
           rel: 'noopener noreferrer',
         },
         {
+          id: 3,
           src: IcCall,
           alt: 'ic_call',
           href: 'tel:+80638332415',
           title: '+38 (063)833 24 15',
-          subtitle: 'Call Online'
+          subtitle: 'Call Online',
+          target: '_self',
+          rel: '',
         },
 
       ],
@@ -45,6 +52,7 @@ class Contacts extends Component {
 
     const elements = contact.map((item) => (
       <ContactsView
+        key={item.id}
         src={item.src} 
         alt={item.alt} 
         href={item.href}
