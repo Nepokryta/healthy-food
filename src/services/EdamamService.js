@@ -18,10 +18,11 @@ class EdamamService {
 
   getCards = async () => {
     const res = await this.getResourse(`${this._apiBase}?type=public&q=delish${this._apiIdAndKey}${this._options}`);
-    const res2 = await this.getResourse(res._links.next.href);
     const arr = res.hits.map(this.transformCard);
-    const arr2 = res2.hits.map(this.transformCard);
-    return [...arr, ...arr2];
+    return arr;
+    // const res2 = await this.getResourse(res._links.next.href);
+    // const arr2 = res2.hits.map(this.transformCard);
+    // return [...arr, ...arr2];
   };
 
   /* eslint-enable no-underscore-dangle */
