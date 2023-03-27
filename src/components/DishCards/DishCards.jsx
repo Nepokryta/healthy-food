@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import withLoadingAndError from '../../hoc/withLoadingAndError';
 import DishCardView from './DishCardView';
-import ErrorRobot from '../../assets/img/error_robot.png';
 
 import './sass/DishCards.sass';
 
@@ -176,16 +175,6 @@ class DishCards extends Component {
     }
   };
 
-  handCheckImage = (e) => {
-    const img = e.target;
-    if (img.complete && img.naturalHeight !== 0) {
-      console.log(`Image uploaded! - "${img.alt}"`);
-    } else {
-      console.log(`Image loading error! - "${img.alt}"`);
-      img.src = ErrorRobot;
-    }  
-  }; 
-  
   render() {
     const { dish, activeCard, dragging } = this.state;
 
@@ -208,7 +197,6 @@ class DishCards extends Component {
         onDragOver={this.dragOverHandler}
         onDrop={this.dropHandler}
         onKeyDown={this.handleKeyDown}
-        chekImg={this.handCheckImage}
       /> 
     );
   }

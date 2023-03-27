@@ -9,7 +9,7 @@ class DishCardView extends Component {
     const {
       dish, onSort, onRandomSort, onCardClick, onAddCardClick, onAddElement, onDeleteElement, onAddElementOnClick, 
       activeCard, toggleActive, onDragStart, onDragOver, onDrop, onDragLeave, onDragEnd, 
-      onKeyDown, chekImg, dragging
+      onKeyDown, dragging
     } = this.props;
 
     let cardClass = 'dish__card';
@@ -50,7 +50,6 @@ class DishCardView extends Component {
           onAddElement={onAddElement}
           onDeleteElement={onDeleteElement}
           onAddElementOnClick={onAddElementOnClick}
-          chekImg={chekImg}
         />
       </div>
     ));
@@ -86,11 +85,10 @@ DishCardView.propTypes = {
   onDrop: PropTypes.func.isRequired,
   dragging: PropTypes.bool.isRequired,
   onKeyDown: PropTypes.func.isRequired,
-  chekImg: PropTypes.func.isRequired,
   dish: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired, 
-      src: PropTypes.string.isRequired,
+      src: PropTypes.string.isRequired, 
       alt: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       subtitle: PropTypes.string.isRequired,
