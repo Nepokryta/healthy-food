@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ThemeContext from './components/ThemeContext/ThemeContext';
 
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
@@ -31,7 +32,9 @@ import WORK from './assets/icons/WORK.svg';
 class App extends Component {
   constructor(props) {
     super(props);
+    this.toggleTheme = this.toggleTheme.bind(this);
     this.state = {
+      theme: 'dark',
       slider: [
         {
           key: 1,
@@ -163,70 +166,79 @@ class App extends Component {
     };
   }
 
+  toggleTheme() {
+    this.setState((prevState) => ({
+      theme: prevState.theme === 'dark' ? 'light' : 'dark',
+    }));
+  }
+
   render() {
-    const { slider, works } = this.state;
+    const { slider, works, theme } = this.state;
 
     return (
-      <>
-        <Header />
-        <hr />            
-        <main>
-          <Main />
+      <ThemeContext.Provider value={theme}>
+        <div className={`App ${theme}`}>
+          <Header toggleTheme={this.toggleTheme} />
+          <hr />          
+          <main>
+            <Main />
     
-          <section className="about">
+            <section className={`about ${theme}`}>
+              <Headline
+                title="The Basics Of Healthy Food"
+                src={ABOUT}
+                alt="ABOUT"
+                greenLine="_inline"
+              />
+              <Slider slider={slider} />
+            </section>
+    
             <Headline
-              title="The Basics Of Healthy Food"
-              src={ABOUT}
-              alt="ABOUT"
-              greenLine="_inline"
+              title="how it works"
+              src={WORK}
+              alt="WORK"
+              greenLine=""
             />
-            <Slider slider={slider} />
-          </section>
-    
-          <Headline
-            title="how it works"
-            src={WORK}
-            alt="WORK"
-            greenLine=""
-          />
-          <WorksCards works={works} />
+            <WorksCards works={works} />
            
-          <Headline
-            title="Dish Of The Day"
-            src={DISHES}
-            alt="DISHES"
-            greenLine=""
-          />
-          <DishCards />
-          {/* <DishCards dish={dish} /> */}
+            <Headline
+              title="Dish Of The Day"
+              src={DISHES}
+              alt="DISHES"
+              greenLine=""
+            />
+            <DishCards />
+            {/* <DishCards dish={dish} /> */}
             
-          <Headline
-            title="This month&apos;s chefs"
-            src={CHEFS}
-            alt="CHEFS"
-            greenLine=""
-          />
-          <ChefsCards />
+            <Headline
+              title="This month&apos;s chefs"
+              src={CHEFS}
+              alt="CHEFS"
+              greenLine=""
+            />
+            <ChefsCards />
           
-          <Headline
-            title="Recipes From Our Chefs"
-            src={RECIPES}
-            alt="RECIPES"
-            greenLine=""
-          />
-          <RecipeCards />
-          {/* <RecipeCards recipes={recipes} /> */}
+            <Headline
+              title="Recipes From Our Chefs"
+              src={RECIPES}
+              alt="RECIPES"
+              greenLine=""
+            />
+            <RecipeCards />
+            {/* <RecipeCards recipes={recipes} /> */}
            
-          <Headline
-            title="We in Social"
-            src={SOCIAL}
-            alt="SOCIAL"
-            greenLine=""
-          />
-          <SocialCards />
-        </main>
-        <Footer />
-      </>
+            <Headline
+              title="We in Social"
+              src={SOCIAL}
+              alt="SOCIAL"
+              greenLine=""
+            />
+            <SocialCards />
+          </main>
+          <Footer />
+        </div>
+      </ThemeContext.Provider>
+          
     );
   }
 }
