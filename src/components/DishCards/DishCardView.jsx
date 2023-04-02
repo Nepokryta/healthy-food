@@ -12,21 +12,14 @@ class DishCardView extends Component {
       activeCard, toggleActive, onDragStart, onDragOver, onDrop, onDragLeave, onDragEnd, 
       onKeyDown, dragging
     } = this.props;
-
-    let cardClass = 'dish__card';
-    if (dragging) {
-      cardClass += ' dragging' || '';
-    } else if (activeCard) {
-      cardClass += ' active ShiftLeft-q-pressed';
-    } else {
-      cardClass += ' inactive';
-    }
-
+ 
     const elements = dish.map((item) => (
-      <ThemeContext.Consumer>
+      <ThemeContext.Consumer key={item.id}>
         {(theme) => (
           <div
-            className={item.id === activeCard || dragging ? cardClass : `dish__card inactive ${theme}`}
+            className={item.id === activeCard || dragging 
+              ? `dish__card ${theme} active ShiftLeft-q-pressed` 
+              : `dish__card ${theme} inactive`}
             onClick={() => toggleActive(item.id)}
             draggable
             onDragStart={(e) => onDragStart(e, item)}
@@ -37,7 +30,6 @@ class DishCardView extends Component {
             onKeyDown={(e) => onKeyDown(e)}
             tabIndex={0} 
             role="button"
-            key={item.key}
           >
             <OneDishCardView
               showElement={item.showElement}
