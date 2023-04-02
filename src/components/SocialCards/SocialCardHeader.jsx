@@ -1,19 +1,24 @@
 import PropTypes from 'prop-types';
+import ThemeContext from '../ThemeContext/ThemeContext';
 
 import './sass/SocialCardHeader.sass';
 
 function SocialCardHeader({ src, alt, title }) {
   return (
-    <>
-      <div className="card__header">
-        <div className="icon">
-          <img src={src} alt={alt} />
-        </div>
-        <div className="subtitle">{title}</div>
-        <button className="card__action-btn button" type="submit">follow us</button>
-      </div>
-      <hr />
-    </>
+    <ThemeContext.Consumer>
+      {(theme) => (
+        <>
+          <div className="card__header">
+            <div className={`icon ${theme}`}>
+              <img src={src} alt={alt} />
+            </div>
+            <div className={`subtitle ${theme}`}>{title}</div>
+            <button className={`card__action-btn button ${theme}`} type="submit">follow us</button>
+          </div>
+          <hr />
+        </>
+      )}
+    </ThemeContext.Consumer> 
   );
 }
 
