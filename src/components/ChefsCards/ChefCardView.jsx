@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ThemeContext from '../ThemeContext/ThemeContext';
 
 import './sass/ChefCardView.sass';
 
@@ -9,20 +10,24 @@ function ChefCardView(props) {
   } = props;
 
   return (
-    <div className="chefs">
-      <div className="chef">
-        <img src={avatar} alt={avatarAlt} className="chef__photo" />
-        <div className="chef__name">
-          <h2 className="chef__name_title">{name}</h2>
-          <h3 className="chef__name_subtitle">{title}</h3>
+    <ThemeContext.Consumer>
+      {(theme) => (
+        <div className="chefs">
+          <div className="chef">
+            <img src={avatar} alt={avatarAlt} className="chef__photo" />
+            <div className="chef__name">
+              <h2 className={`chef__name_title ${theme}`}>{name}</h2>
+              <h3 className={`chef__name_subtitle ${theme}`}>{title}</h3>
+            </div>
+          </div>
+          <div className="chef__card-photo">
+            <img className="chef__card-photo-big" src={bigImg} alt={bigImgAlt} />
+            <img className="chef__card-photo-small" src={smallImg1} alt={smallImg1Alt} />
+            <img className="chef__card-photo-small" src={smallImg2} alt={smallImg2Alt} />
+          </div>
         </div>
-      </div>
-      <div className="chef__card-photo">
-        <img className="chef__card-photo-big" src={bigImg} alt={bigImgAlt} />
-        <img className="chef__card-photo-small" src={smallImg1} alt={smallImg1Alt} />
-        <img className="chef__card-photo-small" src={smallImg2} alt={smallImg2Alt} />
-      </div>
-    </div>
+      )}
+    </ThemeContext.Consumer>  
   );
 }
 
