@@ -7,15 +7,33 @@ html
 body
     padding: 0px
     margin: 0px auto
-    background: #191819 url('../assets/img/main-photo.png')
-    background-repeat: no-repeat
-    background-size: contain 
     height: 100%
     width: 100%
  
 .container
     width: 1110px
     margin: 0 auto
+
+.App.dark
+    background: #191819 url('../assets/img/main-photo.png')
+    background-repeat: no-repeat
+    background-size: contain 
+.about
+    width: 1110px
+    margin: 130px auto 0
+    position: relative
+    background: #252525
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
+    border-radius: 6px
+
+.App.light
+    color: #191819
+    background: #fefcfc url('../assets/img/main-photo-light.png')
+    background-repeat: no-repeat
+    background-size: contain 
+.about.light
+    background: #f2eeee
+    color: #191819
 
 hr
     border: none
@@ -24,13 +42,8 @@ hr
     opacity: 0.1
     margin: 0
 
-.about
-    width: 1110px
-    margin: 130px auto 0
-    position: relative
-    background: #252525
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
-    border-radius: 6px
+
+
 
 @import "./button"
 @import "./fonts"
