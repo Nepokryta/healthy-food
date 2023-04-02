@@ -41,7 +41,7 @@
     align-items: center
     gap: 12px
     font-size: 12px
-    fill: #fff
+    // fill: #fff
 .removeRedEye, .questionAnswer 
     rect
         fill: #fff
@@ -127,11 +127,30 @@
         top: 106px
         justify-content: flex-end
         margin-top: 0px
+.recipe-info.light
+    background-color: rgba(242, 238, 238, 0.7)
+.recipe-info 
+.data.light, .title.light, .subtitle.light, .views__value.light, .comments__value.light, .name.light a
+    color: #191819
+.views.light, .comments.light, .action__value.light, .removeRedEye.light, .questionAnswer.light
+    color: #191819
+    svg g rect
+        fill: #191919
+.arrow.light
+    rect
+        fill: #191819
+
+
 
 .recipe-info:hover, .recipe-info:hover
     background: #34C759 !important
     .subtitle, .arrow-card
         background-color: #191919
+    .arrow.light:hover
+    rect
+        fill: #fff
+    .subtitle.light
+        color: #fff
     .title, .name, .data, a
         color: #191919
     .action
