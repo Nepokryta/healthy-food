@@ -1,30 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import ThemeContext from '../ThemeContext/ThemeContext';
 
 import './sass/Headline.sass';
 
-class Headline extends Component {
-  render() {
-    const {
-      title, src, alt, greenLine 
-    } = this.props;
-    return (
-      <ThemeContext.Consumer>
-        {(theme) => (
-          <>
-            <div className="headline">
-              <h2 className={`headline__title ${theme}`}>{title}</h2>
-              <div className="headline__subtitle">
-                <img src={src} alt={alt} />
-              </div>
+function Headline(props) {
+  const {
+    title, src, alt, greenLine 
+  } = props;
+  return (
+    <ThemeContext.Consumer>
+      {(theme) => (
+        <>
+          <div className="headline">
+            <h2 className={`headline__title ${theme}`}>{title}</h2>
+            <div className="headline__subtitle">
+              <img src={src} alt={alt} />
             </div>
-            <span className={`green__line${greenLine}`} />
-          </>
-        )}
-      </ThemeContext.Consumer>   
-    );
-  }
+          </div>
+          <span className={`green__line${greenLine}`} />
+        </>
+      )}
+    </ThemeContext.Consumer>   
+  );
 }
 
 Headline.propTypes = {
