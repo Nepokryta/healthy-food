@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import ThemeContext from './components/ThemeContext/ThemeContext';
 
 import Header from './components/Header/Header';
@@ -11,17 +11,8 @@ import ChefsCards from './components/ChefsCards/ChefsCards';
 import Headline from './components/Headline/Headline';
 import SocialCards from './components/SocialCards/SocialCards';
 import Footer from './components/Footer/Footer';
-
-// import BeansAndPeppers from './assets/img/beans-and-peppers.png';
-// import Eggs from './assets/img/eggs.png';
-// import Salad from './assets/img/salad.png';
-// import ThreeSalads from './assets/img/three-salads.png';
-// import YellowSoup from './assets/img/yellow-soup.png';
 import Fish from './assets/img/fish.png';
-// import GreenSalad from './assets/img/green-salad.png';
 import SaladVegetables from './assets/img/salad-vegetables.png';
-// import Vegetables from './assets/img/vegetables.png';
-
 import ABOUT from './assets/icons/ABOUT.svg';
 import CHEFS from './assets/icons/CHEFS.svg';
 import DISHES from './assets/icons/DISHES.svg';
@@ -29,218 +20,110 @@ import RECIPES from './assets/icons/RECIPES.svg';
 import SOCIAL from './assets/icons/SOCIAL.svg';
 import WORK from './assets/icons/WORK.svg';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.toggleTheme = this.toggleTheme.bind(this);
-    this.state = {
-      theme: 'dark',
-      slider: [
-        {
-          key: 1,
-          src: Fish,
-          alt: 'fish',
-        },
-        {
-          key: 2,
-          src: SaladVegetables,
-          alt: 'salad_vegetables',
-        },
-      ],
-      works: [
-        {
-          key: 1,
-          title: 'Pick meals',
-          subtitle: `Choose your meals from our diverse weekly menu. Find gluten or dairy free, 
-          low carb & veggie options.`
-        },
-        {
-          key: 2,
-          title: 'Choose how often',
-          subtitle: 'Our team of chefs do the prep work - no more chopping, measuring, or sink full of dishes!'
-        },
-        {
-          key: 3,
-          title: 'fast deliveries',
-          subtitle: 'Your freshly prepped 15-min dinner kits arrive on your doorstep in a refrigerated box.'
-        },
-        {
-          key: 4,
-          title: 'tasty meals',
-          subtitle: 'Gobble makes cooking fast, so you have more time to unwind and be with family.'
-        }
-      ],
-      //   dish: [
-      //     {
-      //       key: 1,
-      //       src: YellowSoup,
-      //       alt: 'yellow_soup',
-      //       title: 'Pumpkin soup',
-      //       newSubtitle: false,
-      //       subtitle: 'Served with sour cream and chopped herbs.',
-      //       description: 'Pumpkin cream soup can be served hot or cold, depending on personal preference.This soup 
-      //   is perfect for chilly autumn evenings, and its rich and creamy texture makes it a comforting and satisfying 
-      // meal.',
-      //     },
-      //     {
-      //       key: 2,
-      //       src: BeansAndPeppers,
-      //       alt: 'beans_and_peppers',
-      //       title: 'Three Bean Salad',
-      //       newSubtitle: false,
-      //       subtitle: 'Served with vinaigrette sauce and chopped parsley.',
-      //       description: 'A refreshing salad made with mixed beans, diced vegetables, and a simple vinaigrette 
-      //   dressing.',
-      //     },
-      //     {
-      //       key: 3,
-      //       src: Eggs,
-      //       alt: 'eggs',
-      //       title: 'Egg toast',
-      //       newSubtitle: false,
-      //       subtitle: 'Served with a cup of coffee or tea.',
-      //       description: 'A delicious breakfast or brunch option featuring a slice of toast topped with a perfectly
-      //    cooked egg.',
-      //     },
-      //     {
-      //       key: 4,
-      //       src: Fish,
-      //       alt: 'fish',
-      //       title: 'Red fish',
-      //       newSubtitle: false,
-      //       subtitle: 'Served with fried or grilled vegetables.',
-      //       description: 'A flavorful and nutritious fish that is often grilled or baked and served with a variety
-      //    of side dishes.',
-      //     },
-      //     {
-      //       key: 5,
-      //       src: Salad,
-      //       alt: 'salad',
-      //       title: 'Egg bowl',
-      //       newSubtitle: false,
-      //       subtitle: 'Served with a cup of coffee or orange juice.',
-      //       description: 'A breakfast or brunch dish that typically consists of scrambled eggs served with a variety 
-      //   of toppings, such as diced vegetables, cheese, and avocado.',
-      //     },
-      //     {
-      //       key: 6,
-      //       src: ThreeSalads,
-      //       alt: 'three_salads',
-      //       title: 'Veggie bowl',
-      //       newSubtitle: false,
-      //       subtitle: 'Served with a little tahini sauce.',
-      //       description: 'A healthy and colorful bowl filled with a variety of fresh, raw or roasted vegetables,
-      //    often served over a bed of grains or greens.',
-      //     },
-      //   ],
-    //   recipes: [
-    //     {
-    //       key: 1,
-    //       size: 'recipes__card-big', 
-    //       background: `linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(${Vegetables})`,
-    //       subtitle: 'breakfast',
-    //       title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-    //     },
-    //     {
-    //       key: 2,
-    //       size: 'recipes__card-small',
-    //       background: '#252525',
-    //       subtitle: 'lunch',
-    //       title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
-    //     },
-    //     {
-    //       key: 3,
-    //       size: 'recipes__card-small',
-    //       background: `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${GreenSalad})`,
-    //       subtitle: 'dinner',
-    //       title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
-    //     },
-    //     {
-    //       key: 4,
-    //       size: 'recipes__card-small',
-    //       background: '#252525',
-    //       subtitle: 'sweets',
-    //       title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
-    //     },
-    //   ],
-    };
-  }
+function App() {
+  const [theme, setTheme] = useState('dark');
+  const [slider] = useState([
+    {
+      key: 1,
+      src: Fish,
+      alt: 'fish',
+    },
+    {
+      key: 2,
+      src: SaladVegetables,
+      alt: 'salad_vegetables',
+    },
+  ]);
+  const [works] = useState([
+    {
+      key: 1,
+      title: 'Pick meals',
+      subtitle: `Choose your meals from our diverse weekly menu. Find gluten or dairy free, 
+      low carb & veggie options.`
+    },
+    {
+      key: 2,
+      title: 'Choose how often',
+      subtitle: 'Our team of chefs do the prep work - no more chopping, measuring, or sink full of dishes!'
+    },
+    {
+      key: 3,
+      title: 'fast deliveries',
+      subtitle: 'Your freshly prepped 15-min dinner kits arrive on your doorstep in a refrigerated box.'
+    },
+    {
+      key: 4,
+      title: 'tasty meals',
+      subtitle: 'Gobble makes cooking fast, so you have more time to unwind and be with family.'
+    }
+  ]);
 
-  toggleTheme() {
-    this.setState((prevState) => ({
-      theme: prevState.theme === 'dark' ? 'light' : 'dark',
-    }));
-  }
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
+  };
 
-  render() {
-    const { slider, works, theme } = this.state;
-
-    return (
-      <ThemeContext.Provider value={theme}>
-        <div className={`App ${theme}`}>
-          <Header toggleTheme={this.toggleTheme} />
-          <hr />          
-          <main>
-            <Main />
+  return (
+    <ThemeContext.Provider value={theme}>
+      <div className={`App ${theme}`}>
+        <Header toggleTheme={toggleTheme} />
+        <hr />          
+        <main>
+          <Main />
     
-            <section className={`about ${theme}`}>
-              <Headline
-                title="The Basics Of Healthy Food"
-                src={ABOUT}
-                alt="ABOUT"
-                greenLine="_inline"
-              />
-              <Slider slider={slider} />
-            </section>
-    
+          <section className={`about ${theme}`}>
             <Headline
-              title="how it works"
-              src={WORK}
-              alt="WORK"
-              greenLine=""
+              title="The Basics Of Healthy Food"
+              src={ABOUT}
+              alt="ABOUT"
+              greenLine="_inline"
             />
-            <WorksCards works={works} />
+            <Slider slider={slider} />
+          </section>
+    
+          <Headline
+            title="how it works"
+            src={WORK}
+            alt="WORK"
+            greenLine=""
+          />
+          <WorksCards works={works} />
            
-            <Headline
-              title="Dish Of The Day"
-              src={DISHES}
-              alt="DISHES"
-              greenLine=""
-            />
-            <DishCards />
-            {/* <DishCards dish={dish} /> */}
+          <Headline
+            title="Dish Of The Day"
+            src={DISHES}
+            alt="DISHES"
+            greenLine=""
+          />
+          <DishCards />
             
-            <Headline
-              title="This month&apos;s chefs"
-              src={CHEFS}
-              alt="CHEFS"
-              greenLine=""
-            />
-            <ChefsCards />
+          <Headline
+            title="This month&apos;s chefs"
+            src={CHEFS}
+            alt="CHEFS"
+            greenLine=""
+          />
+          <ChefsCards />
           
-            <Headline
-              title="Recipes From Our Chefs"
-              src={RECIPES}
-              alt="RECIPES"
-              greenLine=""
-            />
-            <RecipeCards />
-            {/* <RecipeCards recipes={recipes} /> */}
+          <Headline
+            title="Recipes From Our Chefs"
+            src={RECIPES}
+            alt="RECIPES"
+            greenLine=""
+          />
+          <RecipeCards />
            
-            <Headline
-              title="We in Social"
-              src={SOCIAL}
-              alt="SOCIAL"
-              greenLine=""
-            />
-            <SocialCards />
-          </main>
-          <Footer />
-        </div>
-      </ThemeContext.Provider>
-          
-    );
-  }
+          <Headline
+            title="We in Social"
+            src={SOCIAL}
+            alt="SOCIAL"
+            greenLine=""
+          />
+          <SocialCards />
+        </main>
+        <Footer />
+      </div>
+    </ThemeContext.Provider>
+  );
 }
 
 export default App;
