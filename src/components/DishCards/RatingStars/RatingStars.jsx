@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import RatingStarView from './RatingStarView';
-import StarValue from '../../../constants/StarValue';
+import { StarValue } from '../../../constants/constants';
 import '../sass/RatingStars.sass';
 
 class RatingStars extends Component {

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ThemeContext from './components/ThemeContext/ThemeContext';
+import { THEME_DARK, THEME_LIGHT } from './constants/constants';
 
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
@@ -59,7 +60,7 @@ function App() {
   ]);
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
+    setTheme((prevTheme) => (prevTheme === THEME_DARK ? THEME_LIGHT : THEME_DARK));
   };
 
   return (

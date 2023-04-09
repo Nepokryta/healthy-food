@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import RecipeCardView from './RecipeCardView';
 import withLoadingAndError from '../../hoc/withLoadingAndError';
+import { RECIPE_CARD_BIG, RECIPE_CARD_SMALL } from '../../constants/constants';
 
 import './sass/RecipeCards.sass';
 
@@ -35,7 +36,7 @@ class RecipeCards extends Component {
         key={item.key} 
         src={item.src}
         alt={item.alt}
-        size={index === 0 ? 'big' : 'small'}
+        size={index === 0 ? RECIPE_CARD_BIG : RECIPE_CARD_SMALL}
         subtitle={item.subtitle} 
         title={item.title}
         newSubtitle={item.newSubtitle}

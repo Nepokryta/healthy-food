@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ThemeContext from '../ThemeContext/ThemeContext';
+import { RECIPE_CARD_BIG, RECIPE_CARD_SMALL } from '../../constants/constants';
 
 import { ReactComponent as Arrow } from '../../assets/icons/arrow.svg';
 import { ReactComponent as RemoveRedEye } from '../../assets/icons/ic_remove_red_eye.svg';
@@ -13,7 +14,8 @@ function RecipeCardView(props) {
     src, alt, subtitle, title, newSubtitle, linkToRecipe, totalTime, totalWeight, size
   } = props; 
 
-  const className = size === 'big' ? 'recipes__card-big' : 'recipes__card-small';
+  const className = size === RECIPE_CARD_BIG 
+    ? `recipes__card-${RECIPE_CARD_BIG}` : `recipes__card-${RECIPE_CARD_SMALL}`;
 
   return (
     <ThemeContext.Consumer>
