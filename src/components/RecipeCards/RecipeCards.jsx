@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import RecipeCardView from './RecipeCardView';
 import withLoadingAndError from '../../hoc/withLoadingAndError';
@@ -6,16 +6,10 @@ import { RECIPE_CARD_BIG, RECIPE_CARD_SMALL } from '../../constants/constants';
 
 import './sass/RecipeCards.sass';
 
-class RecipeCards extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      recipes: [],
-    };
-  }
+function RecipeCards({ data }) {
+  const [recipes, setRecipes] = useState([]);
 
-  componentDidMount() {
-    const { data } = this.props;
+  useEffect(() => {
     const updatedRecipes = data
       .sort(() => 0.5 - Math.random())
       .slice(0, 4)
@@ -23,35 +17,29 @@ class RecipeCards extends Component {
         ...item, 
         key: item.id, 
       }));
-    this.setState({ 
-      recipes: updatedRecipes,
-    });
-  }
+    setRecipes(updatedRecipes);
+  }, [data]);
 
-  render() {
-    const { recipes } = this.state;
+  const elements = recipes.map((item, index) => (
+    <RecipeCardView 
+      key={item.key} 
+      src={item.src}
+      alt={item.alt}
+      size={index === 0 ? RECIPE_CARD_BIG : RECIPE_CARD_SMALL}
+      subtitle={item.subtitle} 
+      title={item.title}
+      newSubtitle={item.newSubtitle}
+      linkToRecipe={item.linkToRecipe}
+      totalTime={item.totalTime}
+      totalWeight={item.totalWeight}
+    />
+  ));
     
-    const elements = recipes.map((item, index) => (
-      <RecipeCardView 
-        key={item.key} 
-        src={item.src}
-        alt={item.alt}
-        size={index === 0 ? RECIPE_CARD_BIG : RECIPE_CARD_SMALL}
-        subtitle={item.subtitle} 
-        title={item.title}
-        newSubtitle={item.newSubtitle}
-        linkToRecipe={item.linkToRecipe}
-        totalTime={item.totalTime}
-        totalWeight={item.totalWeight}
-      />
-    ));
-    
-    return (
-      <div className="recipes__cards">
-        {elements}
-      </div> 
-    );
-  }
+  return (
+    <div className="recipes__cards">
+      {elements}
+    </div> 
+  );
 }
 
 RecipeCards.propTypes = {
