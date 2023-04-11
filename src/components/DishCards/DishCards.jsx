@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import withLoadingAndError from '../../hoc/withLoadingAndError';
@@ -13,15 +13,15 @@ function DishCards({ data }) {
   const [currentCard, setCurrentCard] = useState('');
   const [dragging, setDragging] = useState(false);
   
-  const handleKeyDown = (e) => {
+  const handleKeyDown = useCallback((e) => {
     e.stopPropagation();
     let newActiveCard;
     if (e.code === 'KeyD' && e.shiftKey) {
       const activeCardIndex = dish.findIndex((item) => item.id === activeCard);
       newActiveCard = activeCardIndex === dish.length - 1 ? dish[0].id : dish[activeCardIndex + 1].id;
-      setActiveCard(newActiveCard); 
+      setActiveCard(newActiveCard);
     }
-  };
+  });
 
   useEffect(() => {
     const updatedDish = data
@@ -58,19 +58,19 @@ function DishCards({ data }) {
     setDish(dish.filter((item) => item.id !== id));
   };
 
-  const handleAddCardClick = (src, alt, title, subtitle, description, newSubtitle, showElement, isFavorite = false) => {
+  const handleAddCardClick = (src, alt, title, subtitle, description, newSubtitle, showElement, prevTitle) => {
     const id = uuidv4();
     const newItem = {
       key: id,
       id,
       src, 
       alt, 
-      title: isFavorite === false ? alt : 'My favorite', 
+      title: title === 'My favorite' ? prevTitle : title, 
       subtitle,
       description,
       newSubtitle,
       showElement: !showElement,
-      isFavorite,
+      prevTitle,
     };
     setDish(dish.concat(newItem));
     console.log(newItem.key);
