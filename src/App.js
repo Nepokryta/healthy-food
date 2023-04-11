@@ -22,7 +22,7 @@ import SOCIAL from './assets/icons/SOCIAL.svg';
 import WORK from './assets/icons/WORK.svg';
 
 function App() {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState(THEME_DARK);
   const [slider] = useState([
     {
       key: 1,

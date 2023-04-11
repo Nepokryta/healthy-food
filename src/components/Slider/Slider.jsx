@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import ThemeContext from '../ThemeContext/ThemeContext';
 
@@ -9,35 +9,31 @@ import './sass/Slider.sass';
 
 function Slider(props) {
   const { slider } = props;
+  const theme = useContext(ThemeContext);
   const elements = slider.map((item) => (
     <SliderView key={item.key} src={item.src} alt={item.alt} />
   ));
       
   return (
-    <ThemeContext.Consumer>
-      {(theme) => (
-        <div className="about__slider">
-          <h3 className={`about__subtitle ${theme}`}>
-            In aliqua ea ullamco ad est ex non deserunt nulla. 
-            Consectetur sint ea aliquip aliquip consectetur 
-            voluptate est. Eu minim dolore laboris enim mollit 
-            voluptate irure esse aliquip.
-          </h3>
-          <div className="cards">
-            {elements}
-          </div>
-          <button className={`arrow_btn ${theme} arrow_btn-left`} type="submit">
-            <img src={Arrow} alt="arrow" />
-          </button>
-          <button className={`arrow_btn ${theme} arrow_btn-right`} type="submit">
-            <img src={Arrow} alt="arrow" />
-          </button>
-        </div>
-      )}
-    </ThemeContext.Consumer> 
+    <div className="about__slider">
+      <h3 className={`about__subtitle ${theme}`}>
+        In aliqua ea ullamco ad est ex non deserunt nulla. 
+        Consectetur sint ea aliquip aliquip consectetur 
+        voluptate est. Eu minim dolore laboris enim mollit 
+        voluptate irure esse aliquip.
+      </h3>
+      <div className="cards">
+        {elements}
+      </div>
+      <button className={`arrow_btn ${theme} arrow_btn-left`} type="submit">
+        <img src={Arrow} alt="arrow" />
+      </button>
+      <button className={`arrow_btn ${theme} arrow_btn-right`} type="submit">
+        <img src={Arrow} alt="arrow" />
+      </button>
+    </div>
   );
 }
-Slider.contextType = ThemeContext;
 
 Slider.propTypes = {
   slider: PropTypes.arrayOf(

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import ThemeContext from '../ThemeContext/ThemeContext';
 
@@ -8,20 +8,18 @@ function Headline(props) {
   const {
     title, src, alt, greenLine 
   } = props;
+  const theme = useContext(ThemeContext);
+
   return (
-    <ThemeContext.Consumer>
-      {(theme) => (
-        <>
-          <div className="headline">
-            <h2 className={`headline__title ${theme}`}>{title}</h2>
-            <div className="headline__subtitle">
-              <img src={src} alt={alt} />
-            </div>
-          </div>
-          <span className={`green__line${greenLine}`} />
-        </>
-      )}
-    </ThemeContext.Consumer>   
+    <>
+      <div className="headline">
+        <h2 className={`headline__title ${theme}`}>{title}</h2>
+        <div className="headline__subtitle">
+          <img src={src} alt={alt} />
+        </div>
+      </div>
+      <span className={`green__line${greenLine}`} />
+    </> 
   );
 }
 

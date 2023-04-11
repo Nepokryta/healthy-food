@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import ThemeContext from '../ThemeContext/ThemeContext';
 
@@ -6,23 +6,21 @@ function ContactsView(props) {
   const {
     src, alt, href, title, subtitle, target, rel 
   } = props;
+  const theme = useContext(ThemeContext);
+
   return (
-    <ThemeContext.Consumer>
-      {(theme) => (
-        <li className="contact__info">
-          <img src={src} alt={alt} />
-          <a 
-            className={`contact__info-title ${theme}`}
-            href={href}
-            target={target}
-            rel={rel}
-          >
-            {title}
-          </a>
-          <h4 className="contact__info-subtitle">{subtitle}</h4>
-        </li>
-      )}
-    </ThemeContext.Consumer>   
+    <li className="contact__info">
+      <img src={src} alt={alt} />
+      <a 
+        className={`contact__info-title ${theme}`}
+        href={href}
+        target={target}
+        rel={rel}
+      >
+        {title}
+      </a>
+      <h4 className="contact__info-subtitle">{subtitle}</h4>
+    </li> 
   );
 }
 

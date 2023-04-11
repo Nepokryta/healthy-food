@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import ThemeContext from '../ThemeContext/ThemeContext';
 import OneDishCardView from './OneDishCardView';
@@ -10,57 +10,50 @@ function DishCardView(props) {
     dish, onSort, onRandomSort, onCardClick, onAddCardClick, onAddElement, onDeleteElement, onAddElementOnClick, 
     activeCard, toggleActive, onDragStart, onDragOver, onDrop, onKeyDown, dragging
   } = props;
- 
+  const theme = useContext(ThemeContext);
   const elements = dish.map((item) => (
-    <ThemeContext.Consumer key={item.id}>
-      {(theme) => (
-        <div
-          className={item.id === activeCard || dragging 
-            ? `dish__card ${theme} active ShiftLeft-q-pressed` 
-            : `dish__card ${theme} inactive`}
-          onClick={() => toggleActive(item.id)}
-          draggable
-          onDragStart={(e) => onDragStart(e, item)}
-          onDragOver={(e) => onDragOver(e)}
-          onDrop={(e) => onDrop(e, item)}
-          onKeyDown={(e) => onKeyDown(e)}
-          tabIndex={0} 
-          role="button"
-        >
-          <OneDishCardView
-            showElement={item.showElement}
-            id={item.id} 
-            src={item.src}
-            alt={item.alt}
-            title={item.title}
-            subtitle={item.subtitle}
-            newSubtitle={item.newSubtitle}
-            description={item.description}
-            onCardClick={onCardClick} 
-            onAddCardClick={onAddCardClick}
-            onAddElement={onAddElement}
-            onDeleteElement={onDeleteElement}
-            onAddElementOnClick={onAddElementOnClick}
-          />
-        </div>
-      )}
-    </ThemeContext.Consumer>  
+    <div
+      className={item.id === activeCard || dragging 
+        ? `dish__card ${theme} active ShiftLeft-q-pressed` 
+        : `dish__card ${theme} inactive`}
+      onClick={() => toggleActive(item.id)}
+      draggable
+      onDragStart={(e) => onDragStart(e, item)}
+      onDragOver={(e) => onDragOver(e)}
+      onDrop={(e) => onDrop(e, item)}
+      onKeyDown={(e) => onKeyDown(e)}
+      tabIndex={0} 
+      role="button"
+      key={item.id}
+    >
+      <OneDishCardView
+        showElement={item.showElement}
+        id={item.id} 
+        src={item.src}
+        alt={item.alt}
+        title={item.title}
+        subtitle={item.subtitle}
+        newSubtitle={item.newSubtitle}
+        description={item.description}
+        onCardClick={onCardClick} 
+        onAddCardClick={onAddCardClick}
+        onAddElement={onAddElement}
+        onDeleteElement={onDeleteElement}
+        onAddElementOnClick={onAddElementOnClick}
+      />
+    </div>
   ));
       
   return (
-    <ThemeContext.Consumer>
-      {(theme) => (
-        <div className="container">
-          <div className="dish__cards">
-            {elements}
-          </div>
-          <div className="sortBtn">
-            <button className={`action-btn button ${theme}`} type="submit" onClick={onRandomSort}>RANDOM</button>
-            <button className={`action-btn button ${theme}`} type="submit" onClick={onSort}>SORT</button>
-          </div>
-        </div>
-      )}
-    </ThemeContext.Consumer>  
+    <div className="container">
+      <div className="dish__cards">
+        {elements}
+      </div>
+      <div className="sortBtn">
+        <button className={`action-btn button ${theme}`} type="submit" onClick={onRandomSort}>RANDOM</button>
+        <button className={`action-btn button ${theme}`} type="submit" onClick={onSort}>SORT</button>
+      </div>
+    </div>
   );
 }
 
