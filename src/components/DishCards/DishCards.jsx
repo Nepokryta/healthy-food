@@ -21,7 +21,7 @@ function DishCards({ data }) {
       newActiveCard = activeCardIndex === dish.length - 1 ? dish[0].id : dish[activeCardIndex + 1].id;
       setActiveCard(newActiveCard);
     }
-  });
+  }, [dish, activeCard]);
 
   useEffect(() => {
     const updatedDish = data
@@ -37,6 +37,11 @@ function DishCards({ data }) {
     window.addEventListener('keydown', handleKeyDown);
     return () => { window.removeEventListener('keydown', handleKeyDown); };
   }, [data]);
+  
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => { window.removeEventListener('keydown', handleKeyDown); };
+  }, [handleKeyDown]);
 
   const handleSort = () => {
     setSortOrder(!sortOrder);
