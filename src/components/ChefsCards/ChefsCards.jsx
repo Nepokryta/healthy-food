@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import ChefsCardsView from './ChefsCardsView';
 
 import Avatar1 from '../../assets/img/avatar1.png';
@@ -16,48 +17,62 @@ import Img6 from '../../assets/img/img3-3.png';
 
 import './sass/ChefsCards.sass';
 
+const chefsData = [
+  {
+    id: 1,
+    avatar: Avatar1,
+    avatarAlt: 'avatar1',
+    name: 'chefs.name1',
+    title: 'chefs.title1',
+    bigImg: BigImg1,
+    bigImgAlt: 'big_img1',
+    smallImg1: Img1,
+    smallImg1Alt: 'img1_2',
+    smallImg2: Img2,
+    smallImg2Alt: 'img1_3',
+  },
+  {
+    id: 2,
+    avatar: Avatar2,
+    avatarAlt: 'avatar2',
+    name: 'chefs.name2',
+    title: 'chefs.title2',
+    bigImg: BigImg2,
+    bigImgAlt: 'big_img2',
+    smallImg1: Img3,
+    smallImg1Alt: 'img2_2',
+    smallImg2: Img4,
+    smallImg2Alt: 'img2_3',
+  },
+  {
+    id: 3,
+    avatar: Avatar3,
+    avatarAlt: 'avatar3',
+    name: 'chefs.name3',
+    title: 'chefs.title3',
+    bigImg: BigImg3,
+    bigImgAlt: 'big_img3',
+    smallImg1: Img5,
+    smallImg1Alt: 'img3_2',
+    smallImg2: Img6,
+    smallImg2Alt: 'img3_3',
+  },
+];
 function ChefsCards() {
-  const [chefs] = useState([
-    {
-      id: 1,
-      avatar: Avatar1,
-      avatarAlt: 'avatar1',
-      name: 'Gregory Flores',
-      title: 'Chef of the cold',
-      bigImg: BigImg1,
-      bigImgAlt: 'big_img1',
-      smallImg1: Img1,
-      smallImg1Alt: 'img1_2',
-      smallImg2: Img2,
-      smallImg2Alt: 'img1_3',
-    },
-    {
-      id: 2,
-      avatar: Avatar2,
-      avatarAlt: 'avatar2',
-      name: 'Annette Cooper',
-      title: 'Chef of the hot',
-      bigImg: BigImg2,
-      bigImgAlt: 'big_img2',
-      smallImg1: Img3,
-      smallImg1Alt: 'img2_2',
-      smallImg2: Img4,
-      smallImg2Alt: 'img2_3',
-    },
-    {
-      id: 3,
-      avatar: Avatar3,
-      avatarAlt: 'avatar3',
-      name: 'Greg Fox',
-      title: 'Сhef macro kitchen',
-      bigImg: BigImg3,
-      bigImgAlt: 'big_img3',
-      smallImg1: Img5,
-      smallImg1Alt: 'img3_2',
-      smallImg2: Img6,
-      smallImg2Alt: 'img3_3',
-    },
-  ]);
+  const { t, i18n } = useTranslation();
+  const [chefs, setChefs] = useState(chefsData.map((c) => ({ 
+    ...c, 
+    name: t(c.name), 
+    title: t(c.title) 
+  })));
+
+  useEffect(() => {
+    setChefs(chefsData.map((c) => ({ 
+      ...c, 
+      name: t(c.name), 
+      title: t(c.title) 
+    })));
+  }, [i18n.language, t]);
   
   return (
     <ChefsCardsView chefs={chefs} />
