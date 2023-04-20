@@ -10,7 +10,7 @@ export default function withLoadingAndError(MyComponent) {
     constructor(props) {
       super(props);
       this.state = {
-        isLoаding: true,
+        isLoading: true,
         data: null,
         error: null,
       };
@@ -22,20 +22,20 @@ export default function withLoadingAndError(MyComponent) {
           .then((data) => {
             this.setState({
               data,
-              isLoаding: false,
+              isLoading: false,
             });
           });
       } catch (error) {
         this.setState({
           error,
-          isLoаding: false,
+          isLoading: false,
         });
       } 
     }
 
     render() {
-      const { data, isLoаding, error } = this.state;
-      if (isLoаding) {
+      const { data, isLoading, error } = this.state;
+      if (isLoading) {
         return <Spinner />;
       }
       
