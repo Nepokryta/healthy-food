@@ -4,15 +4,21 @@ import ThemeContext from '../ThemeContext/ThemeContext';
 
 import './sass/ChefCardView.sass';
 
-function ChefCardView(props) {
-  const { 
-    avatar, avatarAlt, name, title, bigImg, bigImgAlt, smallImg1, smallImg1Alt, smallImg2, smallImg2Alt 
-  } = props;
+function ChefCardView({
+  avatar,
+  avatarAlt,
+  name,
+  title,
+  bigImg,
+  bigImgAlt,
+  smallImg1,
+  smallImg1Alt,
+  smallImg2,
+  smallImg2Alt 
+}) {
   const theme = useContext(ThemeContext);
 
   return (
-  // <ThemeContext.Consumer>
-  //   {(theme) => (
     <div className="chefs">
       <div className="chef">
         <img src={avatar} alt={avatarAlt} className="chef__photo" />
@@ -26,9 +32,7 @@ function ChefCardView(props) {
         <img className="chef__card-photo-small" src={smallImg1} alt={smallImg1Alt} />
         <img className="chef__card-photo-small" src={smallImg2} alt={smallImg2Alt} />
       </div>
-    </div>
-  //   )}
-  // </ThemeContext.Consumer>  
+    </div> 
   );
 }
 

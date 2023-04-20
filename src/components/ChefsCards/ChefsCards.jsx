@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ChefCardView from './ChefCardView';
+import ChefsCardsView from './ChefsCardsView';
 
 import Avatar1 from '../../assets/img/avatar1.png';
 import Avatar2 from '../../assets/img/avatar2.png';
@@ -58,27 +58,9 @@ function ChefsCards() {
       smallImg2Alt: 'img3_3',
     },
   ]);
-
-  const elements = chefs.map((item) => (
-    <ChefCardView 
-      key={item.id}
-      avatar={item.avatar}
-      avatarAlt={item.avatarAlt}
-      name={item.name}
-      title={item.title}
-      bigImg={item.bigImg}
-      bigImgAlt={item.bigImgAlt}
-      smallImg1={item.smallImg1}
-      smallImg1Alt={item.smallImg1Alt}
-      smallImg2={item.smallImg2}
-      smallImg2Alt={item.smallImg2Alt}
-    />
-  ));
   
   return (
-    <div className="chefs__cards">
-      {elements}
-    </div>
+    <ChefsCardsView chefs={chefs} />
   );
 }
 
