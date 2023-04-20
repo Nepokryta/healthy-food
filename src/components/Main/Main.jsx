@@ -1,24 +1,28 @@
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Contacts from '../Contacts/Contacts';
 
 import './sass/Main.sass';
 
 function Main() {
+  const { t, i18n } = useTranslation();
   return (
     <>
       <h1 className="main__title">
-        <span>Your</span>
+        <span>{t('main.title1')}</span>
         {' '}
-        favourite food
+        {t('main.title2')}
         <br />
-        <span>delivered</span>
-        {' '}
-        hot & fresh
+        <span>{t('main.title3')}</span>
+        {i18n.language === 'uk' || i18n.language === 'es' ? <br /> : ' '}
+        {t('main.title4')}
       </h1>
       <h3 className="main__subtitle">
-        HEALTHY SWITCHER chefs do all the prep work, like peeling, chopping & 
-        marinating, so you can cook a fresh homemade dinner in just 15 minutes.
+        {t('main.subtitle1')}
+        <br />
+        {t('main.subtitle2')}
       </h3>
-      <button className="main__btn button" type="submit">Order Now</button>
+      <button className="main__btn button" type="submit">{t('main.button')}</button>
       <Contacts />
     </>
         
