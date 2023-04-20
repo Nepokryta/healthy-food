@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import ContactsView from './ContactsView';
 
 import IcWatchLater from '../../assets/icons/ic_watch_later.svg';
@@ -8,38 +9,43 @@ import IcCall from '../../assets/icons/ic_call.svg';
 import './sass/Contact.sass';
 
 function Contacts() {
-  const [contact] = useState([
-    {
-      id: 1,
-      src: IcWatchLater,
-      alt: 'ic_watch_later',
-      href: '/',
-      title: 'Today 10:00 am - 7:00 pm',
-      subtitle: 'Working hours',
-      target: '_self',
-      rel: '',
-    },
-    {
-      id: 2,
-      src: IcNearMe,
-      alt: 'ic_near_me',
-      href: 'https://goo.gl/maps/8VTd6biYdAWWSjAv5',
-      title: 'Velyka Vasylkivska 100',
-      subtitle: 'Get Directions',
-      target: '_blank',
-      rel: 'noopener noreferrer',
-    },
-    {
-      id: 3,
-      src: IcCall,
-      alt: 'ic_call',
-      href: 'tel:+80638332415',
-      title: '+38 (063)833 24 15',
-      subtitle: 'Call Online',
-      target: '_self',
-      rel: '',
-    },
-  ]);
+  const { t, i18n } = useTranslation();
+  const [contact, setContact] = useState([]);
+
+  useEffect(() => {
+    setContact([
+      {
+        id: 1,
+        src: IcWatchLater,
+        alt: 'ic_watch_later',
+        href: '/',
+        title: t('contacts.title1'),
+        subtitle: t('contacts.subtitle1'),
+        target: '_self',
+        rel: '',
+      },
+      {
+        id: 2,
+        src: IcNearMe,
+        alt: 'ic_near_me',
+        href: 'https://goo.gl/maps/8VTd6biYdAWWSjAv5',
+        title: t('contacts.title2'),
+        subtitle: t('contacts.subtitle2'),
+        target: '_blank',
+        rel: 'noopener noreferrer',
+      },
+      {
+        id: 3,
+        src: IcCall,
+        alt: 'ic_call',
+        href: 'tel:+80638332415',
+        title: '+38 (063)833 24 15',
+        subtitle: t('contacts.subtitle3'),
+        target: '_self',
+        rel: '',
+      },
+    ]);
+  }, [i18n.language, t]);
 
   return (
     <ContactsView contact={contact} />
