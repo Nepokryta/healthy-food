@@ -2,10 +2,15 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import ThemeContext from '../ThemeContext/ThemeContext';
 
-function ContactView(props) {
-  const {
-    src, alt, href, title, subtitle, target, rel 
-  } = props;
+function ContactView({
+  src,
+  alt,
+  href,
+  title,
+  subtitle,
+  target,
+  rel 
+}) {
   const theme = useContext(ThemeContext);
 
   return (
