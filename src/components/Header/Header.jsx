@@ -7,8 +7,7 @@ import toggleOn from '../../assets/icons/toggle-on.svg';
 
 import './sass/Header.sass';
 
-function Header(props) {
-  const { toggleTheme } = props;
+function Header({ toggleTheme }) {
   const theme = useContext(ThemeContext);
 
   return (
