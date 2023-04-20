@@ -25,4 +25,14 @@ export default {
     subtitle1: 'La comida deliciosa y saludable están en armonía en nuestro restaurante de comida balanceada, ',
     subtitle2: 'un lugar ideal para aquellos que valoran su salud y aman la comida deliciosa.'
   },
+  works: {
+    title1: 'Recoger comidas',
+    subtitle1: 'Elija sus comidas de nuestro diverso menú semanal. Encuentra opciones sin gluten ni lácteos, bajas en carbohidratos y vegetarianas.',
+    title2: 'Elige con qué frecuencia',
+    subtitle2: 'Nuestro equipo de chefs hace el trabajo de preparación: ¡no más cortes, medidas o fregaderos llenos de platos!',
+    title3: 'entregas rápidas',
+    subtitle3: 'Sus kits de cena de 15 minutos recién preparados llegan a su puerta en una caja refrigerada.',
+    title4: 'comidas sabrosas',
+    subtitle4: 'Healthy Switcher hace que cocinar sea más rápido, para que tengas más tiempo para relajarte y estar con la familia',
+  },
 };

@@ -1,30 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import WorksCardsView from './WorksCardsView';
 import './sass/WorksCards.sass';
 
+const worksData = [
+  {
+    key: 1,
+    title: 'works.title1',
+    subtitle: 'works.subtitle1',
+  },
+  {
+    key: 2,
+    title: 'works.title2',
+    subtitle: 'works.subtitle2',
+  },
+  {
+    key: 3,
+    title: 'works.title3',
+    subtitle: 'works.subtitle3',
+  },
+  {
+    key: 4,
+    title: 'works.title4',
+    subtitle: 'works.subtitle4',
+  }
+];
+
 function WorksCards() {
-  const [works] = useState([
-    {
-      key: 1,
-      title: 'Pick meals',
-      subtitle: 'Choose your meals from our diverse weekly menu. Find gluten or dairy free, low carb & veggie options.'
-    },
-    {
-      key: 2,
-      title: 'Choose how often',
-      subtitle: 'Our team of chefs do the prep work - no more chopping, measuring, or sink full of dishes!'
-    },
-    {
-      key: 3,
-      title: 'fast deliveries',
-      subtitle: 'Your freshly prepped 15-min dinner kits arrive on your doorstep in a refrigerated box.'
-    },
-    {
-      key: 4,
-      title: 'tasty meals',
-      subtitle: 'Gobble makes cooking fast, so you have more time to unwind and be with family.'
-    }
-  ]);
+  const { t, i18n } = useTranslation();
+  const [works, setWorks] = useState(worksData.map((c) => ({
+    ...c, 
+    title: t(c.title), 
+    subtitle: t(c.subtitle) 
+  })));
+
+  useEffect(() => {
+    setWorks(worksData.map((c) => ({ 
+      ...c, 
+      title: t(c.title), 
+      subtitle: t(c.subtitle) 
+    })));
+  }, [i18n.language, t]);
 
   return (
     <WorksCardsView works={works} />

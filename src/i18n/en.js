@@ -25,4 +25,14 @@ export default {
     subtitle1: 'Delicious and healthy food are in harmony in our balanced food restaurant ',
     subtitle2: '- an ideal place for those who value their health and love delicious food.'
   },
+  works: {
+    title1: 'Pick meals',
+    subtitle1: 'Choose your meals from our diverse weekly menu. Find gluten or dairy free, low carb & veggie options.',
+    title2: 'Choose how often',
+    subtitle2: 'Our team of chefs do the prep work - no more chopping, measuring, or sink full of dishes!',
+    title3: 'fast deliveries',
+    subtitle3: 'Your freshly prepped 15-min dinner kits arrive on your doorstep in a refrigerated box.',
+    title4: 'tasty meals',
+    subtitle4: 'Healthy Switcher makes cooking fast, so you have more time to unwind and be with family.',
+  },
 };
