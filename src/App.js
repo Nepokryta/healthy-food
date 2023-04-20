@@ -4,7 +4,7 @@ import { THEME_DARK, THEME_LIGHT } from './constants/constants';
 
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
-import Slider from './components/Slider/Slider';
+import AboutSlider from './components/Slider/AboutSlider';
 import WorksCards from './components/WorksCards/WorksCards';
 import RecipeCards from './components/RecipeCards/RecipeCards';
 import DishCards from './components/DishCards/DishCards';
@@ -78,7 +78,7 @@ function App() {
               alt="ABOUT"
               greenLine="_inline"
             />
-            <Slider slider={slider} />
+            <AboutSlider slider={slider} />
           </section>
     
           <Headline

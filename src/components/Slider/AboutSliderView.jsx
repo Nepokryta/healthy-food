@@ -1,14 +1,10 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import ThemeContext from '../ThemeContext/ThemeContext';
-
 import SliderView from './SliderView';
 import Arrow from '../../assets/icons/arrow.svg';
 
-import './sass/Slider.sass';
-
-function Slider(props) {
-  const { slider } = props;
+function AboutSliderView({ slider }) {
   const theme = useContext(ThemeContext);
   const elements = slider.map((item) => (
     <SliderView key={item.key} src={item.src} alt={item.alt} />
@@ -35,7 +31,7 @@ function Slider(props) {
   );
 }
 
-Slider.propTypes = {
+AboutSliderView.propTypes = {
   slider: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.number.isRequired,
@@ -45,4 +41,4 @@ Slider.propTypes = {
   ).isRequired,
 };
 
-export default Slider;
+export default AboutSliderView;
