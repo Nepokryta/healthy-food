@@ -4,10 +4,12 @@ import ThemeContext from '../ThemeContext/ThemeContext';
 
 import './sass/Headline.sass';
 
-function Headline(props) {
-  const {
-    title, src, alt, greenLine 
-  } = props;
+function Headline({
+  title,
+  src,
+  alt,
+  greenLine 
+}) {
   const theme = useContext(ThemeContext);
 
   return (
