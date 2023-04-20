@@ -20,5 +20,9 @@ export default {
     title2: 'Velyka Vasylkivska 100',
     subtitle2: 'Get Directions',
     subtitle3: 'Call Online',
-  }
+  },
+  slider: {
+    subtitle1: 'Delicious and healthy food are in harmony in our balanced food restaurant ',
+    subtitle2: '- an ideal place for those who value their health and love delicious food.'
+  },
 };

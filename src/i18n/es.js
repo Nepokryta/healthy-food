@@ -21,4 +21,8 @@ export default {
     subtitle2: 'Obtener direcciones',
     subtitle3: 'Llamar en línea',
   },
+  slider: {
+    subtitle1: 'La comida deliciosa y saludable están en armonía en nuestro restaurante de comida balanceada, ',
+    subtitle2: 'un lugar ideal para aquellos que valoran su salud y aman la comida deliciosa.'
+  },
 };

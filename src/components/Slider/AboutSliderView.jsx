@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import ThemeContext from '../ThemeContext/ThemeContext';
 import SliderView from './SliderView';
@@ -6,6 +7,7 @@ import Arrow from '../../assets/icons/arrow.svg';
 
 function AboutSliderView({ slider }) {
   const theme = useContext(ThemeContext);
+  const { t } = useTranslation();
   const elements = slider.map((item) => (
     <SliderView key={item.key} src={item.src} alt={item.alt} />
   ));
@@ -13,10 +15,9 @@ function AboutSliderView({ slider }) {
   return (
     <div className="about__slider">
       <h3 className={`about__subtitle ${theme}`}>
-        In aliqua ea ullamco ad est ex non deserunt nulla. 
-        Consectetur sint ea aliquip aliquip consectetur 
-        voluptate est. Eu minim dolore laboris enim mollit 
-        voluptate irure esse aliquip.
+        {t('slider.subtitle1')}
+        <br />
+        {t('slider.subtitle2')}
       </h3>
       <div className="cards">
         {elements}
