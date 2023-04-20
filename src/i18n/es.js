@@ -35,4 +35,12 @@ export default {
     title4: 'comidas sabrosas',
     subtitle4: 'Healthy Switcher hace que cocinar sea más rápido, para que tengas más tiempo para relajarte y estar con la familia',
   },
+  chefs: {
+    name1: 'Gregorio Flores',
+    title1: 'Chef del frío',
+    name2: 'Annette Cooper',
+    title2: 'Chef de lo caliente',
+    name3: 'Greg Fox',
+    title3: 'Cocina macro Сhef',
+  },
 };

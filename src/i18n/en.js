@@ -35,4 +35,12 @@ export default {
     title4: 'tasty meals',
     subtitle4: 'Healthy Switcher makes cooking fast, so you have more time to unwind and be with family.',
   },
+  chefs: {
+    name1: 'Gregory Flores',
+    title1: 'Chef of the cold',
+    name2: 'Annette Cooper',
+    title2: 'Chef of the hot',
+    name3: 'Greg Fox',
+    title3: 'Сhef macro kitchen',
+  },
 };
