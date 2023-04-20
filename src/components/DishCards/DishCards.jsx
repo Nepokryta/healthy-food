@@ -44,45 +44,49 @@ function DishCards({ data }) {
   }, [handleKeyDown]);
 
   const handleSort = () => {
-    setSortOrder(!sortOrder);
-    setDish([...dish].sort((a, b) => (!sortOrder ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title))));
+    setSortOrder((prevSortOrder) => !prevSortOrder);
+    setDish((prevDish) => [...prevDish].sort((a, b) => (!sortOrder 
+      ? a.title.localeCompare(b.title) 
+      : b.title.localeCompare(a.title)
+    )));
   };
 
   const handleRandomSort = () => {
-    const arr = [...dish];
-    for (let i = arr.length - 1; i > 0; i -= 1) {
-      const j = Math.floor(Math.random() * i);
-      const k = arr[i];
-      arr[i] = arr[j];
-      arr[j] = k;
-    }
-    setDish(arr);
+    setDish((prevDish) => {
+      const arr = [...prevDish];
+      for (let i = arr.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * i);
+        const k = arr[i];
+        arr[i] = arr[j];
+        arr[j] = k;
+      }
+      return arr;
+    });
   };
 
   const handleCardClick = (id) => {
-    setDish(dish.filter((item) => item.id !== id));
+    setDish((prevDish) => prevDish.filter((item) => item.id !== id));
   };
 
-  const handleAddCardClick = (src, alt, title, subtitle, description, newSubtitle, showElement, prevTitle) => {
+  const handleAddCardClick = (src, alt, title, subtitle, description, newSubtitle, showElement) => {
     const id = uuidv4();
     const newItem = {
       key: id,
       id,
       src, 
       alt, 
-      title: title === 'My favorite' ? prevTitle : title, 
+      title: title === 'My favorite' ? alt : title, 
       subtitle,
       description,
       newSubtitle,
       showElement: !showElement,
-      prevTitle,
     };
-    setDish(dish.concat(newItem));
+    setDish((prevDish) => prevDish.concat(newItem));
     console.log(newItem.key);
   };
    
   const handleAddElement = (id) => {
-    setDish(dish.map((item) => {
+    setDish((prevDish) => prevDish.map((item) => {
       if (item.id === id) {
         return {
           ...item,
@@ -96,7 +100,7 @@ function DishCards({ data }) {
   };
 
   const handleDeleteElement = (id) => {
-    setDish(dish.map((item) => {
+    setDish((prevDish) => prevDish.map((item) => {
       if (item.id === id) {
         return {
           ...item,
@@ -110,7 +114,7 @@ function DishCards({ data }) {
   };
 
   const handleAddElementOnClick = (id) => {
-    setDish(dish.map((item) => {
+    setDish((prevDish) => prevDish.map((item) => {
       if (item.id === id) {
         return {
           ...item,
@@ -126,7 +130,7 @@ function DishCards({ data }) {
   };
 
   const dragStartHandler = (e, card) => {
-    setCurrentCard(currentCard === '' ? card : '');
+    setCurrentCard((prevCard) => (prevCard === '' ? card : ''));
   };
 
   const dragOverHandler = (e) => {
@@ -136,15 +140,16 @@ function DishCards({ data }) {
 
   const dropHandler = (e, card) => {
     e.preventDefault();
-    const dishCopy = dish.slice();
-    const cardIndex = dishCopy.findIndex((item) => item.key === card.key);
-    const currentCardIndex = dishCopy.findIndex((item) => item.key === currentCard.key);
-    const cardCopy = { ...card };
-    const currentCardCopy = { ...currentCard };
-    dishCopy.splice(cardIndex, 1, currentCardCopy);
-    dishCopy.splice(currentCardIndex, 1, cardCopy);
-
-    setDish(dishCopy);
+    setDish((prevDish) => {
+      const dishCopy = prevDish.slice();
+      const cardIndex = dishCopy.findIndex((item) => item.key === card.key);
+      const currentCardIndex = dishCopy.findIndex((item) => item.key === currentCard.key);
+      const cardCopy = { ...card };
+      const currentCardCopy = { ...currentCard };
+      dishCopy.splice(cardIndex, 1, currentCardCopy);
+      dishCopy.splice(currentCardIndex, 1, cardCopy);
+      return dishCopy;
+    });
     setCurrentCard('');
     setDragging(false);
   };
