@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { I18nextProvider } from 'react-i18next';
+import i18n from './i18n';
 import ThemeContext from './components/ThemeContext/ThemeContext';
 import { THEME_DARK, THEME_LIGHT } from './constants/constants';
 
@@ -41,66 +43,68 @@ function App() {
   };
 
   return (
-    <ThemeContext.Provider value={theme}>
-      <div className={`App ${theme}`}>
-        <Header toggleTheme={toggleTheme} />
-        <hr />          
-        <main>
-          <Main />
+    <I18nextProvider i18n={i18n}>
+      <ThemeContext.Provider value={theme}>
+        <div className={`App ${theme}`}>
+          <Header toggleTheme={toggleTheme} />
+          <hr />          
+          <main>
+            <Main />
     
-          <section className={`about ${theme}`}>
+            <section className={`about ${theme}`}>
+              <Headline
+                title="The Basics Of Healthy Food"
+                src={ABOUT}
+                alt="ABOUT"
+                greenLine="_inline"
+              />
+              <AboutSlider slider={slider} />
+            </section>
+    
             <Headline
-              title="The Basics Of Healthy Food"
-              src={ABOUT}
-              alt="ABOUT"
-              greenLine="_inline"
+              title="how it works"
+              src={WORK}
+              alt="WORK"
+              greenLine=""
             />
-            <AboutSlider slider={slider} />
-          </section>
-    
-          <Headline
-            title="how it works"
-            src={WORK}
-            alt="WORK"
-            greenLine=""
-          />
-          <WorksCards />
+            <WorksCards />
            
-          <Headline
-            title="Dish Of The Day"
-            src={DISHES}
-            alt="DISHES"
-            greenLine=""
-          />
-          <DishCards />
+            <Headline
+              title="Dish Of The Day"
+              src={DISHES}
+              alt="DISHES"
+              greenLine=""
+            />
+            <DishCards />
             
-          <Headline
-            title="This month&apos;s chefs"
-            src={CHEFS}
-            alt="CHEFS"
-            greenLine=""
-          />
-          <ChefsCards />
+            <Headline
+              title="This month&apos;s chefs"
+              src={CHEFS}
+              alt="CHEFS"
+              greenLine=""
+            />
+            <ChefsCards />
           
-          <Headline
-            title="Recipes From Our Chefs"
-            src={RECIPES}
-            alt="RECIPES"
-            greenLine=""
-          />
-          <RecipeCards />
+            <Headline
+              title="Recipes From Our Chefs"
+              src={RECIPES}
+              alt="RECIPES"
+              greenLine=""
+            />
+            <RecipeCards />
            
-          <Headline
-            title="We in Social"
-            src={SOCIAL}
-            alt="SOCIAL"
-            greenLine=""
-          />
-          <SocialCards />
-        </main>
-        <Footer />
-      </div>
-    </ThemeContext.Provider>
+            <Headline
+              title="We in Social"
+              src={SOCIAL}
+              alt="SOCIAL"
+              greenLine=""
+            />
+            <SocialCards />
+          </main>
+          <Footer />
+        </div>
+      </ThemeContext.Provider>
+    </I18nextProvider>
   );
 }
 
