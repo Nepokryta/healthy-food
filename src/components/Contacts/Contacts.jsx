@@ -41,23 +41,8 @@ function Contacts() {
     },
   ]);
 
-  const elements = contact.map((item) => (
-    <ContactsView
-      key={item.id}
-      src={item.src} 
-      alt={item.alt} 
-      href={item.href}
-      title={item.title}
-      subtitle={item.subtitle}
-      target={item.target}
-      rel={item.rel}
-    />
-  ));
-
   return (
-    <ul className="contact">
-      {elements}
-    </ul>
+    <ContactsView contact={contact} />
   );
 }
 
