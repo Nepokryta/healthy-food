@@ -22,7 +22,6 @@ function DishCardView({
   onKeyDown,
   dragging
 }) {
-    
   const theme = useContext(ThemeContext);
   const elements = dish.map((item) => (
     <div

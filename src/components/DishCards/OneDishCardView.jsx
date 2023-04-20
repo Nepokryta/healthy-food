@@ -21,7 +21,6 @@ function OneDishCardView({
   onAddElementOnClick,
   showElement
 }) {
-    
   const [imageError, setImageError] = useState(false);
 
   const handleImageLoad = () => {
