@@ -6,7 +6,22 @@ import RatingStars from './RatingStars/RatingStars';
 import { ReactComponent as Close } from '../../assets/icons/close.svg';
 import screenImage from '../../assets/img/screenImage.png';
 
-function OneDishCardView(props) {
+function OneDishCardView({
+  id,
+  src,
+  alt,
+  title,
+  subtitle,
+  newSubtitle,
+  description,
+  onCardClick,
+  onAddCardClick,
+  onAddElement,
+  onDeleteElement,
+  onAddElementOnClick,
+  showElement
+}) {
+    
   const [imageError, setImageError] = useState(false);
 
   const handleImageLoad = () => {
@@ -18,10 +33,6 @@ function OneDishCardView(props) {
     setImageError(true);
   };
 
-  const {
-    id, src, alt, title, subtitle, newSubtitle, description, onCardClick, onAddCardClick, onAddElement,
-    onDeleteElement, onAddElementOnClick, showElement, 
-  } = props;
   const theme = useContext(ThemeContext);
 
   return (

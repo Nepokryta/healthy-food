@@ -5,11 +5,24 @@ import OneDishCardView from './OneDishCardView';
 
 import './sass/DishCardView.sass';
 
-function DishCardView(props) {
-  const {
-    dish, onSort, onRandomSort, onCardClick, onAddCardClick, onAddElement, onDeleteElement, onAddElementOnClick, 
-    activeCard, toggleActive, onDragStart, onDragOver, onDrop, onKeyDown, dragging
-  } = props;
+function DishCardView({
+  dish,
+  onSort,
+  onRandomSort,
+  onCardClick,
+  onAddCardClick,
+  onAddElement,
+  onDeleteElement,
+  onAddElementOnClick,
+  activeCard,
+  toggleActive,
+  onDragStart,
+  onDragOver,
+  onDrop,
+  onKeyDown,
+  dragging
+}) {
+    
   const theme = useContext(ThemeContext);
   const elements = dish.map((item) => (
     <div
