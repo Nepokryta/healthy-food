@@ -9,14 +9,20 @@ import { ReactComponent as QuestionAnswer } from '../../assets/icons/ic_question
 
 import './sass/RecipeCardView.sass';
 
-function RecipeCardView(props) {
-  const {
-    src, alt, subtitle, title, newSubtitle, linkToRecipe, totalTime, totalWeight, size
-  } = props; 
+function RecipeCardView({
+  src,
+  alt,
+  subtitle,
+  title,
+  newSubtitle,
+  linkToRecipe,
+  totalTime,
+  totalWeight,
+  size
+}) {
   const theme = useContext(ThemeContext);
 
-  const className = size === RECIPE_CARD_BIG 
-    ? `recipes__card-${RECIPE_CARD_BIG}` : `recipes__card-${RECIPE_CARD_SMALL}`;
+  const className = `recipes__card-${size}`;
 
   return (
     <div className={className}>
@@ -55,7 +61,7 @@ RecipeCardView.propTypes = {
   linkToRecipe: PropTypes.string.isRequired,
   totalTime: PropTypes.number.isRequired,
   totalWeight: PropTypes.string.isRequired,
-  size: PropTypes.string.isRequired,
+  size: PropTypes.oneOf([RECIPE_CARD_BIG, RECIPE_CARD_SMALL]).isRequired,
 };
 
 export default RecipeCardView;
