@@ -1,3 +1,7 @@
+import {
+  ABOUT, CHEFS, DISHES, RECIPES, SOCIAL, WORK 
+} from '../assets/icons/HeadlineSvgUK';
+
 export default {
   header: {
     menu: 'Меню',
@@ -43,4 +47,18 @@ export default {
     name3: 'Грег Фокс',
     title3: 'Шеф макро кухні',
   },
+  headline: {
+    titleABOUT: 'Основи здорового харчування',
+    svgABOUT: ABOUT,
+    titleWORK: 'як це працює',
+    svgWORK: WORK,
+    titleDISHES: 'Страва дня',
+    svgDISHES: DISHES,
+    titleCHEFS: 'Шеф-кухарі цього місяця',
+    svgCHEFS: CHEFS,
+    titleRECIPES: 'Рецепти від наших шеф-кухарів',
+    svgRECIPES: RECIPES,
+    titleSOCIAL: 'Ми в соціальних мережах',
+    svgSOCIAL: SOCIAL,
+  }
 };

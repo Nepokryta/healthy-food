@@ -1,3 +1,7 @@
+import {
+  ABOUT, CHEFS, DISHES, RECIPES, SOCIAL, WORK 
+} from '../assets/icons/HeadlineSvgEN';
+
 export default {
   header: {
     menu: 'Menu',
@@ -43,4 +47,18 @@ export default {
     name3: 'Greg Fox',
     title3: 'Сhef macro kitchen',
   },
+  headline: {
+    titleABOUT: 'The Basics Of Healthy Food',
+    svgABOUT: ABOUT,
+    titleWORK: 'how it works',
+    svgWORK: WORK,
+    titleDISHES: 'Dish Of The Day',
+    svgDISHES: DISHES,
+    titleCHEFS: 'This month\'s chefs',
+    svgCHEFS: CHEFS,
+    titleRECIPES: 'Recipes From Our Chefs',
+    svgRECIPES: RECIPES,
+    titleSOCIAL: 'We in Social',
+    svgSOCIAL: SOCIAL,
+  }
 };

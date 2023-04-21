@@ -1,13 +1,11 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import ThemeContext from '../ThemeContext/ThemeContext';
-
 import './sass/Headline.sass';
 
 function Headline({
   title,
-  src,
-  alt,
+  svgComponent,
   greenLine 
 }) {
   const theme = useContext(ThemeContext);
@@ -17,7 +15,7 @@ function Headline({
       <div className="headline">
         <h2 className={`headline__title ${theme}`}>{title}</h2>
         <div className="headline__subtitle">
-          <img src={src} alt={alt} />
+          {svgComponent && svgComponent({ fill: theme === 'dark' ? '#303030' : '#d3d1d1' })}
         </div>
       </div>
       <span className={`green__line${greenLine}`} />
@@ -27,8 +25,7 @@ function Headline({
 
 Headline.propTypes = {
   title: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
+  svgComponent: PropTypes.func.isRequired,
   greenLine: PropTypes.string.isRequired,
 };
 

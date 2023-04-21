@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { I18nextProvider } from 'react-i18next';
+import { I18nextProvider, useTranslation } from 'react-i18next';
 import i18n from './i18n';
 import ThemeContext from './components/ThemeContext/ThemeContext';
 import { THEME_DARK, THEME_LIGHT } from './constants/constants';
@@ -16,12 +16,6 @@ import SocialCards from './components/SocialCards/SocialCards';
 import Footer from './components/Footer/Footer';
 import Fish from './assets/img/fish.png';
 import SaladVegetables from './assets/img/salad-vegetables.png';
-import ABOUT from './assets/icons/ABOUT.svg';
-import CHEFS from './assets/icons/CHEFS.svg';
-import DISHES from './assets/icons/DISHES.svg';
-import RECIPES from './assets/icons/RECIPES.svg';
-import SOCIAL from './assets/icons/SOCIAL.svg';
-import WORK from './assets/icons/WORK.svg';
 
 function App() {
   const [theme, setTheme] = useState(THEME_DARK);
@@ -41,6 +35,7 @@ function App() {
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === THEME_DARK ? THEME_LIGHT : THEME_DARK));
   };
+  const { t } = useTranslation();
 
   return (
     <I18nextProvider i18n={i18n}>
@@ -53,50 +48,44 @@ function App() {
     
             <section className={`about ${theme}`}>
               <Headline
-                title="The Basics Of Healthy Food"
-                src={ABOUT}
-                alt="ABOUT"
+                title={t('headline.titleABOUT')}
+                svgComponent={t('headline.svgABOUT')}
                 greenLine="_inline"
               />
               <AboutSlider slider={slider} />
             </section>
     
             <Headline
-              title="how it works"
-              src={WORK}
-              alt="WORK"
+              title={t('headline.titleWORK')}
+              svgComponent={t('headline.svgWORK')}
               greenLine=""
             />
             <WorksCards />
            
             <Headline
-              title="Dish Of The Day"
-              src={DISHES}
-              alt="DISHES"
+              title={t('headline.titleDISHES')}
+              svgComponent={t('headline.svgDISHES')}
               greenLine=""
             />
             <DishCards />
             
             <Headline
-              title="This month&apos;s chefs"
-              src={CHEFS}
-              alt="CHEFS"
+              title={t('headline.titleCHEFS')}
+              svgComponent={t('headline.svgCHEFS')}
               greenLine=""
             />
             <ChefsCards />
           
             <Headline
-              title="Recipes From Our Chefs"
-              src={RECIPES}
-              alt="RECIPES"
+              title={t('headline.titleRECIPES')}
+              svgComponent={t('headline.svgRECIPES')}
               greenLine=""
             />
             <RecipeCards />
            
             <Headline
-              title="We in Social"
-              src={SOCIAL}
-              alt="SOCIAL"
+              title={t('headline.titleSOCIAL')}
+              svgComponent={t('headline.svgSOCIAL')}
               greenLine=""
             />
             <SocialCards />
