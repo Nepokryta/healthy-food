@@ -1,18 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import ContactsView from './ContactsView';
-
-import IcWatchLater from '../../assets/icons/ic_watch_later.svg';
-import IcNearMe from '../../assets/icons/ic_near_me.svg';
-import IcCall from '../../assets/icons/ic_call.svg';
+import { IcCall, IcNearMe, IcWatchLater } from '../../assets/icons/contactsSvg';
 
 import './sass/Contact.sass';
 
 const contactsData = [
   {
     id: 1,
-    src: IcWatchLater,
-    alt: 'ic_watch_later',
+    svgComponent: IcWatchLater,
     href: '/',
     title: 'contacts.title1',
     subtitle: 'contacts.subtitle1',
@@ -21,8 +17,7 @@ const contactsData = [
   },
   {
     id: 2,
-    src: IcNearMe,
-    alt: 'ic_near_me',
+    svgComponent: IcNearMe,
     href: 'https://goo.gl/maps/8VTd6biYdAWWSjAv5',
     title: 'contacts.title2',
     subtitle: 'contacts.subtitle2',
@@ -31,8 +26,7 @@ const contactsData = [
   },
   {
     id: 3,
-    src: IcCall,
-    alt: 'ic_call',
+    svgComponent: IcCall,
     href: 'tel:+80638332415',
     title: '+38 (063)833 24 15',
     subtitle: 'contacts.subtitle3',

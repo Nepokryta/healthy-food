@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import ThemeContext from '../ThemeContext/ThemeContext';
 
 function ContactView({
-  src,
-  alt,
+  svgComponent,
   href,
   title,
   subtitle,
@@ -15,7 +14,7 @@ function ContactView({
 
   return (
     <li className="contact__info">
-      <img src={src} alt={alt} />
+      {svgComponent && svgComponent({ fill: theme === 'dark' ? '#d3d1d1' : '#414141' })}
       <a 
         className={`contact__info-title ${theme}`}
         href={href}
@@ -30,8 +29,7 @@ function ContactView({
 }
 
 ContactView.propTypes = {
-  src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
+  svgComponent: PropTypes.func.isRequired,
   href: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,

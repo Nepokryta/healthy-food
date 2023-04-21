@@ -6,8 +6,7 @@ function ContactsView({ contact }) {
   const elements = contact.map((item) => (
     <ContactView
       key={item.id}
-      src={item.src} 
-      alt={item.alt} 
+      svgComponent={item.svgComponent} 
       href={item.href}
       title={item.title}
       subtitle={item.subtitle}
