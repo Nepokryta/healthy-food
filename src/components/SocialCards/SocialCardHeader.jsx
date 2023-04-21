@@ -18,7 +18,7 @@ function SocialCardHeader({ src, alt, title }) {
         <div className={`subtitle ${theme}`}>{title}</div>
         <button className={`card__action-btn button ${theme}`} type="submit">{t('social.btnSocial')}</button>
       </div>
-      <hr />
+      <hr className={`${theme}`} />
     </>
   );
 }

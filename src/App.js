@@ -42,7 +42,7 @@ function App() {
       <ThemeContext.Provider value={theme}>
         <div className={`App ${theme}`}>
           <Header toggleTheme={toggleTheme} />
-          <hr />          
+          <hr className={`${theme}`} />          
           <main>
             <Main />
     

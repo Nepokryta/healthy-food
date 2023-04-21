@@ -15,7 +15,7 @@ function Footer() {
       <div className="container">
         <Contacts />
       </div>
-      <hr />
+      <hr className={`${theme}`} />
       <Logo className="footer__logo" />
       <h4 className="footer__title">© Designed by Yellow Snow. All Rights Reserved.</h4>
       <div className={`footer__description ${theme}`}>

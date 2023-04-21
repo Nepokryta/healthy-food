@@ -29,7 +29,7 @@ function SocialCards() {
           title="Twitter"
         />
         <div className="card__main">
-          <span className="span__right" />
+          <span className={`span__right ${theme}`} />
           <h4 className={`data ${theme}`}>{t('social.data1')}</h4>
           <h4 className={`title ${theme}`}>{t('social.title1')}</h4>
           <h4 className="name">@DennisFerguson</h4>
@@ -42,7 +42,7 @@ function SocialCards() {
           title="Instagram"
         />
         <div className="card__main">
-          <span className="span__img" />
+          <span className={`span__img ${theme}`} />
           <button className="arrow-card" type="submit">
             <img src={arrow} alt="arrow" />
           </button>
@@ -63,7 +63,7 @@ function SocialCards() {
           title="Facebook"
         />
         <div className="card__main">
-          <span className="span__right" />
+          <span className={`span__right ${theme}`} />
           <h4 className={`data ${theme}`}>{t('social.data2')}</h4>
           <h4 className={`title ${theme}`}>{t('social.title2')}</h4>
         </div>
