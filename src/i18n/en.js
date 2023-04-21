@@ -71,5 +71,12 @@ export default {
     btnDel: 'DELETE',
     btnAdd: 'ADD',
     btnAddCard: 'ADD CARD',
+  },
+  social: {
+    btnSocial: 'follow us',
+    data1: '24 Jun at 16:20 pm',
+    title1: 'This restaurant offers delicious dishes from Spanish and Mediterranean cuisine. The atmosphere at this restaurant is cozy and relaxed, perfect for enjoying a dinner with friends or family.',
+    data2: '26 Jun at 16:20 pm',
+    title2: 'The chef at this restaurant uses fresh, high-quality ingredients to prepare each dish with care. At this restaurant, customers can choose from a wide selection of wines and cocktails to accompany their meal.',
   }
 };

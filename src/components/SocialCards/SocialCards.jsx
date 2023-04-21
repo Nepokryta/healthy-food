@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import SocialCardHeader from './SocialCardHeader';
 import ThemeContext from '../ThemeContext/ThemeContext';
 
@@ -17,6 +18,7 @@ import './sass/SocialCards.sass';
 
 function SocialCards() {
   const theme = useContext(ThemeContext);
+  const { t } = useTranslation();
 
   return (
     <div className="social__cards">
@@ -28,12 +30,8 @@ function SocialCards() {
         />
         <div className="card__main">
           <span className="span__right" />
-          <h4 className={`data ${theme}`}>24 Jun at 16:20 pm</h4>
-          <h4 className={`title ${theme}`}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing 
-            elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, 
-            consectetur adipiscing
-          </h4>
+          <h4 className={`data ${theme}`}>{t('social.data1')}</h4>
+          <h4 className={`title ${theme}`}>{t('social.title1')}</h4>
           <h4 className="name">@DennisFerguson</h4>
         </div>
       </div>
@@ -66,12 +64,8 @@ function SocialCards() {
         />
         <div className="card__main">
           <span className="span__right" />
-          <h4 className={`data ${theme}`}>26 Jun at 16:20 pm</h4>
-          <h4 className={`title ${theme}`}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur 
-            adipiscing Lorem ipsum dolor sit amet, consectetur adipiscing
-          </h4>
+          <h4 className={`data ${theme}`}>{t('social.data2')}</h4>
+          <h4 className={`title ${theme}`}>{t('social.title2')}</h4>
         </div>
       </div>
     </div>

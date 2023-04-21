@@ -71,5 +71,12 @@ export default {
     btnDel: 'ELIMINAR',
     btnAdd: 'AÑADIR',
     btnAddCard: '+ TARJETA',
+  },
+  social: {
+    btnSocial: 'síguenos',
+    data1: '24 de junio a las 16:20 p. m.',
+    title1: 'Este restaurante ofrece deliciosos platos de la cocina española y mediterránea. La atmósfera en este restaurante es acogedora y relajada, perfecta para disfrutar de una cena con amigos o familiares.',
+    data2: '26 de junio a las 16:20 p. m.',
+    title2: 'El chef de este restaurante utiliza ingredientes frescos y de alta calidad para preparar cada plato con esmero. En este restaurante, los clientes pueden elegir entre una amplia selección de vinos y cócteles para acompañar su comida.',
   }
 };

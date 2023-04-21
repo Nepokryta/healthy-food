@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import ThemeContext from '../ThemeContext/ThemeContext';
 
 import './sass/SocialCardHeader.sass';
 
 function SocialCardHeader({ src, alt, title }) {
   const theme = useContext(ThemeContext);
+  const { t } = useTranslation();
 
   return (
     <>
@@ -14,7 +16,7 @@ function SocialCardHeader({ src, alt, title }) {
           <img src={src} alt={alt} />
         </div>
         <div className={`subtitle ${theme}`}>{title}</div>
-        <button className={`card__action-btn button ${theme}`} type="submit">follow us</button>
+        <button className={`card__action-btn button ${theme}`} type="submit">{t('social.btnSocial')}</button>
       </div>
       <hr />
     </>
