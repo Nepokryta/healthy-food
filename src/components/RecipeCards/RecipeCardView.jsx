@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import ThemeContext from '../ThemeContext/ThemeContext';
 import { RECIPE_CARD_BIG, RECIPE_CARD_SMALL } from '../../constants/constants';
 
@@ -21,7 +22,7 @@ function RecipeCardView({
   size
 }) {
   const theme = useContext(ThemeContext);
-
+  const { t } = useTranslation();
   const className = `recipes__card-${size}`;
 
   return (
@@ -35,7 +36,7 @@ function RecipeCardView({
         <h3 className={`data ${theme}`}>{subtitle}</h3>
         <h2 className={`title ${theme}`}>{title}</h2>
         <h3 className={`name ${theme}`}>
-          <a href={linkToRecipe}>View the recipe</a>
+          <a href={linkToRecipe}>{t('recipe.btnView')}</a>
         </h3>
         <div className="action">
           <div className={`views ${theme}`}>

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import ThemeContext from '../ThemeContext/ThemeContext';
 import OneDishCardView from './OneDishCardView';
@@ -23,6 +24,7 @@ function DishCardView({
   dragging
 }) {
   const theme = useContext(ThemeContext);
+  const { t } = useTranslation();
   const elements = dish.map((item) => (
     <div
       className={item.id === activeCard || dragging 
@@ -62,8 +64,8 @@ function DishCardView({
         {elements}
       </div>
       <div className="sortBtn">
-        <button className={`action-btn button ${theme}`} type="submit" onClick={onRandomSort}>RANDOM</button>
-        <button className={`action-btn button ${theme}`} type="submit" onClick={onSort}>SORT</button>
+        <button className={`action-btn button ${theme}`} type="submit" onClick={onRandomSort}>{t('dish.btnRandom')}</button>
+        <button className={`action-btn button ${theme}`} type="submit" onClick={onSort}>{t('dish.btnSort')}</button>
       </div>
     </div>
   );

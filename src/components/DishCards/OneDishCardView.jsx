@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import ThemeContext from '../ThemeContext/ThemeContext';
 
 import RatingStars from './RatingStars/RatingStars';
@@ -33,6 +34,7 @@ function OneDishCardView({
   };
 
   const theme = useContext(ThemeContext);
+  const { t } = useTranslation();
 
   return (
     <>
@@ -45,10 +47,10 @@ function OneDishCardView({
         <h3 className={`dish__card-subtitle ${theme}`}>{subtitle}</h3>
         { showElement ? '' : <h3 className={`dish__card-newsubtitle ${theme}`}>{newSubtitle}</h3> }
         <h4 className="dish__card-description">{description}</h4>
-        <button className={`activityBTN button ${theme}`} type="submit" onClick={() => onAddElement(id)}>MY FAVORITE</button>
+        <button className={`activityBTN button ${theme}`} type="submit" onClick={() => onAddElement(id)}>{t('dish.btnFav')}</button>
         <div className="botton_block">
-          <button className={`activityBTN button ${theme}`} type="submit" onClick={() => onDeleteElement(id)}>DELETE</button>
-          <button className={`activityBTN button ${theme}`} type="submit" onClick={() => onAddElementOnClick(id)}>ADD</button>
+          <button className={`activityBTN button ${theme}`} type="submit" onClick={() => onDeleteElement(id)}>{t('dish.btnDel')}</button>
+          <button className={`activityBTN button ${theme}`} type="submit" onClick={() => onAddElementOnClick(id)}>{t('dish.btnAdd')}</button>
         </div>
       </div>
       <div className="dish__card-action">
@@ -58,7 +60,7 @@ function OneDishCardView({
           type="submit"
           onClick={() => onAddCardClick(src, alt, title, subtitle, description, newSubtitle)}
         >
-          ADD CARD
+          {t('dish.btnAddCard')}
         </button>
       </div>
     </>

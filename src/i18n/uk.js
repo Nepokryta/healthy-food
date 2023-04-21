@@ -60,5 +60,16 @@ export default {
     svgRECIPES: RECIPES,
     titleSOCIAL: 'Ми в соціальних мережах',
     svgSOCIAL: SOCIAL,
+  },
+  recipe: {
+    btnView: 'Переглянути рецепт'
+  },
+  dish: {
+    btnRandom: 'ВИПАДКОВИЙ',
+    btnSort: 'СОРТУВАННЯ',
+    btnFav: 'МОЄ УЛЮБЛЕНЕ',
+    btnDel: 'ВИДАЛИТИ',
+    btnAdd: 'ДОДАТИ',
+    btnAddCard: '+ КАРТКУ',
   }
 };

@@ -60,5 +60,16 @@ export default {
     svgRECIPES: RECIPES,
     titleSOCIAL: 'We in Social',
     svgSOCIAL: SOCIAL,
+  },
+  recipe: {
+    btnView: 'View the recipe'
+  },
+  dish: {
+    btnRandom: 'RANDOM',
+    btnSort: 'SORT',
+    btnFav: 'MY FAVORITE',
+    btnDel: 'DELETE',
+    btnAdd: 'ADD',
+    btnAddCard: 'ADD CARD',
   }
 };
