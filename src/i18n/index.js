@@ -11,12 +11,13 @@ export const resources = {
 };
 
 export const appLocales = Object.keys(resources);
+const selectedLanguage = localStorage.getItem('language');
 
 i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'uk',
+    lng: selectedLanguage || 'uk',
     fallbackLng: appLocales,
     react: {
       useSuspense: true
