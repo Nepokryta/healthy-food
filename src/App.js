@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { I18nextProvider, useTranslation } from 'react-i18next';
 import i18n from './i18n';
 import ThemeContext from './components/ThemeContext/ThemeContext';
@@ -31,9 +31,21 @@ function App() {
       alt: 'salad_vegetables',
     },
   ]);
+  
+  useEffect(() => {
+    const salectedThemeColor = localStorage.getItem('themeColor');
+    if (salectedThemeColor) {
+      setTheme(salectedThemeColor);
+    }
+  }, []);
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === THEME_DARK ? THEME_LIGHT : THEME_DARK));
+    if (theme === THEME_DARK) {
+      localStorage.setItem('themeColor', THEME_LIGHT);
+    } else {
+      localStorage.setItem('themeColor', THEME_DARK);
+    }
   };
   const { t } = useTranslation();
 
