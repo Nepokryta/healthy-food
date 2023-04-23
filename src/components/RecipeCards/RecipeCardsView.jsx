@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import RecipeCardView from './RecipeCardView';
-import withLoadingAndError from '../../hoc/withLoadingAndError';
 import { RECIPE_CARD_BIG, RECIPE_CARD_SMALL } from '../../constants/constants';
 
 function RecipeCardsView({ recipes }) {
@@ -31,4 +30,4 @@ RecipeCardsView.propTypes = {
   recipes: PropTypes.arrayOf(PropTypes.shape({})).isRequired
 };
 
-export default withLoadingAndError(RecipeCardsView);
+export default RecipeCardsView;
