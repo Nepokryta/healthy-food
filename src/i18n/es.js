@@ -71,6 +71,8 @@ export default {
     btnDel: 'ELIMINAR',
     btnAdd: 'AÑADIR',
     btnAddCard: '+ TARJETA',
+    btnLoading: 'Cargando...',
+    btnRefresh: 'Actualizar',
   },
   social: {
     btnSocial: 'síguenos',

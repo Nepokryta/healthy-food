@@ -1,7 +1,10 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import RecipeCardView from './RecipeCardView';
 import { RECIPE_CARD_BIG, RECIPE_CARD_SMALL } from '../../constants/constants';
+import Spinner from '../Spinner/Spinner';
+import Error from '../Error/Error';
 
 function RecipeCardsView({ recipes }) {
   const elements = recipes.map((item, index) => (
@@ -18,6 +21,14 @@ function RecipeCardsView({ recipes }) {
       totalWeight={item.totalWeight}
     />
   ));
+  const { loading, error } = useSelector((state) => state.data);
+
+  if (loading) {
+    return <Spinner />;
+  } 
+  if (error) {
+    return <Error />;
+  }
     
   return (
     <div className="recipes__cards">
@@ -27,7 +38,7 @@ function RecipeCardsView({ recipes }) {
 }
 
 RecipeCardsView.propTypes = {
-  recipes: PropTypes.arrayOf(PropTypes.shape({})).isRequired
+  recipes: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
 
 export default RecipeCardsView;

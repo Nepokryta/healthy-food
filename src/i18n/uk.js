@@ -71,6 +71,8 @@ export default {
     btnDel: 'ВИДАЛИТИ',
     btnAdd: 'ДОДАТИ',
     btnAddCard: '+ КАРТКУ',
+    btnLoading: 'Завантажується...',
+    btnRefresh: 'Оновити',
   },
   social: {
     btnSocial: 'стежити',

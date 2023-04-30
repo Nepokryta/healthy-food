@@ -71,6 +71,8 @@ export default {
     btnDel: 'DELETE',
     btnAdd: 'ADD',
     btnAddCard: 'ADD CARD',
+    btnLoading: 'Loading...',
+    btnRefresh: 'Refresh',
   },
   social: {
     btnSocial: 'follow us',

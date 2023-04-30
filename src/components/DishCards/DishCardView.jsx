@@ -1,8 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import ThemeContext from '../ThemeContext/ThemeContext';
 import OneDishCardView from './OneDishCardView';
+import Spinner from '../Spinner/Spinner';
+import Error from '../Error/Error';
 
 import './sass/DishCardView.sass';
 
@@ -21,11 +24,20 @@ function DishCardView({
   onDragOver,
   onDrop,
   onKeyDown,
-  dragging
+  dragging,
+  handleRefreshClick
 }) {
+  const { loading, error } = useSelector((state) => state.data);
   const theme = useContext(ThemeContext);
   const { t } = useTranslation();
-  const elements = dish.map((item) => (
+  const [prevDish, setPrevDish] = useState([]);
+  useEffect(() => {
+    if (!loading && !error && prevDish.length > 0) {
+      setPrevDish([]);
+    }
+  }, [loading, error, prevDish]);
+
+  const elements = (loading ? prevDish : dish).map((item) => (
     <div
       className={item.id === activeCard || dragging 
         ? `dish__card ${theme} active ShiftLeft-q-pressed` 
@@ -57,15 +69,29 @@ function DishCardView({
       />
     </div>
   ));
-      
+  
   return (
     <div className="container">
+
+      {loading && prevDish.length === 0 ? <Spinner /> : null}
+      {error ? <Error /> : null}
       <div className="dish__cards">
         {elements}
       </div>
       <div className="sortBtn">
         <button className={`action-btn button ${theme}`} type="submit" onClick={onRandomSort}>{t('dish.btnRandom')}</button>
         <button className={`action-btn button ${theme}`} type="submit" onClick={onSort}>{t('dish.btnSort')}</button>
+        <button 
+          className={`action-btn button ${theme}`} 
+          type="submit" 
+          onClick={() => {
+            setPrevDish(dish);
+            handleRefreshClick();
+          }}
+          disabled={loading}
+        >
+          {loading ? t('dish.btnLoading') : t('dish.btnRefresh')}
+        </button>
       </div>
     </div>
   );
@@ -98,6 +124,7 @@ DishCardView.propTypes = {
       showElement: PropTypes.bool
     }).isRequired
   ).isRequired,
+  handleRefreshClick: PropTypes.func.isRequired,
 };
 
 export default DishCardView;

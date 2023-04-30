@@ -1,33 +1,27 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import PropTypes from 'prop-types';
-import withLoadingAndError from '../../hoc/withLoadingAndError';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import RecipeCardsView from './RecipeCardsView';
 
 import './sass/RecipeCards.sass';
 
-function RecipeCards({ data }) {
+function RecipeCards() {
+  const { data } = useSelector((state) => state.data);
   const [recipes, setRecipes] = useState([]);
 
-  const updatedRecipes = useMemo(() => {
-    return data
-      .sort(() => 0.5 - Math.random())
+  useEffect(() => {
+    const updatedDish = data
+    // .sort(() => 0.5 - Math.random())
       .slice(0, 4)
       .map((item) => ({ 
         ...item, 
         key: item.id, 
       }));
+    setRecipes(updatedDish);
   }, [data]);
-  useEffect(() => {
-    setRecipes(updatedRecipes);
-  }, []);
 
   return (
     <RecipeCardsView recipes={recipes} />
   );
 }
 
-RecipeCards.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.shape({})).isRequired
-};
-
-export default withLoadingAndError(RecipeCards);
+export default RecipeCards;

@@ -1,18 +1,24 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+
+// import { useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import withLoadingAndError from '../../hoc/withLoadingAndError';
+// import { fetchCards } from '../../store/slice';
+// import Spinner from '../Spinner/Spinner';
 import DishCardView from './DishCardView';
 
 import './sass/DishCards.sass';
 
-function DishCards({ data }) {
+function DishCards({ handleRefreshClick }) {
   const [dish, setDish] = useState([]);
   const [sortOrder, setSortOrder] = useState(true);
   const [activeCard, setActiveCard] = useState('');
   const [currentCard, setCurrentCard] = useState('');
   const [dragging, setDragging] = useState(false);
-  
+  const { data } = useSelector((state) => state.data);
+
   const handleKeyDown = useCallback((e) => {
     e.stopPropagation();
     let newActiveCard;
@@ -171,23 +177,30 @@ function DishCards({ data }) {
       onDragOver={dragOverHandler}
       onDrop={dropHandler}
       onKeyDown={handleKeyDown}
+    //   loading={loading}
+    //   error={error}
+      handleRefreshClick={handleRefreshClick}
     /> 
   );
 }
 
 DishCards.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired, 
-      src: PropTypes.string.isRequired,
-      alt: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      subtitle: PropTypes.string.isRequired,
-      newSubtitle: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      showElement: PropTypes.bool
-    }).isRequired
-  ).isRequired,
+//   data: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.string.isRequired, 
+//       src: PropTypes.string.isRequired,
+//       alt: PropTypes.string.isRequired,
+//       title: PropTypes.string.isRequired,
+//       subtitle: PropTypes.string.isRequired,
+//       newSubtitle: PropTypes.string.isRequired,
+//       description: PropTypes.string.isRequired,
+//       showElement: PropTypes.bool
+//     }).isRequired
+//   ).isRequired,
+  //   loading: PropTypes.bool.isRequired,
+  //   error: PropTypes.bool.isRequired,
+  handleRefreshClick: PropTypes.func.isRequired,
 };
 
-export default withLoadingAndError(DishCards);
+// export default withLoadingAndError(DishCards);
+export default DishCards;
