@@ -172,8 +172,6 @@ function DishCards({ handleRefreshClick }) {
       onDragOver={dragOverHandler}
       onDrop={dropHandler}
       onKeyDown={handleKeyDown}
-    //   loading={loading}
-    //   error={error}
       handleRefreshClick={handleRefreshClick}
     /> 
   );
