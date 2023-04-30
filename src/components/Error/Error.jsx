@@ -1,14 +1,5 @@
 function Error() {
   return (
-  // <svg
-  //   viewBox="0 0 500.00 500.00"
-  //   fill="none"
-  //   xmlns="http://www.w3.org/2000/svg"
-  //   stroke="#FFBF9B"
-  //   width="400px"
-      
-  // //   height="211px"
-  // >
     <svg
       style={{
         margin: '60px auto 20px', display: 'flex', shapeRendering: 'autouseBlocker' 
