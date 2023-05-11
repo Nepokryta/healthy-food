@@ -9,20 +9,20 @@ function Main() {
   return (
     <>
       <h1 className="main__title">
-        <span>{t('main.title1')}</span>
+        <span>{t('main.yourTitle')}</span>
         {' '}
-        {t('main.title2')}
+        {t('main.favoriteFoodTitle')}
         <br />
-        <span>{t('main.title3')}</span>
+        <span>{t('main.deliveredTitle')}</span>
         {i18n.language === 'uk' || i18n.language === 'es' ? <br /> : ' '}
-        {t('main.title4')}
+        {t('main.hotFreshTitle')}
       </h1>
       <h3 className="main__subtitle">
-        {t('main.subtitle1')}
+        {t('main.healthySwitcherSubtitle')}
         <br />
-        {t('main.subtitle2')}
+        {t('main.marinatingSubtitle')}
       </h3>
-      <button className="main__btn button" type="submit">{t('main.button')}</button>
+      <button className="main__btn button" type="submit">{t('main.orderNowButton')}</button>
       <Contacts />
     </>
         

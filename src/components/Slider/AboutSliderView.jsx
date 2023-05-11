@@ -15,9 +15,9 @@ function AboutSliderView({ slider }) {
   return (
     <div className="about__slider">
       <h3 className={`about__subtitle ${theme}`}>
-        {t('slider.subtitle1')}
+        {t('slider.DeliciousAndHealthyFoodSubtitle')}
         <br />
-        {t('slider.subtitle2')}
+        {t('slider.anIdealPlaceForSubtitle')}
       </h3>
       <div className="cards">
         {elements}

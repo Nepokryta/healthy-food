@@ -30,8 +30,8 @@ function SocialCards() {
         />
         <div className="card__main">
           <span className={`span__right ${theme}`} />
-          <h4 className={`data ${theme}`}>{t('social.data1')}</h4>
-          <h4 className={`title ${theme}`}>{t('social.title1')}</h4>
+          <h4 className={`data ${theme}`}>{t('social.data24Jun')}</h4>
+          <h4 className={`title ${theme}`}>{t('social.restaurantOffersTitle')}</h4>
           <h4 className="name">@DennisFerguson</h4>
         </div>
       </div>
@@ -64,8 +64,8 @@ function SocialCards() {
         />
         <div className="card__main">
           <span className={`span__right ${theme}`} />
-          <h4 className={`data ${theme}`}>{t('social.data2')}</h4>
-          <h4 className={`title ${theme}`}>{t('social.title2')}</h4>
+          <h4 className={`data ${theme}`}>{t('social.data26Jun')}</h4>
+          <h4 className={`title ${theme}`}>{t('social.chefRestaurantTitle')}</h4>
         </div>
       </div>
     </div>
