@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import EdamamService from '../services/EdamamService';
+import EdamamService from '../../services/EdamamService';
 
 const edamamService = new EdamamService();
 export const fetchCards = createAsyncThunk(

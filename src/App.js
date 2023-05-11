@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { I18nextProvider, useTranslation } from 'react-i18next';
-import { fetchCards } from './store/slice';
+import { fetchCards } from './store/slices/slice';
 import i18n from './i18n';
 import ThemeContext from './components/ThemeContext/ThemeContext';
 import { THEME_DARK, THEME_LIGHT } from './constants/constants';
