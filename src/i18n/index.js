@@ -1,5 +1,6 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
 import en from './en';
 import uk from './uk';
 import es from './es';
@@ -11,13 +12,12 @@ export const resources = {
 };
 
 export const appLocales = Object.keys(resources);
-const selectedLanguage = localStorage.getItem('language');
 
 i18n
+  .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources,
-    lng: selectedLanguage || 'uk',
     fallbackLng: appLocales,
     react: {
       useSuspense: true
