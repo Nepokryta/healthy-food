@@ -10,7 +10,7 @@ import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 import AboutSlider from './components/Slider/AboutSlider';
 import WorksCards from './components/WorksCards/WorksCards';
-// import RecipeCards from './components/RecipeCards/RecipeCards';
+import RecipeCards from './components/RecipeCards/RecipeCards';
 import DishCards from './components/DishCards/DishCards';
 import ChefsCards from './components/ChefsCards/ChefsCards';
 import Headline from './components/Headline/Headline';
@@ -104,7 +104,7 @@ function App() {
               svgComponent={t('headline.svgRECIPES')}
               greenLine=""
             />
-            {/* <RecipeCards /> */}
+            <RecipeCards />
            
             <Headline
               title={t('headline.titleSOCIAL')}

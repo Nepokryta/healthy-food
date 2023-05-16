@@ -1,6 +1,6 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import { useGetRecipesQuery } from '../../store/apis/edamamApi';
 import RecipeCardView from './RecipeCardView';
 import { RECIPE_CARD_BIG, RECIPE_CARD_SMALL } from '../../constants/constants';
 import Spinner from '../Spinner/Spinner';
@@ -21,12 +21,12 @@ function RecipeCardsView({ recipes }) {
       totalWeight={item.totalWeight}
     />
   ));
-  const { loading, error } = useSelector((state) => state.data);
+  const { isLoading, isError } = useGetRecipesQuery();
 
-  if (loading) {
+  if (isLoading) {
     return <Spinner />;
   } 
-  if (error) {
+  if (isError) {
     return <Error />;
   }
     
