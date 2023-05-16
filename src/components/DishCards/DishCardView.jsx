@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import ThemeContext from '../ThemeContext/ThemeContext';
 import OneDishCardView from './OneDishCardView';
 import Spinner from '../Spinner/Spinner';
 import Error from '../Error/Error';
+import { useGetRecipesQuery } from '../../store/apis/edamamApi';
 
 import './sass/DishCardView.sass';
 
@@ -27,17 +27,17 @@ function DishCardView({
   dragging,
   handleRefreshClick
 }) {
-  const { loading, error } = useSelector((state) => state.data);
+  const { isLoading, isError } = useGetRecipesQuery();
   const theme = useContext(ThemeContext);
   const { t } = useTranslation();
   const [prevDish, setPrevDish] = useState([]);
   useEffect(() => {
-    if (!loading && !error && prevDish.length > 0) {
+    if (!isLoading && !isError && prevDish.length > 0) {
       setPrevDish([]);
     }
-  }, [loading, error, prevDish]);
+  }, [isLoading, isError, prevDish]);
 
-  const elements = (loading ? prevDish : dish).map((item) => (
+  const elements = (isLoading ? prevDish : dish).map((item) => (
     <div
       className={item.id === activeCard || dragging 
         ? `dish__card ${theme} active ShiftLeft-q-pressed` 
@@ -73,8 +73,8 @@ function DishCardView({
   return (
     <div className="container">
 
-      {loading && prevDish.length === 0 ? <Spinner /> : null}
-      {error ? <Error /> : null}
+      {isLoading && prevDish.length === 0 ? <Spinner /> : null}
+      {isError ? <Error /> : null}
       <div className="dish__cards">
         {elements}
       </div>
@@ -88,9 +88,9 @@ function DishCardView({
             setPrevDish(dish);
             handleRefreshClick();
           }}
-          disabled={loading}
+          disabled={isLoading}
         >
-          {loading ? t('dish.btnLoading') : t('dish.btnRefresh')}
+          {isLoading ? t('dish.btnLoading') : t('dish.btnRefresh')}
         </button>
       </div>
     </div>

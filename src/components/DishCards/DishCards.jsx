@@ -1,18 +1,20 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import DishCardView from './DishCardView';
+import { useGetRecipesQuery } from '../../store/apis/edamamApi';
 
 import './sass/DishCards.sass';
 
 function DishCards({ handleRefreshClick }) {
+  const { data = [] } = useGetRecipesQuery();
   const [dish, setDish] = useState([]);
   const [sortOrder, setSortOrder] = useState(true);
   const [activeCard, setActiveCard] = useState('');
   const [currentCard, setCurrentCard] = useState('');
   const [dragging, setDragging] = useState(false);
-  const { data } = useSelector((state) => state.data);
+  console.log(data);
+  console.log(dish);
 
   const handleKeyDown = useCallback((e) => {
     e.stopPropagation();
@@ -23,21 +25,15 @@ function DishCards({ handleRefreshClick }) {
       setActiveCard(newActiveCard);
     }
   }, [dish, activeCard]);
-
+  
   useEffect(() => {
     const updatedDish = data
-      .filter((item) => item.title.length <= 26)
-      .slice(0, 6)
-      .map((item) => ({ 
-        ...item, 
-        key: item.id, 
-        showElement: !item.showElement,
-      }));
+      .slice(0, 6);
     setDish(updatedDish);
 
     window.addEventListener('keydown', handleKeyDown);
     return () => { window.removeEventListener('keydown', handleKeyDown); };
-  }, [data]);
+  }, []);
   
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);

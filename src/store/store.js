@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import dataReducer from './slices/slice';
+import edamamApi from './apis/edamamApi';
 
 const store = configureStore({
   reducer: {
-    data: dataReducer,
+    [edamamApi.reducerPath]: edamamApi.reducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(edamamApi.middleware),
 });
 
 export default store;

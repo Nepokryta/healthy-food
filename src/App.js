@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { I18nextProvider, useTranslation } from 'react-i18next';
-import { fetchCards } from './store/slices/slice';
+// import { fetchCards } from './store/slices/slice';
 import i18n from './i18n';
 import ThemeContext from './components/ThemeContext/ThemeContext';
 import { THEME_DARK, THEME_LIGHT } from './constants/constants';
@@ -10,7 +10,7 @@ import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 import AboutSlider from './components/Slider/AboutSlider';
 import WorksCards from './components/WorksCards/WorksCards';
-import RecipeCards from './components/RecipeCards/RecipeCards';
+// import RecipeCards from './components/RecipeCards/RecipeCards';
 import DishCards from './components/DishCards/DishCards';
 import ChefsCards from './components/ChefsCards/ChefsCards';
 import Headline from './components/Headline/Headline';
@@ -50,14 +50,14 @@ function App() {
     }
   };
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  //   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchCards());
-  }, [dispatch]);
+  //   useEffect(() => {
+  //     dispatch(fetchCards());
+  //   }, [dispatch]);
 
   const handleRefreshClick = () => {
-    dispatch(fetchCards());
+    //   dispatch(fetchCards());
   };
 
   return (
@@ -104,7 +104,7 @@ function App() {
               svgComponent={t('headline.svgRECIPES')}
               greenLine=""
             />
-            <RecipeCards />
+            {/* <RecipeCards /> */}
            
             <Headline
               title={t('headline.titleSOCIAL')}
