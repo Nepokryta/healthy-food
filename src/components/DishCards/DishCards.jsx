@@ -7,14 +7,12 @@ import { useGetRecipesQuery } from '../../store/apis/edamamApi';
 import './sass/DishCards.sass';
 
 function DishCards({ handleRefreshClick }) {
-  const { data = [] } = useGetRecipesQuery();
+  const { data } = useGetRecipesQuery();
   const [dish, setDish] = useState([]);
   const [sortOrder, setSortOrder] = useState(true);
   const [activeCard, setActiveCard] = useState('');
   const [currentCard, setCurrentCard] = useState('');
   const [dragging, setDragging] = useState(false);
-  console.log(data);
-  console.log(dish);
 
   const handleKeyDown = useCallback((e) => {
     e.stopPropagation();
@@ -27,13 +25,14 @@ function DishCards({ handleRefreshClick }) {
   }, [dish, activeCard]);
   
   useEffect(() => {
-    const updatedDish = data
-      .slice(0, 6);
-    setDish(updatedDish);
+    if (data) {
+      const updatedDish = data.slice(0, 6);
+      setDish(updatedDish);
+    }
 
     window.addEventListener('keydown', handleKeyDown);
     return () => { window.removeEventListener('keydown', handleKeyDown); };
-  }, []);
+  }, [data]);
   
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
