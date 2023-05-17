@@ -25,9 +25,8 @@ function DishCardView({
   onDrop,
   onKeyDown,
   dragging,
-  handleRefreshClick
 }) {
-  const { isLoading, isError } = useGetRecipesQuery();
+  const { isLoading, isError, refetch } = useGetRecipesQuery();
   const theme = useContext(ThemeContext);
   const { t } = useTranslation();
   const [prevDish, setPrevDish] = useState([]);
@@ -86,7 +85,7 @@ function DishCardView({
           type="submit" 
           onClick={() => {
             setPrevDish(dish);
-            handleRefreshClick();
+            refetch();
           }}
           disabled={isLoading}
         >
@@ -124,7 +123,6 @@ DishCardView.propTypes = {
       showElement: PropTypes.bool
     }).isRequired
   ).isRequired,
-  handleRefreshClick: PropTypes.func.isRequired,
 };
 
 export default DishCardView;

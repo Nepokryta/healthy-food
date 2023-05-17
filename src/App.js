@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
 import { I18nextProvider, useTranslation } from 'react-i18next';
-// import { fetchCards } from './store/slices/slice';
 import i18n from './i18n';
 import ThemeContext from './components/ThemeContext/ThemeContext';
 import { THEME_DARK, THEME_LIGHT } from './constants/constants';
@@ -50,15 +48,6 @@ function App() {
     }
   };
   const { t } = useTranslation();
-  //   const dispatch = useDispatch();
-
-  //   useEffect(() => {
-  //     dispatch(fetchCards());
-  //   }, [dispatch]);
-
-  const handleRefreshClick = () => {
-    //   dispatch(fetchCards());
-  };
 
   return (
     <I18nextProvider i18n={i18n}>
@@ -90,7 +79,7 @@ function App() {
               svgComponent={t('headline.svgDISHES')}
               greenLine=""
             />
-            <DishCards handleRefreshClick={handleRefreshClick} />
+            <DishCards />
             
             <Headline
               title={t('headline.titleCHEFS')}

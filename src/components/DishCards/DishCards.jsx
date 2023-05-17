@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import DishCardView from './DishCardView';
 import { useGetRecipesQuery } from '../../store/apis/edamamApi';
 
 import './sass/DishCards.sass';
 
-function DishCards({ handleRefreshClick }) {
+function DishCards() {
   const { data } = useGetRecipesQuery();
   const [dish, setDish] = useState([]);
   const [sortOrder, setSortOrder] = useState(true);
@@ -167,13 +166,8 @@ function DishCards({ handleRefreshClick }) {
       onDragOver={dragOverHandler}
       onDrop={dropHandler}
       onKeyDown={handleKeyDown}
-      handleRefreshClick={handleRefreshClick}
     /> 
   );
 }
-
-DishCards.propTypes = {
-  handleRefreshClick: PropTypes.func.isRequired,
-};
 
 export default DishCards;
