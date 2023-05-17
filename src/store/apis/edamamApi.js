@@ -16,7 +16,7 @@ const edamamApi = createApi({
             id: recipe.uri.slice(51, 83),
             src: recipe.images.REGULAR.url,
             alt: recipe.label,
-            title: recipe.label.length > 26 ? `${recipe.label.slice(0, 25)}...` : recipe.label,
+            title: recipe.label,
             newSubtitle: capitalize(recipe.cuisineType[0]),
             subtitle: recipe.mealType[0].includes('/') ? recipe.mealType[0].split('/').map(capitalize).join(' / ') 
               : capitalize(recipe.mealType[0]),
