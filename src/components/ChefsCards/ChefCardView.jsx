@@ -19,7 +19,7 @@ function ChefCardView({
   const theme = useContext(ThemeContext);
 
   return (
-    <div className="chefs">
+    <div className="chefs" id="Thismonthschefs">
       <div className="chef">
         <img src={avatar} alt={avatarAlt} className="chef__photo" />
         <div className="chef__name">

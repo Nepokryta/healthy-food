@@ -12,7 +12,7 @@ function Footer() {
 
   return ( 
     <footer className={`footer ${theme}`}>
-      <div className="container">
+      <div className="container" id="contact">
         <Contacts />
       </div>
       <hr className={`${theme}`} />

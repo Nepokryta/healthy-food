@@ -46,9 +46,9 @@ function Header({ toggleTheme }) {
         </button>
       </ul>
       <nav className="nav">
-        <a className={`nav_link ${theme}`} href="#menu">{t('header.menu')}</a>
-        <a className={`nav_link ${theme}`} href="#recipes">{t('header.recipes')}</a>
-        <a className={`nav_link ${theme}`} href="#chefs">{t('header.chefs')}</a>
+        <a className={`nav_link ${theme}`} href="#DishOfTheDay">{t('header.menu')}</a>
+        <a className={`nav_link ${theme}`} href="#RecipesFromOurChefs">{t('header.recipes')}</a>
+        <a className={`nav_link ${theme}`} href="#Thismonthschefs">{t('header.chefs')}</a>
         <a className={`nav_link ${theme}`} href="#contact">{t('header.contact')}</a>
       </nav>
     </header>     
