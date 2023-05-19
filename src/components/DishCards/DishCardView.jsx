@@ -74,7 +74,7 @@ function DishCardView({
 
       {isLoading && prevDish.length === 0 ? <Spinner /> : null}
       {isError ? <Error /> : null}
-      <div className="dish__cards" id="DishOfTheDay">
+      <div className="dish__cards" id="DISHES">
         {elements}
       </div>
       <div className="sortBtn">

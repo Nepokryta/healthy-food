@@ -31,7 +31,7 @@ function RecipeCardsView({ recipes }) {
   }
     
   return (
-    <div className="recipes__cards" id="RecipesFromOurChefs">
+    <div className="recipes__cards" id="RECIPES">
       {elements}
     </div> 
   );

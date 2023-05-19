@@ -60,6 +60,7 @@ function App() {
     
             <section className={`about ${theme}`}>
               <Headline
+                nameId="ABOUT"
                 title={t('headline.titleABOUT')}
                 svgComponent={t('headline.svgABOUT')}
                 greenLine="_inline"
@@ -68,6 +69,7 @@ function App() {
             </section>
     
             <Headline
+              nameId="WORK"
               title={t('headline.titleWORK')}
               svgComponent={t('headline.svgWORK')}
               greenLine=""
@@ -75,6 +77,7 @@ function App() {
             <WorksCards />
            
             <Headline
+              nameId="DISHES"
               title={t('headline.titleDISHES')}
               svgComponent={t('headline.svgDISHES')}
               greenLine=""
@@ -82,6 +85,7 @@ function App() {
             <DishCards />
             
             <Headline
+              nameId="CHEFS"
               title={t('headline.titleCHEFS')}
               svgComponent={t('headline.svgCHEFS')}
               greenLine=""
@@ -89,6 +93,7 @@ function App() {
             <ChefsCards />
           
             <Headline
+              nameId="RECIPES"
               title={t('headline.titleRECIPES')}
               svgComponent={t('headline.svgRECIPES')}
               greenLine=""
@@ -96,13 +101,14 @@ function App() {
             <RecipeCards />
            
             <Headline
+              nameId="SOCIAL"
               title={t('headline.titleSOCIAL')}
               svgComponent={t('headline.svgSOCIAL')}
               greenLine=""
             />
             <SocialCards />
           </main>
-          <Footer />
+          <Footer nameId="contact" />
         </div>
       </ThemeContext.Provider>
     </I18nextProvider>

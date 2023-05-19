@@ -4,6 +4,7 @@ import ThemeContext from '../ThemeContext/ThemeContext';
 import './sass/Headline.sass';
 
 function Headline({
+  nameId,
   title,
   svgComponent,
   greenLine 
@@ -12,7 +13,7 @@ function Headline({
 
   return (
     <>
-      <div className="headline" id={`${title.replace(/[ "']/g, '')}`}>
+      <div className="headline" id={nameId}>
         <h2 className={`headline__title ${theme}`}>{title}</h2>
         <div className={`headline__subtitle ${theme}`}>
           {svgComponent && svgComponent({ fill: theme === 'dark' ? '#303030' : '#d3d1d1' })}
@@ -24,6 +25,7 @@ function Headline({
 }
 
 Headline.propTypes = {
+  nameId: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   svgComponent: PropTypes.func.isRequired,
   greenLine: PropTypes.string.isRequired,
