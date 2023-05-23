@@ -37,10 +37,12 @@
     &-right
         right: calc(50% - 1300px/2 + 160px)
         transform: matrix(-1, 0, 0, 1, 0, 0)
+    &.light
+        background: #f2eeee
+        border: 2px solid #888888
     &:hover
         background: $green
         border: 2px solid $green
         color: $black
-.arrow_btn.light
-    background: #f2eeee
-    border: 2px solid #888888
+    &:active
+        box-shadow: 0 0 15px $green

@@ -1,17 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import AboutSliderView from './AboutSliderView';
 
 import './sass/Slider.sass';
 
-function AboutSlider({ slider }) {
+function AboutSlider() {
   return (
-    <AboutSliderView slider={slider} />
+    <AboutSliderView />
   );
 }
-
-AboutSlider.propTypes = {
-  slider: PropTypes.arrayOf(PropTypes.shape({})).isRequired
-};
   
 export default AboutSlider;

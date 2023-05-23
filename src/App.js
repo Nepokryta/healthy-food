@@ -14,23 +14,9 @@ import ChefsCards from './components/ChefsCards/ChefsCards';
 import Headline from './components/Headline/Headline';
 import SocialCards from './components/SocialCards/SocialCards';
 import Footer from './components/Footer/Footer';
-import Fish from './assets/img/fish.png';
-import SaladVegetables from './assets/img/salad-vegetables.png';
 
 function App() {
   const [theme, setTheme] = useState(THEME_DARK);
-  const [slider] = useState([
-    {
-      key: 1,
-      src: Fish,
-      alt: 'fish',
-    },
-    {
-      key: 2,
-      src: SaladVegetables,
-      alt: 'salad_vegetables',
-    },
-  ]);
   
   useEffect(() => {
     const salectedThemeColor = localStorage.getItem('themeColor');
@@ -65,7 +51,7 @@ function App() {
                 svgComponent={t('headline.svgABOUT')}
                 greenLine="_inline"
               />
-              <AboutSlider slider={slider} />
+              <AboutSlider />
             </section>
     
             <Headline
