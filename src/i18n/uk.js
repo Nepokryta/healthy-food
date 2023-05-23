@@ -73,6 +73,7 @@ export default {
     btnAddCard: '+ КАРТКУ',
     btnLoading: 'Завантажується...',
     btnRefresh: 'Оновити',
+    btnLinkToRecipe: 'Читати далі'
   },
   social: {
     btnSocial: 'стежити',

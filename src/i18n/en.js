@@ -73,6 +73,7 @@ export default {
     btnAddCard: 'ADD CARD',
     btnLoading: 'Loading...',
     btnRefresh: 'Refresh',
+    btnLinkToRecipe: 'Read more'
   },
   social: {
     btnSocial: 'follow us',

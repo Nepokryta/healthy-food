@@ -57,6 +57,7 @@ function DishCardView({
         src={item.src}
         alt={item.alt}
         title={item.title}
+        linkToRecipe={item.linkToRecipe}
         subtitle={item.subtitle}
         newSubtitle={item.newSubtitle}
         description={item.description}

@@ -12,6 +12,7 @@ function OneDishCardView({
   src,
   alt,
   title,
+  linkToRecipe,
   subtitle,
   newSubtitle,
   description,
@@ -47,8 +48,9 @@ function OneDishCardView({
         <h3 className={`dish__card-subtitle ${theme}`}>{subtitle}</h3>
         { showElement ? '' : <h3 className={`dish__card-newsubtitle ${theme}`}>{newSubtitle}</h3> }
         <h4 className="dish__card-description">{description}</h4>
-        <button className={`activityBTN button ${theme}`} type="submit" onClick={() => onAddElement(id)}>{t('dish.btnFav')}</button>
         <div className="botton_block">
+          <button className={`activityBTN button ${theme}`} type="submit" onClick={() => onAddElement(id)}>{t('dish.btnFav')}</button>
+          <a className={`activityBTN button ${theme}`} href={linkToRecipe} target="_blank" rel="noreferrer">{t('dish.btnLinkToRecipe')}</a>
           <button className={`activityBTN button ${theme}`} type="submit" onClick={() => onDeleteElement(id)}>{t('dish.btnDel')}</button>
           <button className={`activityBTN button ${theme}`} type="submit" onClick={() => onAddElementOnClick(id)}>{t('dish.btnAdd')}</button>
         </div>
@@ -72,6 +74,7 @@ OneDishCardView.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  linkToRecipe: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   newSubtitle: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
