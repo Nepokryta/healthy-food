@@ -63,7 +63,7 @@ function DishCards() {
     setDish((prevDish) => prevDish.filter((item) => item.id !== id));
   };
 
-  const handleAddCardClick = (src, alt, title, subtitle, description, newSubtitle, showElement) => {
+  const handleAddCardClick = (src, alt, title, subtitle, description, newSubtitle, showElement, linkToRecipe) => {
     const id = uuidv4();
     const newItem = {
       key: id,
@@ -74,10 +74,10 @@ function DishCards() {
       subtitle,
       description,
       newSubtitle,
-      showElement: !showElement,
+      showElement: true,
+      linkToRecipe
     };
     setDish((prevDish) => prevDish.concat(newItem));
-    console.log(newItem.key);
   };
    
   const handleAddElement = (id) => {

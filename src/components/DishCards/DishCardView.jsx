@@ -112,18 +112,7 @@ DishCardView.propTypes = {
   onDrop: PropTypes.func.isRequired,
   dragging: PropTypes.bool.isRequired,
   onKeyDown: PropTypes.func.isRequired,
-  dish: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired, 
-      src: PropTypes.string.isRequired, 
-      alt: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      subtitle: PropTypes.string.isRequired,
-      newSubtitle: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      showElement: PropTypes.bool
-    }).isRequired
-  ).isRequired,
+  dish: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
 };
 
 export default DishCardView;

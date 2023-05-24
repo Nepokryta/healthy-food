@@ -60,7 +60,7 @@ function OneDishCardView({
         <button 
           className={`activityBTN button ${theme}`} 
           type="submit"
-          onClick={() => onAddCardClick(src, alt, title, subtitle, description, newSubtitle)}
+          onClick={() => onAddCardClick(src, alt, title, subtitle, description, newSubtitle, showElement, linkToRecipe)}
         >
           {t('dish.btnAddCard')}
         </button>
