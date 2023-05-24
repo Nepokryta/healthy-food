@@ -1,0 +1,48 @@
+@import '../../styles/sass/variables'
+
+.about__slider
+    padding: 60px 0 90px
+    position: relative
+.about__subtitle
+    padding-bottom: 90px
+    width: 680px
+    line-height: 1.8
+    margin: 0 auto
+    font-weight: 300
+    font-size: 16px
+    text-align: center
+    opacity: 0.7
+    color: #A6A6A6
+.about__subtitle.light
+    color: #191819
+.cards
+    display: flex
+    justify-content: center
+    gap: 34px
+    
+.arrow_btn
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 60px
+    height: 60px
+    border-radius: 35px
+    position: absolute
+    top: 55%
+    color: $grey
+    background: #252525
+    border: 2px solid $black30
+    &-left
+        left: calc(50% - 1300px/2 + 160px)
+    &-right
+        right: calc(50% - 1300px/2 + 160px)
+        transform: matrix(-1, 0, 0, 1, 0, 0)
+    &.light
+        background: #f2eeee
+        border: 2px solid #888888
+    &:hover
+        background: $green
+        border: 2px solid $green
+        color: $black
+    &:active
+        box-shadow: 0 0 15px $green

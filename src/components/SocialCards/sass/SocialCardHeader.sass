@@ -1,0 +1,43 @@
+@import '../../styles/sass/variables'
+
+.card__header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 25px
+    .icon
+        // color: #737373
+        background: #262626
+        border: 2px solid #303030
+        border-radius: 20px
+        height: 36px
+        width: 36px
+        display: flex
+        align-items: center
+        justify-content: center
+    .subtitle
+        font-size: 14px
+        font-weight: 300
+        text-transform: none
+        background-color: transparent
+        color: #BFBFBF
+        height: 12px
+        margin-top: 0
+    .card__action-btn
+        display: flex
+        align-items: center
+        justify-content: center
+        color: $grey
+        background: #252525
+        border: 2px solid $black30
+        font-size: 10px
+        letter-spacing: 0.2em
+        padding: 14px 20px
+        border-radius: 30px
+        margin: 7px 0
+        text-transform: uppercase
+.icon.light, .card__action-btn.light
+    background: #f2eeee
+    border: 2px solid #737373
+.subtitle.light
+    color: #191819

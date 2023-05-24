@@ -1,0 +1,53 @@
+@import "./variables"
+html
+    font-family: 'Helvetica'
+    color: $white
+    scroll-behavior: smooth
+ 
+body
+    padding: 0px
+    margin: 0px auto
+    height: 100%
+    width: 100%
+ 
+.container
+    width: 1110px
+    margin: 0 auto
+
+.App.dark
+    background: #191819 url('../assets/img/main-photo.png')
+    background-repeat: no-repeat
+    background-size: contain 
+.about
+    width: 1110px
+    margin: 130px auto 0
+    position: relative
+    background: #252525
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
+    border-radius: 6px
+
+.App.light
+    color: #414141
+    background: #fefcfc url('../assets/img/main-photo-light.png')
+    background-repeat: no-repeat
+    background-size: contain 
+.about.light
+    background: #f2eeee
+    color: #414141
+
+hr
+    border: none
+    height: 2px
+    background: $white
+    opacity: 0.1
+    margin: 0
+hr.light
+    background: #414141
+
+
+
+
+@import "./button"
+@import "./fonts"
+@import "./green-line"
+// @import "../components/ChefsCards/ChefCardView"
