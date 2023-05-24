@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
 import { ReactComponent as StarBorder } from '../../../assets/icons/ic_star_border.svg';
-// import { ReactComponent as StarHalf } from '../../assets/icons/ic_star_half.svg'
 import { ReactComponent as Star } from '../../../assets/icons/ic_star.svg';
 
 import '../sass/RatingStarView.sass';
