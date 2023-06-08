@@ -27,12 +27,10 @@ function App() {
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === THEME_DARK ? THEME_LIGHT : THEME_DARK));
-    if (theme === THEME_DARK) {
-      localStorage.setItem('themeColor', THEME_LIGHT);
-    } else {
-      localStorage.setItem('themeColor', THEME_DARK);
-    }
   };
+  useEffect(() => {
+    localStorage.setItem('themeColor', theme);
+  }, [theme]);
   const { t } = useTranslation();
 
   return (
