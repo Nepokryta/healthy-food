@@ -5,8 +5,18 @@ const edamamApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: 'https://api.edamam.com/api/' }),
   endpoints: (builder) => ({
     getRecipes: builder.query({
-      query: () => `recipes/v2?type=public&q=delish&app_id=1163a4b2&app_key=dee52d302b8fa599d802279762001847
-      &diet=balanced&health=alcohol-free&dishType=Main%20course`,
+      query: () => ({
+        url: 'recipes/v2',
+        params: {
+          type: 'public',
+          q: 'delish',
+          app_id: '1163a4b2',
+          app_key: 'dee52d302b8fa599d802279762001847',
+          diet: 'balanced',
+          health: 'alcohol-free',
+          dishType: 'Main course',
+        }
+      }),
       transformResponse: (response) => {
         return response.hits.map((data) => {
           const { recipe } = data;
