@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import React from 'react';
 import ContactsView from './ContactsView';
 import { IcCall, IcNearMe, IcWatchLater } from '../../assets/icons/contactsSvg';
 
@@ -36,23 +35,8 @@ const contactsData = [
 ];
 
 function Contacts() {
-  const { t, i18n } = useTranslation();
-  const [contact, setContact] = useState(contactsData.map((c) => ({ 
-    ...c, 
-    title: t(c.title), 
-    subtitle: t(c.subtitle) 
-  })));
-
-  useEffect(() => {
-    setContact(contactsData.map((c) => ({ 
-      ...c, 
-      title: t(c.title), 
-      subtitle: t(c.subtitle) 
-    })));
-  }, [i18n.language, t]);
-
   return (
-    <ContactsView contact={contact} />
+    <ContactsView contact={contactsData} />
   );
 }
 

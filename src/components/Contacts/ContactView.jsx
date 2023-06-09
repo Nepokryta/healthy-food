@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import { THEME_DARK } from '../../constants/constants';
 import ThemeContext from '../ThemeContext/ThemeContext';
 
@@ -12,7 +13,7 @@ function ContactView({
   rel 
 }) {
   const theme = useContext(ThemeContext);
-
+  const { t } = useTranslation();
   return (
     <li className="contact__info">
       {svgComponent && svgComponent({ fill: theme === THEME_DARK ? '#d3d1d1' : '#414141' })}
@@ -22,9 +23,9 @@ function ContactView({
         target={target}
         rel={rel}
       >
-        {title}
+        {t(title)}
       </a>
-      <h4 className="contact__info-subtitle">{subtitle}</h4>
+      <h4 className="contact__info-subtitle">{t(subtitle)}</h4>
     </li> 
   );
 }
