@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import React from 'react';
 import WorksCardsView from './WorksCardsView';
 import './sass/WorksCards.sass';
 
@@ -27,23 +26,8 @@ const worksData = [
 ];
 
 function WorksCards() {
-  const { t, i18n } = useTranslation();
-  const [works, setWorks] = useState(worksData.map((c) => ({
-    ...c, 
-    title: t(c.title), 
-    subtitle: t(c.subtitle) 
-  })));
-
-  useEffect(() => {
-    setWorks(worksData.map((c) => ({ 
-      ...c, 
-      title: t(c.title), 
-      subtitle: t(c.subtitle) 
-    })));
-  }, [i18n.language, t]);
-
   return (
-    <WorksCardsView works={works} />
+    <WorksCardsView works={worksData} />
   );
 }
 
