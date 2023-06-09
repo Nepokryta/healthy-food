@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { THEME_DARK } from '../../constants/constants';
 import ThemeContext from '../ThemeContext/ThemeContext';
 
 function ContactView({
@@ -14,7 +15,7 @@ function ContactView({
 
   return (
     <li className="contact__info">
-      {svgComponent && svgComponent({ fill: theme === 'dark' ? '#d3d1d1' : '#414141' })}
+      {svgComponent && svgComponent({ fill: theme === THEME_DARK ? '#d3d1d1' : '#414141' })}
       <a 
         className={`contact__info-title ${theme}`}
         href={href}

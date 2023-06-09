@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
+import { THEME_DARK } from '../../constants/constants';
 import ThemeContext from '../ThemeContext/ThemeContext';
 import Logo from '../Logo/Logo';
 import toggleOff from '../../assets/icons/toggle-off.svg';
@@ -20,7 +21,7 @@ function Header({ toggleTheme }) {
     <header className="header">
       <Logo className="logo" />
       <button type="button" onClick={toggleTheme} className={`header_button ${theme}`}>
-        {theme === 'dark' ? <img src={toggleOff} alt="toggleOff" /> : <img src={toggleOn} alt="toggleOn" /> } 
+        {theme === THEME_DARK ? <img src={toggleOff} alt="toggleOff" /> : <img src={toggleOn} alt="toggleOn" /> } 
       </button>
       <ul className={`leng_button ${theme}`}>
         <button

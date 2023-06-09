@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { THEME_DARK } from '../../constants/constants';
 import ThemeContext from '../ThemeContext/ThemeContext';
 import './sass/Headline.sass';
 
@@ -16,7 +17,7 @@ function Headline({
       <div className="headline" id={nameId}>
         <h2 className={`headline__title ${theme}`}>{title}</h2>
         <div className={`headline__subtitle ${theme}`}>
-          {svgComponent && svgComponent({ fill: theme === 'dark' ? '#303030' : '#d3d1d1' })}
+          {svgComponent && svgComponent({ fill: theme === THEME_DARK ? '#303030' : '#d3d1d1' })}
         </div>
       </div>
       <span className={`green__line${greenLine}`} />
