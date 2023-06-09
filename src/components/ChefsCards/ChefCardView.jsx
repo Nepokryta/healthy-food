@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import ThemeContext from '../ThemeContext/ThemeContext';
 
 import './sass/ChefCardView.sass';
@@ -17,14 +18,15 @@ function ChefCardView({
   smallImg2Alt 
 }) {
   const theme = useContext(ThemeContext);
+  const { t } = useTranslation();
 
   return (
     <div className="chefs" id="CHEFS">
       <div className="chef">
         <img src={avatar} alt={avatarAlt} className="chef__photo" />
         <div className="chef__name">
-          <h2 className={`chef__name_title ${theme}`}>{name}</h2>
-          <h3 className={`chef__name_subtitle ${theme}`}>{title}</h3>
+          <h2 className={`chef__name_title ${theme}`}>{t(name)}</h2>
+          <h3 className={`chef__name_subtitle ${theme}`}>{t(title)}</h3>
         </div>
       </div>
       <div className="chef__card-photo">

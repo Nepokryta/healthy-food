@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import React from 'react';
 import ChefsCardsView from './ChefsCardsView';
 
 import Avatar1 from '../../assets/img/avatar1.png';
@@ -59,23 +58,8 @@ const chefsData = [
   },
 ];
 function ChefsCards() {
-  const { t, i18n } = useTranslation();
-  const [chefs, setChefs] = useState(chefsData.map((c) => ({ 
-    ...c, 
-    name: t(c.name), 
-    title: t(c.title) 
-  })));
-
-  useEffect(() => {
-    setChefs(chefsData.map((c) => ({ 
-      ...c, 
-      name: t(c.name), 
-      title: t(c.title) 
-    })));
-  }, [i18n.language, t]);
-  
   return (
-    <ChefsCardsView chefs={chefs} />
+    <ChefsCardsView chefs={chefsData} />
   );
 }
 
