@@ -1,11 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import EdamamService from '../../services/EdamamService';
+import edamamApi from '../apis/edamamApi';
 
-const edamamService = new EdamamService();
 export const fetchCards = createAsyncThunk(
   'data/fetchCards', 
   async () => {
-    const response = await edamamService.getCards();
+    const response = await edamamApi.endpoints.getRecipes();
     return response;
   }
 );
